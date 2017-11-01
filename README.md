@@ -8,7 +8,7 @@
 * Flag Inappropriate
 
 ## UI Pages
-### Regural Users
+### Regular Users
 * Profile Page
 * Categorywise Posts
 * Posts and Replies
