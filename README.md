@@ -5,9 +5,22 @@
 * Stars
 * #tags or just tags
 * Comments to replies (Questions + Comments | Replies + Comments)
-* Flag Inappropraite
+* Flag Inappropriate
+
+## UI Pages
+### Regural Users
+* Profile Page
+* Categorywise Posts
+* Posts and Replies
+* Home Page
+
+### Moderator
+* Modify Categorywise post page - Show "reports" if any | Allow to close a post | Delete the post
+* Modify Post and reply page- Delete Comments or replies
+* Modify Profile Page to give star ratings
 
 ## Using Node
 
 * Using Express framework
 * Edit website interface files in ./public/
+
