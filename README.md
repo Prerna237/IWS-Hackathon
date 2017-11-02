@@ -1,4 +1,8 @@
 # IWS-Hackathon
+### Tech Stack: MongoDB | Node | Bootstrap
+* Google Analytics: Figure out other Analytics dashboard services.
+* Add: Other packages/plugins being used.
+
 ## Basic theme to be followed: https://platform.github.community
 * Chat option
 * Bookmark
