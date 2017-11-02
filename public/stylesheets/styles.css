@@ -1,0 +1,61 @@
+html, body{
+    font-family: 'Calibri Light';
+    position: relative;
+}
+.navbar-dark{
+    background: black;
+}
+
+div{
+    display: block;
+}
+
+.primary{
+    width: 100%;
+    position: relative;
+    float: left;
+}
+
+img.avatar{
+    float: left;
+    border-radius: 50%;
+}
+
+img{
+    vertical-align: middle;
+    border: 0;
+}
+
+.lb-lg{
+    font-size: 14px;
+}
+
+.left{
+    text-align: left;
+}
+
+.right{
+    text-align: right;
+}
+
+.center{
+    text-align: center;
+}
+
+.post-title{
+  font-weight: 600;
+}
+
+.post-pic{
+  margin-top: 1%;
+  height: 100%;
+}
+
+.author-pic{
+  width: 50px;
+  border-radius: 50%;
+}
+
+.col-lg-2{
+    width: 8%;
+}
