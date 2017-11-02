@@ -29,9 +29,9 @@
 * Categorywise Posts
 * Posts and Replies
 * Home Page
+* Signup Page
 
 ### Moderator
-* Modify Categorywise post page - Show "reports" if any | Allow to close a post | Delete the post
-* Modify Post and reply page- Delete Comments or replies
-* Modify Profile Page to give star ratings
+* Modify Categorywise post page - Show "reports" if any | Allow to close a thread | Delete the thread
+
 
