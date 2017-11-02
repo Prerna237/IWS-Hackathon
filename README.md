@@ -24,6 +24,7 @@
 * Install nodejs > 8.0
 * Clone git repo
 * `npm install && npm start` or `yarn && yarn start`
+* Open http://localhost:3000
 * Edit website interface files in ./public/
 
 * Using Express framework
