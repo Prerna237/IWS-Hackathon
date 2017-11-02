@@ -20,7 +20,10 @@
 * Modify Profile Page to give star ratings
 
 ## Using Node
-
-* Using Express framework
+### Instructions
+* Install nodejs > 8.0
+* Clone git repo
+* `npm install && npm start` or `yarn && yarn start`
 * Edit website interface files in ./public/
 
+* Using Express framework
