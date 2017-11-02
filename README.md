@@ -29,6 +29,7 @@
 * Categorywise Posts
 * Posts and Replies
 * Home Page
+* Signup Page
 
 ### Moderator
 * Modify Categorywise post page - Show "reports" if any | Allow to close a thread | Delete the thread
