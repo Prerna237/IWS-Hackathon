@@ -1,2 +1,3 @@
 /node_modules/
 lib/Constants.js
+lib/DBCount.json
