@@ -4,6 +4,8 @@ var express = require('express');
 var fs = require('fs');
 var _Emitter = require('../lib/EventEmitter');
 var _EVENTS = require('../lib/Constants')._EVENTS;
+var pageHandlers = require('../lib/handles');
+
 var router = express.Router();
 
 router.get('/', (req, res, next) => {
@@ -24,7 +26,8 @@ router.use('/login', function (req, res, next) {
     _Emitter.emit(_EVENTS.CHECK_USER_AUTH, userDetails);
 
     _Emitter.on(_EVENTS.USER_AUTH_SUCCESS, () => {
-      res.end("Successfully logged in. Mr. " + userDetails.userName);
+      // res.end("Successfully logged in. Mr. " + userDetails.userName);
+      res.end(pageHandlers.userProfile({userName: userDetails.userName}));
     });
     _Emitter.on(_EVENTS.USER_AUTH_FAIL, () => {
       res.end("You failed miserably Mr. "+ userDetails.userName);
