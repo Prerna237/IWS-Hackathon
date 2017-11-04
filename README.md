@@ -10,7 +10,9 @@
     - [Regular Users](#regular-users)
     - [Moderator](#moderator)
 ## Tech Stack: MongoDB | Node | Bootstrap
-* Google Analytics: Figure out other Analytics dashboard services.
+* Analytics:
+    * https://keen.github.io/dashboards/
+    * Google Analytics for device based analytics
 * Add: Other packages/plugins being used.
 
 ## Basic theme to be followed: https://platform.github.community
