@@ -1,5 +1,15 @@
 # IWS-Hackathon
-### Tech Stack: MongoDB | Node | Bootstrap
+
+**Check `docs` folder for full documentation**
+
+- [Tech Stack: MongoDB | Node | Bootstrap](#tech-stack-mongodb-node-bootstrap)
+- [Basic theme to be followed: https://platform.github.community](#basic-theme-to-be-followed-httpsplatformgithubcommunity)
+- [Using Node](#using-node)
+    - [Instructions](#instructions)
+- [UI Pages](#ui-pages)
+    - [Regular Users](#regular-users)
+    - [Moderator](#moderator)
+## Tech Stack: MongoDB | Node | Bootstrap
 * Google Analytics: Figure out other Analytics dashboard services.
 * Add: Other packages/plugins being used.
 
