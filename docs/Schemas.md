@@ -15,6 +15,7 @@
 #### Auto-generated	
 	Date Join
 	Stars: Range 1-5
+	Number of threads:
 	Number of posts:
 	Number of replies:
 	Bookmarks:{Thread ID}
