@@ -27,6 +27,7 @@ router.post('/util/addUser', function (req, res, next) {
 
 // Thread handler
 router.post('/util/addThread', (req, res) => {
+    console.log(JSON.stringify(req.body));
     _Emitter.emit(_EVENTS.ADD_THREAD, req.body);
     res.end(JSON.stringify({
         status: 'success'
@@ -35,7 +36,8 @@ router.post('/util/addThread', (req, res) => {
 
 // Reply Handler
 router.post('/util/addReply', (req, res) => {
-    _Emitter.emit(_EVENTS.ADD_REPLY);
+    console.log(JSON.stringify(req.body));
+    _Emitter.emit(_EVENTS.ADD_REPLY, req.body);
     res.end(JSON.stringify({
         status: 'success'
     }));
@@ -45,14 +47,33 @@ router.post('/util/addReply', (req, res) => {
 
 // Profile page
 router.get('/profile', (req, res) => {
-    res.end(pageHandlers.userProfile({userName: req.session.userName}));    
+    console.log("Username: " + req.session.userName);
+    if (req.session.userName != undefined) {
+        res.end(pageHandlers.userProfile({
+            userName: req.session.userName
+        }));
+    } else {
+        res.redirect('/');
+    }
 });
 
 // Data Fetching (AJAX)
 
 router.get('/replies/:type/:id', (req, res) => {
     console.log("Type: " + req.params.type);
-    res.end("Here. " + req.params.limit + " posts.");
+    var type = req.params.type;
+    var id = req.params.id;
+    db.getReplies(type, id, (results) => {
+        res.end(JSON.stringify(results));
+    });
+});
+
+router.get('/threads/:category', (req, res) => {
+    var category = req.params.category;
+    console.log("Request for threads from category " + category);
+    db.getThreads(category.toString(), (results) => {
+        res.end(JSON.stringify(results));
+    });
 });
 
 module.exports = router;
