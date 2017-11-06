@@ -7,8 +7,8 @@ var pageHandlers = require('../lib/handles');
 /* GET home page. */
 router.get('/', function (req, res) {
     // res.render('index', { title: 'Express' });
-    res.end("<html><body>This is working</body></html>");
-    // res.end(pageHandlers.landingPage());
+    // res.end("<html><body>This is working</body></html>");
+    res.end(pageHandlers.landingPage());
     // next();
 });
 
