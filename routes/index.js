@@ -4,6 +4,8 @@ var _Emitter = require('../lib/EventEmitter');
 var _EVENTS = require('../lib/Constants')._EVENTS;
 var pageHandlers = require('../lib/handles');
 
+var db = require('../lib/DB');
+
 /* GET home page. */
 router.get('/', function (req, res) {
     // res.render('index', { title: 'Express' });
@@ -44,6 +46,13 @@ router.post('/util/addReply', (req, res) => {
 // Profile page
 router.get('/profile', (req, res) => {
     res.end(pageHandlers.userProfile({userName: req.session.userName}));    
+});
+
+// Data Fetching (AJAX)
+
+router.get('/replies/:type/:id', (req, res) => {
+    console.log("Type: " + req.params.type);
+    res.end("Here. " + req.params.limit + " posts.");
 });
 
 module.exports = router;
