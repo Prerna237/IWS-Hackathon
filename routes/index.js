@@ -5,7 +5,7 @@ var _EVENTS = require('../lib/Constants')._EVENTS;
 var pageHandlers = require('../lib/handles');
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
+router.get('/', function (req, res) {
     // res.render('index', { title: 'Express' });
     res.end(pageHandlers.landingPage());
     // next();
