@@ -2,13 +2,14 @@ var express = require('express');
 var router = express.Router();
 var _Emitter = require('../lib/EventEmitter');
 var _EVENTS = require('../lib/Constants')._EVENTS;
+var pageHandlers = require('../lib/handles');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
     // res.render('index', { title: 'Express' });
-    next();
+    res.end(pageHandlers.landingPage());
+    // next();
 });
-
 
 // Util functions. Add [entities]
 // User handler
@@ -35,6 +36,13 @@ router.post('/util/addReply', (req, res) => {
     res.end(JSON.stringify({
         status: 'success'
     }));
+});
+
+// Others
+
+// Profile page
+router.get('/profile', (req, res) => {
+    res.end(pageHandlers.userProfile({userName: req.session.userName}));    
 });
 
 module.exports = router;

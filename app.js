@@ -12,8 +12,8 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
-var DB = require('./lib/DB');
-const db = new DB(_Emitter);
+// var DB = require('./lib/DB');
+const db = require('./lib/DB');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
