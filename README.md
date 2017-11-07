@@ -38,8 +38,8 @@ Website: https://iws-forum.herokuapp.com/
 
 ## UI Pages
 ### Regular Users
-- UI[] BE[] Profile Page
-- UI[] BE[] Categorywise Posts
+- UI[ ] BE[] Profile Page
+- UI[x] BE[] Categorywise Posts
 - UI[] BE[] Posts and Replies
 - UI[] BE[] Home Page
 - UI[] BE[] Signup Page
