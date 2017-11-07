@@ -38,11 +38,11 @@ Website: https://iws-forum.herokuapp.com/
 
 ## UI Pages
 ### Regular Users
-- UI[ ] BE[] Profile Page
-- UI[x] BE[] Categorywise Posts
-- UI[] BE[] Posts and Replies
-- UI[] BE[] Home Page
-- UI[] BE[] Signup Page
+- [x] Profile Page
+- [x] Categorywise Posts
+- [x] Posts and Replies
+- [x] Home Page
+- [x] Signup Page
 
 ### Moderator
 * Modify Categorywise post page - Show "reports" if any | Allow to close a thread | Delete the thread
