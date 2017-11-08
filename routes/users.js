@@ -13,47 +13,54 @@ router.get('/', (req, res, next) => {
   next();
 });
 
-/* GET users listing. */
-router.use('/login', function (req, res) {
-  if (req.body.userName == undefined) {
-    var data = fs.readFileSync(path.join(__dirname,".." ,'public', 'sigin.html'));
-    console.log("Data Sent. ");
+// Sign up
+router.use('/signup', (req, res) => {
+  if (req.method) {
+    console.log("Sending signup page.");
+    var data = fs.readFileSync(path.join(__dirname, '..', 'public', 'signup_form.html'));
     res.end(data);
+  } else {
+    var ud = res.body;
+    db.addUser(req.body, (status) => {
+      if (status == _EVENTS.USER_ADD_ERR) {
+        res.end("Error");
+      } else {
+        req.session.userName = req.body.userName;
+        res.redirect('/profile');
+      }
+    });
+  }
+});
+
+/* GET users listing. */
+router.use('/login', function (req, res, next) {
+  console.log(req.body);
+  if (req.body.userName == undefined) {
+    // var data = fs.readFileSync(path.join(__dirname, "..", 'public', 'sigin.html'));
+    // console.log("Data Sent. ");
+    // res.end(data);
+    res.redirect('/profile');
   } else {
     var userDetails = {};
     userDetails.userName = req.body.userName;
-    userDetails.password_hash = req.body.password;
+    userDetails.password = req.body.password;
+    console.log("Checking Auth :" + JSON.stringify(userDetails));
     db.checkAuth(userDetails, (status) => {
-      switch(status){
-        case _EVENTS.USER_AUTH_SUCCESS:
-          req.session.userName = userDetails.userName;
-          res.redirect('/profile');      
-          break;
-        case _EVENTS.USER_AUTH_FAIL:
-          res.end("You failed miserably Mr. "+ userDetails.userName);
-          break; 
-        case _EVENTS.NO_SUCH_USER:
-          res.end("You dont exist. Begone.");
-          break;           
+      console.log("Called with status: " + status);
+      if (status === _EVENTS.USER_ADD_SUCCESS) {
+        req.session.userName = userDetails.userName;
+        console.log("User Authentication successful");
+        return res.redirect('/profile');
+      } else if (status === _EVENTS.USER_AUTH_FAIL) {
+        console.log("User Authentication Failed");
+        return res.end("You failed miserably Mr. " + userDetails.userName);
+      } else {
+        console.log("NO SUCH USER");
+        return res.end("You dont exist. Begone.");
       }
     });
-    // _Emitter.emit(_EVENTS.CHECK_USER_AUTH, userDetails);
-
-    // _Emitter.on(_EVENTS.USER_AUTH_SUCCESS, () => {
-    //   // res.end("Successfully logged in. Mr. " + userDetails.userName);
-    //   req.session.userName = userDetails.userName;
-    //   res.redirect('/profile');
-    //   next();
-    // });
-    // _Emitter.on(_EVENTS.USER_AUTH_FAIL, () => {
-    //   res.end("You failed miserably Mr. "+ userDetails.userName);
-    // });
-    // _Emitter.on(_EVENTS.NO_SUCH_USER, () => {
-    //   res.end("You dont exist. Begone.");
-    // });
-    
   }
-  next();
+  // next();
 });
 
 module.exports = router;

@@ -1,4 +1,5 @@
 # IWS-Hackathon
+Website: https://iws-forum.herokuapp.com/
 
 **Check `docs` folder for full documentation**
 
@@ -37,11 +38,11 @@
 
 ## UI Pages
 ### Regular Users
-* Profile Page
-* Categorywise Posts
-* Posts and Replies
-* Home Page
-* Signup Page
+- [x] Profile Page
+- [x] Categorywise Posts
+- [x] Posts and Replies
+- [x] Home Page
+- [x] Signup Page
 
 ### Moderator
 * Modify Categorywise post page - Show "reports" if any | Allow to close a thread | Delete the thread

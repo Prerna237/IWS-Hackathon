@@ -35,14 +35,14 @@
             Login
           </button>
           <div class="dropdown-menu">
-              <form class="px-4 py-3 pb-0">
+              <form class="px-4 py-3 pb-0" method="post" action="/users/login">
                 <div class="form-group">
                   <label for="exampleDropdownFormEmail1">Email address</label>
-                  <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+                  <input name="userName" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
                 </div>
                 <div class="form-group">
                   <label for="exampleDropdownFormPassword1">Password</label>
-                  <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+                  <input type="password" name="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
                 </div>
                 <div class="form-check">
                   <label class="form-check-label">
@@ -72,7 +72,7 @@
             <!-- Card one -->
             <div class="card col-sm ml-1 mr-1 mt-2" style="width: 20rem;">
               <div class="card-img">
-                <img class="card-img-top" src="res/img/ai.jpg" alt="Card image cap">
+                <img class="card-img-top" src="res/ai.jpg" alt="Card image cap">
               </div>
               <div class="card-body">
                 <h3 class="card-title">Artificial Intelligence</h3>
@@ -81,7 +81,7 @@
             <!-- Card two -->
             <div class="card col-sm mr-1 mt-2" style="width: 20rem;">
               <div class="card-img">
-                <img class="card-img-top" src="res/img/ai.jpg" alt="Card image cap">
+                <img class="card-img-top" src="res/ai.jpg" alt="Card image cap">
               </div>
               <div class="card-body">
                 <h3 class="card-title">Cloud Computing</h3>
@@ -93,7 +93,7 @@
             <!-- Card three -->
             <div class="card col-sm ml-1 mr-1 mt-2" style="width: 20rem;">
               <div class="card-img">
-                <img class="card-img-top" src="res/img/ai.jpg" alt="Card image cap">
+                <img class="card-img-top" src="res/ai.jpg" alt="Card image cap">
               </div>
               <div class="card-body">
                 <h3 class="card-title">Natural Language Processing</h3>
@@ -102,7 +102,7 @@
             <!-- Card four -->
             <div class="card col-sm mr-1 mt-2" style="width: 20rem;">
               <div class="card-img">
-                <img class="card-img-top" src="res/img/ai.jpg" alt="Card image cap">
+                <img class="card-img-top" src="res/ai.jpg" alt="Card image cap">
               </div>
               <div class="card-body">
                 <h3 class="card-title">Data Mining</h3>

@@ -35,7 +35,13 @@ app.use(session({
 
 // ======= Authentication setup ======== //
 
-
+app.use('/', (req, res, next) => {
+    if(req.session.userName != undefined){
+        // res.setHeader("userName", req.session.userName);
+        res.cookie("userName", req.session.userName);
+    }
+    next();
+});
 
 // ======= Routes setup ======== //
 
