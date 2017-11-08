@@ -24,7 +24,7 @@ Route details for http calls
     "userName": "username",
     "name": "User's full name",
     "email": "User email",
-    "password_hash": "Hash of the user password",
+    "password": "Hash of the user password",
     "social": ["Social Media profile links array"],
     "interests": ["Interest array of the user"],
     "profile_type": "Moderator/Normal"
