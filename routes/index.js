@@ -19,11 +19,10 @@ router.get('/', function (req, res) {
 router.post('/util/addUser', function (req, res, next) {
     // console.log(JSON.stringify(req.body));
     // _Emitter.emit(_EVENTS.ADD_USER, req.body);
-    db.addUser(req.body);
-    res.end(JSON.stringify({
-        status: 'success'
-        // userName: req.body.userName
-    }));
+    db.addUser(req.body, (status) => {
+        req.session.userName = req.body.userName;        
+        res.end(JSON.stringify(status));
+    });
 });
 
 // Thread handler
