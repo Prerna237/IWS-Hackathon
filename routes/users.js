@@ -13,6 +13,25 @@ router.get('/', (req, res, next) => {
   next();
 });
 
+// Sign up
+router.use('/signup', (req, res) => {
+  if (req.method) {
+    console.log("Sending signup page.");
+    var data = fs.readFileSync(path.join(__dirname, '..', 'public', 'signup_form.html'));
+    res.end(data);
+  } else {
+    var ud = res.body;
+    db.addUser(req.body, (status) => {
+      if (status == _EVENTS.USER_ADD_ERR) {
+        res.end("Error");
+      } else {
+        req.session.userName = req.body.userName;
+        res.redirect('/profile');
+      }
+    });
+  }
+});
+
 /* GET users listing. */
 router.use('/login', function (req, res, next) {
   console.log(req.body);
@@ -24,7 +43,7 @@ router.use('/login', function (req, res, next) {
   } else {
     var userDetails = {};
     userDetails.userName = req.body.userName;
-    userDetails.password_hash = req.body.password;
+    userDetails.password = req.body.password;
     console.log("Checking Auth :" + JSON.stringify(userDetails));
     db.checkAuth(userDetails, (status) => {
       console.log("Called with status: " + status);
