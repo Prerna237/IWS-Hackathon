@@ -1,3 +1,5 @@
+'use strict'
+
 var express = require('express');
 var router = express.Router();
 var _Emitter = require('../lib/EventEmitter');
@@ -20,7 +22,7 @@ router.post('/util/addUser', function (req, res, next) {
     // console.log(JSON.stringify(req.body));
     // _Emitter.emit(_EVENTS.ADD_USER, req.body);
     db.addUser(req.body, (status) => {
-        req.session.userName = req.body.userName;        
+        req.session.userName = req.body.userName;
         res.end(JSON.stringify(status));
     });
 });
@@ -42,6 +44,13 @@ router.post('/util/addReply', (req, res) => {
         status: 'success'
     }));
 });
+
+// Get Categories
+router.get('/util/categories', (req, res) => {
+    db.getCategories((categories) => {
+        res.end(JSON.stringify(categories));
+    });
+})
 
 // Others
 
