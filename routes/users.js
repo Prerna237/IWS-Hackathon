@@ -3,6 +3,7 @@
 var express = require('express');
 var fs = require('fs');
 var path = require('path');
+var io = require('socket.io');
 var _Emitter = require('../lib/EventEmitter');
 var _EVENTS = require('../lib/Constants')._EVENTS;
 var db = require('../lib/DB');
