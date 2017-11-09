@@ -17,8 +17,38 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/starrating.js"></script>
     <!-- <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
     <script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script> -->
+    <script type="text/javascript">(function(d, t, e, m){
+
+    // Async Rating-Widget initialization.
+    window.RW_Async_Init = function(){
+
+        RW.init({
+            huid: "381081",
+            uid: "54fb0be2a925ffb881dbeca0d908b038",
+            source: "website",
+            options: {
+                "size": "tiny",
+                "style": "oxygen",
+                "isDummy": false
+            }
+        });
+        RW.render();
+    };
+        // Append Rating-Widget JavaScript library.
+    var rw, s = d.getElementsByTagName(e)[0], id = "rw-js",
+        l = d.location, ck = "Y" + t.getFullYear() +
+        "M" + t.getMonth() + "D" + t.getDate(), p = l.protocol,
+        f = ((l.search.indexOf("DBG=") > -1) ? "" : ".min"),
+        a = ("https:" == p ? "secure." + m + "js/" : "js." + m);
+    if (d.getElementById(id)) return;
+    rw = d.createElement(e);
+    rw.id = id; rw.async = true; rw.type = "text/javascript";
+    rw.src = p + "//" + a + "external" + f + ".js?ck=" + ck;
+    s.parentNode.insertBefore(rw, s);
+    }(document, new Date(), "script", "rating-widget.com/"));</script>
 </head>
 
 <body>
@@ -27,7 +57,7 @@
     <nav class="navbar navbar-dark bg-dark">
         <a class="navbar-brand" style="color: white;">Forum</a>
         <div style="float: right">
-            <img src="profilephoto.jpg" class="rounded-circle" alt="Samarjoy Pandit" width="30" height="30">
+            <!-- <img src="profilephoto.jpg" class="rounded-circle" alt="Samarjoy Pandit" width="30" height="30"> -->
             <a style="cursor: pointer; color: white;" data-toggle="modal" data-target="#signinmodal">&nbsp;Login</a>
         </div>
     </nav>
@@ -75,23 +105,22 @@
         <div class="card text-center">
             <div class="card-header">
                 <div style="float:left">
-                    <img src="profilephoto.jpg" class="rounded-circle" alt="Samarjoy Pandit" width="30" height="30" placeholder="{{user}}">
-                    <b>Samarjoy Pandit</b>&nbsp;<span class="badge badge-pill badge-primary" placeholder="{{userRating}}">5 star</span>
+                    <img src="profilephoto.jpg" class="rounded-circle" alt="Samarjoy Pandit" width="30" height="30">
+                    <b>{{user}}</b>&nbsp;<span class="badge badge-pill badge-primary">{{userRating}} star</span>
                 </div>
                 <div style="float:right">
-                    Replies&nbsp;<span class="badge badge-secondary" style="margin-right:10px" placeholder="{{numReplies}}">4</span>
-                    Stars&nbsp;<span class="badge badge-secondary" placeholder="{{threadRating}}">3</span>
+                    Replies&nbsp;<span class="badge badge-secondary" style="margin-right:10px">{{numReplies}}</span>
+                    Stars&nbsp;<span class="badge badge-secondary">{{threadRating}}</span>
                 </div>
             </div>
             <div class="card-body thread">
                 <div style="float:left">
-                    <p style="float:left;font-weight:bold" placeholder="{{title}}">Is Christianity seen as exotic in Asia, just like Asian religions are seen as cool and exotic in Western countries?</p><br>
-                    <p style="float:left" placeholder="{{desc}}">With supporting text below as a natural lead-in to additional content</p>
+                    <p style="float:left;font-weight:bold">{{title}}</p><br>
+                    <p style="float:left">{{desc}}</p>
                 </div>
             </div>
             <div class="card-footer text-muted" style="height: 40px !important;">
-                <div class="starrate" style="float: left;">
-                </div>
+                <div class="starrate" style="float: left !important;"></div>
                 <div style="float: right;">
                     &nbsp;<span class="badge badge-pill badge-warning">5 star</span>
                     <a onclick="openNav()" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
@@ -108,7 +137,7 @@
                         <div class="card-body">
                             <img src="profilephoto.jpg" class="rounded-circle" alt="Samarjoy Pandit" width="30" height="30">&nbsp;&nbsp;<b>Samarjoy Pandit</b><br><br>
                             <p>Speculative fiction is an umbrella genre encompassing narrative fiction with supernatural or futuristic elements.[1] This includes the genres science fiction, fantasy, superhero fiction, science fantasy, horror and supernatural fiction, as well as their combinations.[2] The broader usage of the term is attributed to Robert Heinlein, who referenced it in 1947 in an editorial essay, although there are prior mentions of speculative fiction or its variant "speculative literature".</p>
-                            <div class="starrate" style="float: left; margin-bottom: -20px;" for="r1"></div>
+                            <div class="starrate" style="float: left; margin-bottom: -20px;"></div>
                             <div style="float: right; margin-bottom: -10px; margin-right: -10px;">
 
                                 &nbsp;<span class="badge badge-pill badge-warning">5 star</span>
@@ -243,7 +272,7 @@
                 </div>
 
                 <div id="iter2" class="col-md-12" style="padding-left: 0" role="tablist">
-                    <div class="card">
+                    <div id="r2" class="card">
                         <div class="card-body">
                             <p>Reply 2</p>
                             <div class="starrate" style="float: left; margin-bottom: -20px;"></div>
@@ -591,7 +620,7 @@ function closeNav() {
 <script>
 var elem = document.getElementsByClassName('starrate');
 for(var i = 0; i < elem.length; i++){
-    elem[i].innerHTML = '<fieldset class="rating"> <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label> <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label><input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label><input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label> <input type="radio" id="star1" name="rating" value="1" /> <label class = "full" for="star1" title="Sucks big time - 1 star"></label></fieldset>';
+    elem[i].innerHTML = '<div class="rw-ui-container" data-title="my'+i+' awesome rating""></div>';
 }
 
 </script>
