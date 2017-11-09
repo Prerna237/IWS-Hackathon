@@ -8,6 +8,7 @@ Following format:
 * Browse: link to categorywise page
 * My profile: linked through profile pic at the right
 * Link to login/logout.
+Refer to page: public/post_categorywise.html 
 
 **Check `docs` folder for full documentation**
 
