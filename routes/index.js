@@ -58,12 +58,38 @@ router.get('/util/categories', (req, res) => {
 router.get('/profile', (req, res) => {
     console.log("Username: " + req.session.userName);
     if (req.session.userName != undefined) {
-        res.end(pageHandlers.userProfile({
-            userName: req.session.userName
-        }));
+        db.getUser(req.session.userName, (user) => {
+            res.end(pageHandlers.userProfile({
+                userName: user.userName,
+                email: user.email,
+                name: user.name,
+                dateJoin: user.dateJoin,
+                userRating: user.rating,
+                starsGiven: user.stars.length,
+                numThreads: user.threads.length,
+                numReplies: user.replies.length,
+                accountType: user.profile_type
+            }));
+        })
     } else {
         res.redirect('/');
     }
+});
+
+// Thread Page
+
+router.get('/thread/:id', (req, res) => {
+    var threadID = req.params.id;
+    db.getThread(threadID, (thread) => {
+        res.end(pageHandlers.threadPage({
+            title: thread.title,
+            desc: thread.desc,
+            category: thread.category,
+            numReplies: thread.numReplies,
+            user: thread.userName,
+            threadRating: thread.avgStars
+        }));
+    });
 });
 
 // Data Fetching (AJAX)

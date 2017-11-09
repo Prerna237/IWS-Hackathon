@@ -1,6 +1,15 @@
 # IWS-Hackathon
 Website: https://iws-forum.herokuapp.com/
 
+## Important : Enter navigation tools on the header.
+
+Following format:
+* Home: link to Landing page
+* Browse: link to categorywise page
+* My profile: linked through profile pic at the right
+* Link to login/logout.
+Refer to page: public/post_categorywise.html 
+
 **Check `docs` folder for full documentation**
 
 - [Tech Stack: MongoDB | Node | Bootstrap](#tech-stack-mongodb-node-bootstrap)
