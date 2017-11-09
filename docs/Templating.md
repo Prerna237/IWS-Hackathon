@@ -2,6 +2,7 @@
 
 ## User Profile
 + UserName: `{{userName}}`
++ Name: `{{name}}`
 + E-Mail: `{{email}}`
 + Date Join: `{{dateJoin}}`
 + Stars Rating: `{{userRating}}`
