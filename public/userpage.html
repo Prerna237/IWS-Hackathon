@@ -1,306 +1,159 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="en">
+
 <head>
-    <title>User Profile</title>
+    <title>Hello, world!</title>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.css" type="text/css">
-    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap-theme.css" type="text/css">
-    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css" type="text/css"> -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="stylesheets/styles.css" type="text/css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://use.fontawesome.com/a138c922e8.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="stylesheets/post_cat.css">
+    <link rel="stylesheet" href="stylesheets/styles.css">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+    crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+    crossorigin="anonymous"></script>
 </head>
 
-<body id="userpage">
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-dark navbar-fixed-top" style="padding-left: 30px; padding-right: 30px">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mynavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#userpage">Forum</a>
-        </div>
+<body>
+    <!-- navigation bar -->
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark" style="padding:0px 10px;">
+        <a class="navbar-brand" href="#"><b>Community</b>Forum</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-badge="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <div class="collapse navbar-collapse" id="mynavbar">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a><img src="stars.png" class="img-circle" alt="Samarjoy Pandit" width="30px" height="30px"></a></li>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Browse</a>
+                </li>
             </ul>
+            <div style="float:left">
+
+
+                <a style="cursor: pointer; color: white;" data-toggle="modal" data-target="#signinmodal"><img src="res/login.png" class="" alt="Cinque Terre" width="25" height="25">&nbsp;</a>
+
+                <img src="profilephoto.jpg" class="rounded-circle" alt="Cinque Terre" width="30" height="30">
+            </div>
         </div>
     </nav>
-
-    <div style="margin-top: 100px;"></div>
-
-    <!-- Main Content -->
+    <br><br>
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
-                <div class="col-md-2">
-                    <img alt="" width="150" height="150" src="stars.png" class="avatar">
-                </div>
-                <div class="col-md-10">
-                    <h1 style="padding: 0px" >{{name}}&nbsp;&nbsp;
-                        <!-- <button class="btn btn-sm btn-primary" style="margin-bottom: 5px;"><i class="oi oi-plus"></i></b>&nbsp;&nbsp;New Message</b></button> -->
-                        <script type="text/javascript" src="https://secure.skypeassets.com/i/scom/js/skype-uri.js"></script>
-                        <div id="SkypeButton_Call_pranjalmathur_1" style="display: inline-block !important; padding: -10px !important;">
-                            <script type="text/javascript">
-                            Skype.ui({
-                                "name": "chat",
-                                "element": "SkypeButton_Call_pranjalmathur_1",
-                                "participants": ["pranjalmathur"],
-                                "imageSize": 24
-                            });
-                            </script>
-                        </div>
-                    </h1>
-                        <span class="label lb-lg label-default">Mentor</span>
-                        <span class="label lb-lg label-info"><i class="oi oi-star"></i>&nbsp;&nbsp;{{userRating}} star</span>
-                        <p style="padding: 5px"></p>
-                    </div>
-                </div>
-                <div class="col-xs-12"><hr style="border: 1px solid rgba(0,0,0,.125);"></div>
+            <div class="col-2">
+                <img src="profilephoto.jpg" class="rounded-circle" alt="Cinque Terre" width="150" height="150">
             </div>
-
-            <div class="row">
-                <div class="col-xs-12" style="margin-top: -20px; margin-bottom: -20px;">
-                    <h4>
-                        Follow On:&nbsp;&nbsp;
-                        <a href=""><i class="fa fa-twitter"></i></a>
-                        <a href=""><i class="fa fa-facebook"></i></a>
-                        <a href=""><i class="fa fa-google"></i></a>
-                        <a href=""><i class="fa fa-skype"></i></a>
-                    </h4>
-                </div>
-                <div class="col-xs-12"><hr style="border: 1px solid rgba(0,0,0,.125);"></div>
-            </div>
-
-            <div class="row">
-                <div class="col-xs-12" style="margin-top: -20px; margin-bottom: -20px;">
-                    <ul class="list-inline">
-                        <li style="float: left"><h4>Replies:&nbsp;<span class="label label-default">{{numReplies}}</span></h4></li>
-                        <li style="float: left"><h4>&nbsp;Threads Created:&nbsp;<span class="label label-primary">{{numThreads}}</span></h4></li>
-                        <li style="float: left"><h4>&nbsp;Stars Given:&nbsp;<span class="label label-success" >{{starsGiven}}</span></h4></li>
-                        <li style="float: left"><h4>&nbsp;Stars Received:&nbsp;<span class="label label-danger" >{{starsRecv}}</span></h5></li>
-                        </ul>
+            <div class="col-10">
+                <h1>{{name}}&nbsp;&nbsp;
+                    <script type="text/javascript" src="https://secure.skypeassets.com/i/scom/js/skype-uri.js">
+                    </script>
+                    <div id="SkypeButton_Call_pranjalmathur_1" style="display: inline-block !important; padding: -10px !important;">
+                        <script type="text/javascript">
+                        Skype.ui({
+                            "name": "chat",
+                            "element": "SkypeButton_Call_pranjalmathur_1",
+                            "participants": ["pranjalmathur"],
+                            "imageSize": 24
+                        });
+                        </script>
                     </div>
-                    <div class="col-xs-12"><hr style="border: 1px solid rgba(0,0,0,.125);"></div>
-                </div>
+                </h1>
+                <span class="badge badge-secondary"><h6>Mentor</h6></span>
+                <span class="badge badge-primary"><h6><i class="oi oi-star"></i>&nbsp;&nbsp;{{userRating}} star</h6></span>
+            </div>
+        </div>
+        <hr style="border: 1px solid rgba(0,0,0,.125);">
 
-                <div style="padding: 10px"></div>
+        <div class="row" style="margin-bottom: -10px; margin-top: -5px;">
+            <div class="col">
+                <h5>
+                    Follow On:&nbsp;&nbsp;
+                    <a href=""><i class="fa fa-twitter" style="font-size: 13pt;"></i></a>
+                    <a href=""><i class="fa fa-facebook" style="font-size: 13pt;"></i></a>
+                    <a href=""><i class="fa fa-google" style="font-size: 13pt;"></i></a>
+                    <a href=""><i class="fa fa-skype" style="font-size: 13pt;"></i></a>
+                </h5>
+            </div>
+        </div>
+        <hr style="border: 1px solid rgba(0,0,0,.125);">
 
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="col-md-3">
-                            <ul id="sidenav" class="nav nav-pills nav-stacked">
-                                <li class="active center"><a  href="#1b" data-toggle="tab">Threads Created</a></li>
-                                <li class="center"><a href="#2b" data-toggle="tab">Questions Answered</a></li>
-                                <li class="center"><a href="#3b" data-toggle="tab">Bookmarks</a></li>
-                                <li class="center"><a href="#3b" data-toggle="tab">Starred Threads</a></li>
-                            </ul>
-                        </div>
+        <div class="row" style="margin-bottom: -10px; margin-top: -5px;">
+            <div class="col">
+                <ul class="list-inline">
+                    <li style="float: left">
+                        <h5>Replies:&nbsp;<span class="badge badge-secondary">{{numReplies}}</span></h5>
+                    </li>
+                    <li style="float: left">
+                        <h5>&nbsp;Threads Created:&nbsp;<span class="badge badge-primary">{{numThreads}}</span></h5>
+                    </li>
+                    <li style="float: left">
+                        <h5>&nbsp;Stars Given:&nbsp;<span class="badge badge-success" >{{starsGiven}}</span></h5>
+                    </li>
+                    <li style="float: left">
+                        <h5>&nbsp;Stars Received:&nbsp;<span class="badge badge-danger" >{{starsRecv}}</span></h5>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <hr style="border: 1px solid rgba(0,0,0,.125);">
 
-                        <div class="tab-content clearfix">
-                            <div id="1b" class="tab-pane col-md-9 active">
-                                <div class="row">
-                                    <div class="col-lg-2"><img src="stars.png" class="author-pic"></div>
-                                    <div class="col-lg-10">
-                                        <p class="post-title">How is nightlife in SNU? Is there any 24x7 canteen available? Can we go out and roam in the campus to breathe some fresh air or maybe play a quick game of badminton in the night?</p>
-                                        <div class="right">
-
-
-
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12" style="padding: 10px"></div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-lg-2"><img src="stars.png" class="author-pic"></div>
-                                    <div class="col-lg-10">
-                                        <p class="post-title">How is nightlife in SNU? Is there any 24x7 canteen available? Can we go out and roam in the campus to breathe some fresh air or maybe play a quick game of badminton in the night?</p>
-                                        <div class="right">
-
-
-
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12" style="padding: 10px"></div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-lg-2"><img src="stars.png" class="author-pic"></div>
-                                    <div class="col-lg-10">
-                                        <p class="post-title">How is nightlife in SNU? Is there any 24x7 canteen available? Can we go out and roam in the campus to breathe some fresh air or maybe play a quick game of badminton in the night?</p>
-                                        <div class="right">
-
-
-
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12" style="padding: 10px"></div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-lg-2"><img src="stars.png" class="author-pic"></div>
-                                    <div class="col-lg-10">
-                                        <p class="post-title">How is nightlife in SNU? Is there any 24x7 canteen available? Can we go out and roam in the campus to breathe some fresh air or maybe play a quick game of badminton in the night?</p>
-                                        <div class="right">
-
-
-
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12" style="padding: 10px"></div>
-                                </div>
-                            </div>
-
-                            <div id="2b" class="tab-pane col-md-9">
-                                <div class="row">
-                                    <div class="col-lg-2"><img src="stars.png" class="author-pic"></div>
-                                    <div class="col-lg-10">
-                                        <p class="post-title">How is nightlife in SNU? Is there any 24x7 canteen available? Can we go out and roam in the campus to breathe some fresh air or maybe play a quick game of badminton in the night?</p>
-                                        <div class="right">
-
-
-
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12" style="padding: 10px"></div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-lg-2"><img src="stars.png" class="author-pic"></div>
-                                    <div class="col-lg-10">
-                                        <p class="post-title">How is nightlife in SNU? Is there any 24x7 canteen available? Can we go out and roam in the campus to breathe some fresh air or maybe play a quick game of badminton in the night?</p>
-                                        <div class="right">
-
-
-
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12" style="padding: 10px"></div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-lg-2"><img src="stars.png" class="author-pic"></div>
-                                    <div class="col-lg-10">
-                                        <p class="post-title">How is nightlife in SNU? Is there any 24x7 canteen available? Can we go out and roam in the campus to breathe some fresh air or maybe play a quick game of badminton in the night?</p>
-                                        <div class="right">
-
-
-
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12" style="padding: 10px"></div>
-                                </div>
-                            </div>
-
-                            <div id="3b" class="tab-pane col-md-9">
-                                <div class="row">
-                                    <div class="col-lg-2"><img src="stars.png" class="author-pic"></div>
-                                    <div class="col-lg-10">
-                                        <p class="post-title">How is nightlife in SNU? Is there any 24x7 canteen available? Can we go out and roam in the campus to breathe some fresh air or maybe play a quick game of badminton in the night?</p>
-                                        <div class="right">
-
-
-
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12" style="padding: 10px"></div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-lg-2"><img src="stars.png" class="author-pic"></div>
-                                    <div class="col-lg-10">
-                                        <p class="post-title">How is nightlife in SNU? Is there any 24x7 canteen available? Can we go out and roam in the campus to breathe some fresh air or maybe play a quick game of badminton in the night?</p>
-                                        <div class="right">
-
-
-
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12" style="padding: 10px"></div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-lg-2"><img src="stars.png" class="author-pic"></div>
-                                    <div class="col-lg-10">
-                                        <p class="post-title">How is nightlife in SNU? Is there any 24x7 canteen available? Can we go out and roam in the campus to breathe some fresh air or maybe play a quick game of badminton in the night?</p>
-                                        <div class="right">
-
-
-
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12" style="padding: 10px"></div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-lg-2"><img src="stars.png" class="author-pic"></div>
-                                    <div class="col-lg-10">
-                                        <p class="post-title">How is nightlife in SNU? Is there any 24x7 canteen available? Can we go out and roam in the campus to breathe some fresh air or maybe play a quick game of badminton in the night?</p>
-                                        <div class="right">
-
-
-
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12" style="padding: 10px"></div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-lg-2"><img src="stars.png" class="author-pic"></div>
-                                    <div class="col-lg-10">
-                                        <p class="post-title">How is nightlife in SNU? Is there any 24x7 canteen available? Can we go out and roam in the campus to breathe some fresh air or maybe play a quick game of badminton in the night?</p>
-                                        <div class="right">
-
-
-
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12" style="padding: 10px"></div>
-                                </div>
-                            </div>
-
-                            <div id="4b" class="tab-pane col-md-9">
-                                <div class="row">
-                                    <div class="col-lg-2"><img src="stars.png" class="author-pic"></div>
-                                    <div class="col-lg-10">
-                                        <p class="post-title">How is nightlife in SNU? Is there any 24x7 canteen available? Can we go out and roam in the campus to breathe some fresh air or maybe play a quick game of badminton in the night?</p>
-                                        <div class="right">
-
-
-
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12" style="padding: 10px"></div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-lg-2"><img src="stars.png" class="author-pic"></div>
-                                    <div class="col-lg-10">
-                                        <p class="post-title">How is nightlife in SNU? Is there any 24x7 canteen available? Can we go out and roam in the campus to breathe some fresh air or maybe play a quick game of badminton in the night?</p>
-                                        <div class="right">
-
-
-
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12" style="padding: 10px"></div>
-                                </div>
+        <div class="row">
+            <div class="nav flex-column nav-pills col-2" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <a class="nav-link active" id="QuestionsAsked" data-toggle="pill" href="#quesasked" role="tab" aria-controls="v-pills-home" aria-selected="true">Threads Created</a>
+                <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Replies</a>
+                <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Starred Threads</a>
+            </div>
+            <div class="tab-content col-10" id="v-pills-tabContent">
+                <div class="tab-pane fade show active" id="quesasked" role="tabpanel" aria-labelledby="QuestionsAsked">
+                    <div class="row">
+                        <div class="col-1 text-right"><img src="profilephoto.jpg" class="rounded-circle" alt="Cinque Terre" width="40px" height="40px"></div>
+                        <div class="col-11">
+                            <p class="post-title">How is nightlife in SNU? Is there any 24x7 canteen available? Can we go out and roam in the campus to breathe some fresh air or maybe play a quick game of badminton in the night?</p>
+                            <div class="right">
                             </div>
                         </div>
+                        <div class="col" style="padding: 10px"></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-1 text-right"><img src="profilephoto.jpg" class="rounded-circle" alt="Cinque Terre" width="40px" height="40px"></div>
+                        <div class="col-11">
+                            <p class="post-title">How is nightlife in SNU? Is there any 24x7 canteen available? Can we go out and roam in the campus to breathe some fresh air or maybe play a quick game of badminton in the night?</p>
+                            <div class="right">
+                            </div>
+                        </div>
+                        <div class="col" style="padding: 10px"></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-1 text-right"><img src="profilephoto.jpg" class="rounded-circle" alt="Cinque Terre" width="40px" height="40px"></div>
+                        <div class="col-11">
+                            <p class="post-title">How is nightlife in SNU? Is there any 24x7 canteen available? Can we go out and roam in the campus to breathe some fresh air or maybe play a quick game of badminton in the night?</p>
+                            <div class="right">
+                            </div>
+                        </div>
+                        <div class="col" style="padding: 10px"></div>
                     </div>
                 </div>
+                <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
+                <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
+                <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
             </div>
-        </body>
-        </html>
+        </div>
+    </div>
+</body>
+</html>

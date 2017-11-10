@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link rel="stylesheet" href="open-iconic/font/css/open-iconic-bootstrap.css">
     <link rel="stylesheet" href="stylesheets/this.css">
+    <link rel="stylesheet" href="stylesheets/post_cat.css">
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -54,13 +55,37 @@
 <body>
 
     <!-- navigation bar -->
-    <nav class="navbar navbar-dark bg-dark">
-        <a class="navbar-brand" style="color: white;">Forum</a>
-        <div style="float: right">
-            <!-- <img src="profilephoto.jpg" class="rounded-circle" alt="Samarjoy Pandit" width="30" height="30"> -->
-            <a style="cursor: pointer; color: white;" data-toggle="modal" data-target="#signinmodal">&nbsp;Login</a>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark" style="padding:0px 10px;">
+        <a class="navbar-brand" href="#"><b>Community</b>Forum</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Browse</a>
+                </li>
+            </ul>
+            <div style="float:left">
+
+
+                <a style="cursor: pointer; color: white;" data-toggle="modal" data-target="#signinmodal"><img src="res/login.png" class="" alt="Cinque Terre" width="25" height="25">&nbsp;</a>
+
+                <img src="Pranjal.jpeg" class="rounded-circle" alt="Cinque Terre" width="30" height="30">
+            </div>
         </div>
     </nav>
+    <!-- <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" style="color: white;">Forum</a>
+        <div style="float: right">
+            <!-- <img src="profilephoto.jpg" class="rounded-circle" alt="Samarjoy Pandit" width="30" height="30">
+            <a style="cursor: pointer; color: white;" data-toggle="modal" data-target="#signinmodal">&nbsp;Login</a>
+        </div>
+    </nav> -->
 
     <!-- signin modal -->
     <div class="modal fade" id="signinmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

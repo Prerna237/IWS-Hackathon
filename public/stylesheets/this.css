@@ -18,16 +18,6 @@
   width: 100%
 }
 
-.navbar-nav>li>a {
-  border-right: 1px solid #ddd;
-  padding-bottom: 15px;
-  padding-top: 15px;
-}
-
-.navbar-nav:last-child {
-  border-right: 0
-}
-
 .popover {
   max-width: 30%;
   /* Max Width of the popover (depending on the container!) */

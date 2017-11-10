@@ -2,8 +2,17 @@ html, body{
     font-family: 'Calibri Light';
     position: relative;
 }
+
 .navbar-dark{
-    background: black;
+    background-color: #343a40 !important;
+}
+
+.bg-dark{
+    background-color: #343a40 !important;
+}
+
+nav > li > a{
+    color: white;
 }
 
 div{
