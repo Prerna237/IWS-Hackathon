@@ -1,4 +1,5 @@
 'use strict'
+// TODO: Rating url
 
 var express = require('express');
 var router = express.Router();
@@ -56,6 +57,20 @@ router.get('/util/categories', (req, res) => {
 router.get('/util/threadReport/:threadID', (req, res) => {
     var userName = req.session.userName;
     db.reportThread(req.params.threadID, userName);
+});
+
+// Rate Things
+router.post('/util/rate', (req, res) => {
+    var type = req.body.type;
+    var id = req.body.id;
+    var rating = req.body.rating;
+    var userName = req.body.userName;
+
+    console.log("Got a rate request");
+    db.rate(type, id, rating, userName);
+    res.end(JSON.stringify({
+        status: "success"
+    }));
 });
 
 // Others
