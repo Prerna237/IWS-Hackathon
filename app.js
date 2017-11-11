@@ -37,6 +37,7 @@ app.use(session({
 
 // ======= Authentication setup ======== //
 
+// Username setup in Cookie
 app.use('/', (req, res, next) => {
     if(req.session.userName != undefined){
         // res.setHeader("userName", req.session.userName);

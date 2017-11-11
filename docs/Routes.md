@@ -60,7 +60,11 @@ Route details for http calls
     threadID: "Thread ID",
     title: "Title of the Thread",
     desc: "Description",
-    userName: "Author's username"
+    userName: "Author's username",
+    replieIDs: [],
+    numViews: Number,
+    rating: rating,
+    reports: Number
 }
 ```
 #### Add Thread

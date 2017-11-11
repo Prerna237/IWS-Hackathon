@@ -46,7 +46,7 @@ router.use('/login', function (req, res, next) {
     userDetails.userName = req.body.userName;
     userDetails.password = req.body.password;
     console.log("Checking Auth :" + JSON.stringify(userDetails));
-    db.checkAuth(userDetails, (status) => {
+    db.checkAuth(userDetails, (status, user) => {
       console.log("Called with status: " + status);
       if (status === _EVENTS.USER_ADD_SUCCESS) {
         req.session.userName = userDetails.userName;

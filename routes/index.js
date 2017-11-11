@@ -52,6 +52,12 @@ router.get('/util/categories', (req, res) => {
     });
 })
 
+// Report Thread
+router.get('/util/threadReport/:threadID', (req, res) => {
+    var userName = req.session.userName;
+    db.reportThread(req.params.threadID, userName);
+});
+
 // Others
 
 // Profile page
