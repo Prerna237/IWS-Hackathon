@@ -98,6 +98,12 @@ router.get('/thread/:id', (req, res) => {
     });
 });
 
+// Category-wise page
+
+router.get('/categorywise', (req, res) => {
+    res.end(pageHandlers.categoryPage());
+});
+
 // Data Fetching (AJAX)
 
 router.get('/replies/:type/:id', (req, res) => {

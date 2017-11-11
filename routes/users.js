@@ -7,6 +7,7 @@ var io = require('socket.io');
 var _Emitter = require('../lib/EventEmitter');
 var _EVENTS = require('../lib/Constants')._EVENTS;
 var db = require('../lib/DB');
+var pageHandlers = require('../lib/handles');
 
 var router = express.Router();
 
@@ -18,8 +19,7 @@ router.get('/', (req, res, next) => {
 router.use('/signup', (req, res) => {
   if (req.method) {
     console.log("Sending signup page.");
-    var data = fs.readFileSync(path.join(__dirname, '..', 'public', 'signup_form.html'));
-    res.end(data);
+    res.end(pageHandlers.signUpPage());
   } else {
     var ud = res.body;
     db.addUser(req.body, (status) => {
