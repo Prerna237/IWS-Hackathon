@@ -71,7 +71,7 @@ router.get('/profile', (req, res) => {
                 name: user.name,
                 dateJoin: user.dateJoin,
                 userRating: user.rating,
-                starsGiven: user.stars.length,
+                starsGiven: user.ratings.length,
                 numThreads: user.threads.length,
                 numReplies: user.replies.length,
                 accountType: user.profile_type
@@ -115,12 +115,28 @@ router.get('/replies/:type/:id', (req, res) => {
     });
 });
 
-router.get('/threads/:category', (req, res) => {
+router.get('/threadsByCategory/:category', (req, res) => {
     var category = req.params.category;
     console.log("Request for threads from category " + category);
-    db.getThreads(category.toString(), (results) => {
+    db.getThreadsByCategory(category.toString(), (results) => {
         res.end(JSON.stringify(results));
     });
 });
+
+router.get('/threadsByUser/:userName', (req, res) => {
+    console.log("ThreadsByUser requested");
+    var userName = req.params.userName;
+    db.getThreadsByUser(userName, (threads) => {
+        res.end(JSON.stringify(threads));
+    });
+});
+
+router.get('/threadsByStars/:userName', (req, res) => {
+    console.log('threadsByStars');
+    var userName = req.params.userName;
+    db.getReplies('star', userName, (results) => {
+        res.end(JSON.stringify(results));
+    })
+})
 
 module.exports = router;
