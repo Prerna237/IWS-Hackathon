@@ -2,7 +2,7 @@
 Website: https://iws-forum.herokuapp.com/
 
 ## Important : Add the following CDN to your pages for cookie management.
-<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js">
+`<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js">`
 
 **Check `docs` folder for full documentation**
 
