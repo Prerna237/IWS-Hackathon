@@ -1,14 +1,8 @@
 # IWS-Hackathon
 Website: https://iws-forum.herokuapp.com/
 
-## Important : Enter navigation tools on the header.
-
-Following format:
-* Home: link to Landing page
-* Browse: link to categorywise page
-* My profile: linked through profile pic at the right
-* Link to login/logout.
-Refer to page: public/post_categorywise.html 
+## Important : Add the following CDN to your pages for cookie management.
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js">
 
 **Check `docs` folder for full documentation**
 
