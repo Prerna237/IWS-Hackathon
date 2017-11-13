@@ -17,6 +17,10 @@ Website: https://iws-forum.herokuapp.com/
 * Analytics:
     * https://keen.github.io/dashboards/
     * Google Analytics for device based analytics
+        * Clicks per category
+        * Threads per category
+        * Interests Chart
+        * What else
 * Add: Other packages/plugins being used.
 
 ## Basic theme to be followed: https://platform.github.community
