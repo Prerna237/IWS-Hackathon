@@ -6,14 +6,14 @@ Website: https://iws-forum.herokuapp.com/
 
 **Check `docs` folder for full documentation**
 
-- [Tech Stack: MongoDB | Node | Express | Bootstrap](#tech-stack-mongodb-node-bootstrap)
+- [Tech Stack: MongoDB | Node | Express | Bootstrap](#tech-stack-mongodb-node-express-bootstrap)
 - [Basic theme to be followed: https://platform.github.community](#basic-theme-to-be-followed-httpsplatformgithubcommunity)
 - [Using Node](#using-node)
     - [Instructions](#instructions)
 - [UI Pages](#ui-pages)
     - [Regular Users](#regular-users)
     - [Moderator](#moderator)
-## Tech Stack: MongoDB | Node | Bootstrap
+## Tech Stack: MongoDB | Node | Express | Bootstrap
 * Analytics:
     * https://keen.github.io/dashboards/
     * Google Analytics for device based analytics
