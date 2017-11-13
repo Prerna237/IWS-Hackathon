@@ -6,7 +6,7 @@ Website: https://iws-forum.herokuapp.com/
 
 **Check `docs` folder for full documentation**
 
-- [Tech Stack: MongoDB | Node | Bootstrap](#tech-stack-mongodb-node-bootstrap)
+- [Tech Stack: MongoDB | Node | Express | Bootstrap](#tech-stack-mongodb-node-bootstrap)
 - [Basic theme to be followed: https://platform.github.community](#basic-theme-to-be-followed-httpsplatformgithubcommunity)
 - [Using Node](#using-node)
     - [Instructions](#instructions)
