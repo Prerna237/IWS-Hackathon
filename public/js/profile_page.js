@@ -58,4 +58,9 @@ $(document).ready(function () {
             }
         });
     }
+
+    //populating user threads
+    $('#starredthreads').each(function() {
+
+    });
 });
