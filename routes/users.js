@@ -50,8 +50,13 @@ router.use('/login', function (req, res, next) {
       console.log("Called with status: " + status);
       if (status === _EVENTS.USER_ADD_SUCCESS) {
         req.session.userName = userDetails.userName;
-        console.log("User Authentication successful");
-        return res.redirect('/profile');
+        console.log("User Authentication successful: " + req.body.samePage);
+        if (req.body.samePage) {
+          console.log("In SamePage");
+          return res.redirect(req.headers.referer);
+        } else {
+          return res.redirect('/profile');
+        }
       } else if (status === _EVENTS.USER_AUTH_FAIL) {
         console.log("User Authentication Failed");
         return res.end("You failed miserably Mr. " + userDetails.userName);
