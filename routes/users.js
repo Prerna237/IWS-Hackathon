@@ -64,4 +64,9 @@ router.use('/login', function (req, res, next) {
   // next();
 });
 
+router.use('/logout', (req, res) => {
+  delete req.session.userName;
+  res.redirect('/');
+});
+
 module.exports = router;

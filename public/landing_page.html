@@ -16,6 +16,8 @@
     crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
     crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js">
+  </script>
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
   <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.0.0-beta.4/dist/css/bootstrap-material-design.min.css"
@@ -28,37 +30,37 @@
   <nav class="navbar-brand container-fluid bg-dark" style="color:white">
 
     <!-- <img src="res/logo.jpg" width="60" height="60" class="align-top" alt=""> -->
-    
-      <span class="align-text-middle text-left p-3" style="height:70;font-size:3rem;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">PS2</span>
-      <!-- <div class="btn-group container-fluid"> -->
-          <button type="button" class="btn btn-secondary dropdown-toggle float-right mt-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white">
-            Login
-          </button>
-          <div class="dropdown-menu">
-              <form class="px-4 py-3 pb-0" method="post" action="/users/login">
-                <div class="form-group">
-                  <label for="exampleDropdownFormEmail1">Email address</label>
-                  <input name="userName" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
-                </div>
-                <div class="form-group">
-                  <label for="exampleDropdownFormPassword1">Password</label>
-                  <input type="password" name="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
-                </div>
-                <div class="form-check">
-                  <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input">
-                    Remember me
-                  </label>
-                </div>
-                <button type="submit" class="btn btn-primary">Sign in</button>
-              </form>
-              <div class="dropdown-divider p-0"></div>
-              <a class="dropdown-item" href="#">New around here? Sign up</a>
-              <a class="dropdown-item" href="#">Forgot password?</a>
-            </div>
-        <!-- </div> -->
-        
-        
+
+    <span class="align-text-middle text-left p-3" style="height:70;font-size:3rem;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">PS2</span>
+    <!-- <div class="btn-group container-fluid"> -->
+    <button type="button" class="btn btn-secondary dropdown-toggle float-right mt-4" data-toggle="dropdown" aria-haspopup="true"
+      aria-expanded="false" style="color:white" id="LoginDropDownBtn">
+      Login
+    </button>
+    <div class="dropdown-menu">
+      <form class="px-4 py-3 pb-0" method="post" action="/users/login">
+        <div class="form-group">
+          <label for="exampleDropdownFormEmail1">Email address</label>
+          <input name="userName" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+        </div>
+        <div class="form-group">
+          <label for="exampleDropdownFormPassword1">Password</label>
+          <input type="password" name="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="checkbox" class="form-check-input"> Remember me
+          </label>
+        </div>
+        <button type="submit" class="btn btn-primary">Sign in</button>
+      </form>
+      <div class="dropdown-divider p-0"></div>
+      <a class="dropdown-item" href="#">New around here? Sign up</a>
+      <a class="dropdown-item" href="#">Forgot password?</a>
+    </div>
+    <!-- </div> -->
+
+
   </nav>
 
   <!-- The category cards and trending questions -->
@@ -118,7 +120,9 @@
       <!-- The side trending questions display -->
       <div class="col-sm-5 mt-2 ml-auto" style="overflow-y: scroll;">
         <div class="card mt-2">
-          <div class="card-header"><h4>Trending Now!</h4></div>
+          <div class="card-header">
+            <h4>Trending Now!</h4>
+          </div>
           <div class="card-body" id="trending">
             <!-- All the trending question cards go here -->
             <!-- question card -->
@@ -155,6 +159,14 @@
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script>
+    $(document).ready(function () {
+      if (Cookies.get('userName')) {
+        $('#LoginDropDownBtn').text('Logout');
+        console.log("This is getting called");
+      }
+    });
+  </script>
 </body>
 
 </html>
