@@ -87,6 +87,7 @@ router.get('/profile', (req, res) => {
                 dateJoin: user.dateJoin,
                 userRating: user.rating,
                 starsGiven: user.ratings.length,
+                starsRecv: user.numRatings,
                 numThreads: user.threads.length,
                 numReplies: user.replies.length,
                 accountType: user.profile_type
