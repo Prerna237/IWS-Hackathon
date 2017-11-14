@@ -29,17 +29,6 @@ $(document).ready(function () {
             success: function (threads) {
                 console.log("Threads received");
                 document.userThreads = threads;
-
-                var quesasked = document.getElementById('quesasked');
-                var ques = document.userThreads.map((thread) => {
-                    return createThreadView(thread);
-                });
-                var st = "";
-                for (var i = 0; i < ques.length; i++) {
-                    st += ques[i];
-                }
-                console.log(st);
-                quesasked.innerHTML = st;
             }
         });
 
@@ -69,40 +58,89 @@ $(document).ready(function () {
             }
         });
     }
-
-    // Populating user created Threads
-    function createThreadView(thread) {
-        // var view = document.createElement('div');
-        // view.setAttribute('class', 'tab-content col-9');
-        // var innerView = document.createElement('div');
-        // innerView.setAttribute('class', 'tab-pane fade show active');
-        // innerView.setAttribute('role', 'tabpanel');
-        // innerView.setAttribute('aria-labelledby', 'QuestionsAsked');
-        // var rowDiv = document.createElement('div');
-        // rowDiv.setAttribute('class', 'row');
-
-        var elem = `<div class="tab-content col-9" id="v-pills-tabContent">
-        <div class="tab-pane fade show active" id="quesasked" role="tabpanel" aria-labelledby="QuestionsAsked">
-            <div class="row">
-                <div class="col-1">
-                    <img src="profilephoto.jpg" class="rounded-circle" alt="Cinque Terre" width="40px" height="40px">
-                </div>
-                <div class="col-11">
-                    <p class="post-title">${thread.desc}</p>
-                    <div class="right">
-                    </div>
-                </div>
-                <div class="col" style="padding: 10px"></div>
-            </div>
-        </div>
-        <div class="tab-pane fade" id="repliesgiven" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
-        <div class="tab-pane fade" id="starredthreads" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
-        </div>`
-        return elem;
-    }
-
     //populating user threads
     $('#starredthreads').each(function () {
 
     });
+
+    $('#QuestionsAsked').click(showThreads);
+    $('#v-pills-profile-tab').click(showReplies);
+    $('#v-pills-settings-tab').click(showStarred);
 });
+
+// Populating user created Threads
+function createThreadView(thread) {
+    return `<div class="tab-content col-9" id="v-pills-tabContent">
+    <div class="tab-pane fade show active" id="quesasked" role="tabpanel" aria-labelledby="QuestionsAsked">
+        <div class="row">
+            <div class="col-1">
+                <img src="profilephoto.jpg" class="rounded-circle" alt="Cinque Terre" width="40px" height="40px">
+            </div>
+            <div class="col-11">
+                <p class="post-title">${thread.desc}</p>
+                <div class="right">
+                </div>
+            </div>
+            <div class="col" style="padding: 10px"></div>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="repliesgiven" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
+    <div class="tab-pane fade" id="starredthreads" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
+    </div>`
+}
+
+function createReplyView(reply) {
+    return `Not Implemented`;
+}
+
+function createStarredThreadView(thread) {
+    return `Not Implemented`;
+}
+
+var showThreads = function () {
+    if (document.userThreads) {
+        var quesasked = document.getElementById('quesasked');
+        var ques = document.userThreads.map((thread, threadView) => {
+            return createThreadView(thread);
+        });
+        if (ques.length > 0) {
+            ques = ques.reduce((q, t) => {
+                return q + t
+            });
+            quesasked.innerHTML = ques;
+        }
+    }
+}
+
+var showReplies = function () {
+    var quesasked = document.getElementById('quesasked');
+    quesasked.innerHTML = "";
+    if (document.userReplies) {
+        var ques = document.userReplies.map((thread, threadView) => {
+            return createReplyView(thread);
+        });
+        console.log(ques);
+        if (ques.length > 0) {
+            ques = ques.reduce((q, t) => {
+                return q + t
+            });
+            quesasked.innerHTML = ques;
+        }
+    }
+}
+
+var showStarred = function () {
+    var quesasked = document.getElementById('quesasked');
+    quesasked.innerHTML = "";
+    if (document.userStarred) {
+        var ques = document.userStarred.map((thread, threadView) => {
+            return createStarredThreadView(thread);
+        });
+        if (ques.length > 0) {
+            ques = ques.reduce((q, t) => {
+                return q + t
+            });
+            quesasked.innerHTML = ques;
+        }
+    }
+}
