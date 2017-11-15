@@ -49,5 +49,11 @@ $(document).ready(function () {
 
   });
 
+  $('a.threadclick').click(function() {
+      var id = $(this).attr('id');
+    
+
+  });
+
 
 });
