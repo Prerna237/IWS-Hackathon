@@ -42,6 +42,7 @@ router.use('/login', function (req, res, next) {
     // res.end(data);
     res.redirect('/profile');
   } else {
+    console.log('Login request');
     var userDetails = {};
     userDetails.userName = req.body.userName;
     userDetails.password = req.body.password;

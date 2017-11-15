@@ -24,9 +24,9 @@ $(document).ready(function () {
   });
 
   $('#ddd .dropdown-item').click(function () {
-     cat = $(this).text();
-     $("#category").html(cat);
-     document.cat=cat;
+    cat = $(this).text();
+    $("#category").html(cat);
+    document.cat = cat;
     $.ajax({
       url: '/threadsByCategory/' + cat,
 
@@ -37,9 +37,9 @@ $(document).ready(function () {
         //some code;
         document.categories = data;
         $("#table").find("tr:gt(0)").remove();
-        var data="";
-          $.each(document.categories, function(i, item) {
-          data+='<tr><th scope="row">'+document.cat+'</th> <td>'+item.title+'</td> <td><img src="Pranjal.jpeg" class="rounded-circle" alt="'+item.userName+'" width="30" height="30"> </td><td>'+item.UID+'</td><td>13</td><td><span class="badge badge-primary"><span class="oi oi-star"></span> Star</span></td></tr>';
+        var data = "";
+        $.each(document.categories, function (i, item) {
+          data += '<tr><th scope="row">' + document.cat + '</th> <td>' + item.title + '</td> <td><img src="Pranjal.jpeg" class="rounded-circle" alt="' + item.userName + '" width="30" height="30"> </td><td>' + item.UID + '</td><td>13</td><td><span class="badge badge-primary"><span class="oi oi-star"></span> Star</span></td></tr>';
         });
         $('#table').append(data);
       },
@@ -49,11 +49,9 @@ $(document).ready(function () {
 
   });
 
-  $('a.threadclick').click(function() {
-      var id = $(this).attr('id');
-    
-
+  $('a.threadclick').click(function () {
+    var id = $(this).attr('id');
+    alert(id);
+    window.location = '/thread/' + id;
   });
-
-
 });

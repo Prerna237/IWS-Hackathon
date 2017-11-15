@@ -46,6 +46,7 @@ app.use('/', (req, res, next) => {
     // console.log("OrigURL: " + req.headers.referer);
     if (req.session.userName) {
         // res.setHeader("userName", req.session.userName);
+        console.log('Cookie set.');
         res.cookie("userName", req.session.userName);
     } else {
         res.clearCookie('userName');

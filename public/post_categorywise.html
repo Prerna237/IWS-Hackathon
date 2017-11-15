@@ -1,38 +1,47 @@
-  <!doctype html>
-  <html lang="en">
-    <head>
-      <title>Hello, world!</title>
-      <!-- Required meta tags -->
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!doctype html>
+<html lang="en">
 
-      <!-- Bootstrap CSS -->
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-      <link rel="stylesheet" href="this.css">
-      <link href="open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
-      <!-- Optional JavaScript -->
-      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+<head>
+  <title>Hello, world!</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="this.css">
+  <link href="open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+    crossorigin="anonymous"></script>
 
   <script src="js/category.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 
 
-    </head>
-    <body onload="checkCookie()">
-      <nav class="navbar navbar-expand-sm navbar-dark bg-dark" style="padding:0px 10px;">
-    <a class="navbar-brand" href="#"><b>Community</b>Forum</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+</head>
+
+<body onload="checkCookie()">
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark" style="padding:0px 10px;">
+    <a class="navbar-brand" href="#">
+      <b>Community</b>Forum</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+      aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="#">Home
+            <span class="sr-only">(current)</span>
+          </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Browse</a>
@@ -40,14 +49,17 @@
       </ul>
       <div style="float:left">
 
-  <form id="logout" style="display:none; background-color:#343a40" method="post" action="/users/logout"><button type="submit" class="btn btn-primary" style=" background-color:#343a40">Logout</button></form>
-      <a style="cursor: pointer; color: white;" data-toggle="modal" data-target="#signinmodal" id="lol"><img id="action" class="" alt="" width="25" height="25">&nbsp;</a>
+        <form id="logout" style="display:none; background-color:#343a40" method="post" action="/users/logout">
+          <button type="submit" class="btn btn-primary" style=" background-color:#343a40">Logout</button>
+        </form>
+        <a style="cursor: pointer; color: white;" data-toggle="modal" data-target="#signinmodal" id="lol">
+          <img id="action" class="" alt="" width="25" height="25">&nbsp;</a>
 
-      <img src="Pranjal.jpeg" class="rounded-circle" alt="Pranjal" width="30" height="30">
-    </div>
+        <img src="Pranjal.jpeg" class="rounded-circle" alt="Pranjal" width="30" height="30">
+      </div>
     </div>
   </nav>
-    <!--  <nav class="navbar navbar-dark bg-dark">
+  <!--  <nav class="navbar navbar-dark bg-dark">
 
       <a class="navbar-brand" href="#">Navbar</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -75,77 +87,102 @@
      </div>
    </nav> -->
 
-    <br>
-    <div style="margin-left:5%; margin-right:5%">
-      <div class="btn-group">
-        <button type="button" style="width:150%" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Select Category
-        </button>
-        <div class="dropdown-menu" id="ddd">
-          <a class="dropdown-item"  id="4">Category1</a>
-          <a class="dropdown-item"  id="5">Category2</a>
-          <a class="dropdown-item" href="#" id="6">Category3</a>
-  		<a class="dropdown-item" href="#" id="6">Category4</a>
-          <div class="dropdown-divider"></div>
-     <a class="dropdown-item" href="#">Misc</a>
-        </div>
+  <br>
+  <div style="margin-left:5%; margin-right:5%">
+    <div class="btn-group">
+      <button type="button" style="width:150%" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false">
+        Select Category
+      </button>
+      <div class="dropdown-menu" id="ddd">
+        <a class="dropdown-item" id="4">Category1</a>
+        <a class="dropdown-item" id="5">Category2</a>
+        <a class="dropdown-item" href="#" id="6">Category3</a>
+        <a class="dropdown-item" href="#" id="6">Category4</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">Misc</a>
       </div>
-  <button type="button" id="latest" class="btn btn-outline-primary"style="width:10%;">Latest</button>
-  <button type="button" id="top" class="btn btn-outline-primary" style="width:10%;">Top</button>
-  <button type="button" id= "mypost" class="btn btn-outline-primary"style="width:10%;">My Posts</button>
+    </div>
+    <button type="button" id="latest" class="btn btn-outline-primary" style="width:10%;">Latest</button>
+    <button type="button" id="top" class="btn btn-outline-primary" style="width:10%;">Top</button>
+    <button type="button" id="mypost" class="btn btn-outline-primary" style="width:10%;">My Posts</button>
 
-  <div style="float:right">
-  <form class="navbar-form" role="search" style="display:inline-block;">
-     <div class="input-group add-on">
-       <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">
-       <div class="input-group-btn">
-         <button class="btn btn-default" type="submit"><span class="oi oi-magnifying-glass"></span></i></button>
-       </div>
-     </div>
-   </form>
-  <button class="btn btn-primary"  data-toggle="modal" data-target="#Addtopic" onclick="checklogin()"><span class="oi oi-pencil"></span> Add Topic</button>
-      </div>  <hr>
-      <table class="table table-striped" id="table">
-        <thead>
-          <tr>
-            <th scope="col">Category</th>
-            <th scope="col">Topic</th>
-            <th scope="col">Initiator</th>
-            <th scope="col">Replies</th>
-            <th scope="col">Views</th>
-            <th scope="col">Stars</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">Mobiles</th>
-            <td><a class="threadclick" id="2">Why are mobiles black? Are they good?</a></td>
-            <td><img src="Pranjal.jpeg" class="rounded-circle" alt="Cinque Terre" width="30" height="30"> </td>
-            <td>43</td>
-            <td>13</td>
-            <td><span class="badge badge-primary"><span class="oi oi-star"></span> Star</span></td>
-          </tr>
-          <tr>
-            <th scope="row">Mobiles</th>
-            <td><a class="threadclick" id="5">Why are mobiles black? Are they good?</a></td>
-            <td><img src="Pranjal.jpeg" class="rounded-circle" alt="Cinque Terre" width="30" height="30"> </td>
-            <td>43</td>
-            <td>13</td>
-              <td><span class="badge badge-primary"><span class="oi oi-star"></span> Star</span></td>
-          </tr>
-          <tr>
-            <th scope="row">Mobiles</th>
-            <td><a class="threadclick" id="1">Why are mobiles black? Are they good?</a></td>
-            <td><img src="Pranjal.jpeg" class="rounded-circle" alt="Cinque Terre" width="30" height="30"> </td>
-            <td>43</td>
-            <td>13</td>
-            <td><span class="badge badge-primary"><span class="oi oi-star"></span> Star</span></td>
-          </tr>
-        </tbody>
-      </table>
+    <div style="float:right">
+      <form class="navbar-form" role="search" style="display:inline-block;">
+        <div class="input-group add-on">
+          <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">
+          <div class="input-group-btn">
+            <button class="btn btn-default" type="submit">
+              <span class="oi oi-magnifying-glass"></span>
+              </i>
+            </button>
+          </div>
+        </div>
+      </form>
+      <button class="btn btn-primary" data-toggle="modal" data-target="#Addtopic" onclick="checklogin()">
+        <span class="oi oi-pencil"></span> Add Topic</button>
+    </div>
+    <hr>
+    <table class="table table-striped" id="table">
+      <thead>
+        <tr>
+          <th scope="col">Category</th>
+          <th scope="col">Topic</th>
+          <th scope="col">Initiator</th>
+          <th scope="col">Replies</th>
+          <th scope="col">Views</th>
+          <th scope="col">Stars</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Mobiles</th>
+          <td>
+            <a class="threadclick" id="2">Why are mobiles black? Are they good?</a>
+          </td>
+          <td>
+            <img src="Pranjal.jpeg" class="rounded-circle" alt="Cinque Terre" width="30" height="30"> </td>
+          <td>43</td>
+          <td>13</td>
+          <td>
+            <span class="badge badge-primary">
+              <span class="oi oi-star"></span> Star</span>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">Mobiles</th>
+          <td>
+            <a class="threadclick" id="5">Why are mobiles black? Are they good?</a>
+          </td>
+          <td>
+            <img src="Pranjal.jpeg" class="rounded-circle" alt="Cinque Terre" width="30" height="30"> </td>
+          <td>43</td>
+          <td>13</td>
+          <td>
+            <span class="badge badge-primary">
+              <span class="oi oi-star"></span> Star</span>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">Mobiles</th>
+          <td>
+            <a class="threadclick" id="1">Why are mobiles black? Are they good?</a>
+          </td>
+          <td>
+            <img src="Pranjal.jpeg" class="rounded-circle" alt="Cinque Terre" width="30" height="30"> </td>
+          <td>43</td>
+          <td>13</td>
+          <td>
+            <span class="badge badge-primary">
+              <span class="oi oi-star"></span> Star</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
-  <div class="modal fade" id="Addtopic_abs" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="clear:both;">
+  <div class="modal fade" id="Addtopic_abs" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+    style="clear:both;">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -163,25 +200,26 @@
             <div class="form-group">
               <label for="message-text" class="col-form-label">Descrition:</label>
 
-              <textarea name="area2" id = "desc" style="width:100% !important; height:100%"></textarea>
+              <textarea name="area2" id="desc" style="width:100% !important; height:100%"></textarea>
             </div>
 
           </form>
         </div>
         <div class="modal-footer">
           <div class="dropdown show" style="float:left;">
-      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Select Category
-      </a>
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              Select Category
+            </a>
 
-      <div class="dropdown-menu" id="dd" aria-labelledby="dropdownMenuLink">
+            <div class="dropdown-menu" id="dd" aria-labelledby="dropdownMenuLink">
 
-        <a class="dropdown-item"  id="1" href="#">Category1</a>
-        <a class="dropdown-item" id="2" href="#">Category2</a>
-        <a class="dropdown-item" id="3"href="#" >Category3</a>
-  	  <a class="dropdown-item" id="4"href="#" >Category4</a>
-      </div>
-    </div>
+              <a class="dropdown-item" id="1" href="#">Category1</a>
+              <a class="dropdown-item" id="2" href="#">Category2</a>
+              <a class="dropdown-item" id="3" href="#">Category3</a>
+              <a class="dropdown-item" id="4" href="#">Category4</a>
+            </div>
+          </div>
           <button type="button" id="addThreadButton" data-dismiss="modal" class="btn btn-primary">Add Thread</button>
         </div>
       </div>
@@ -190,83 +228,84 @@
 
 
   <div class="modal fade" id="signinmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
+    <div class="modal-dialog">
+      <div class="modal-content">
 
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <h4 class="modal-title">Login to Your Account</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-
-                <!-- Modal body -->
-                <div class="modal-body">
-                    <form method="post" action="/users/login">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">User Name</label>
-                            <input type="email" class="form-control" name="userName" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
-  						  <input name="samePage" hidden value="true"></input>
-                        </div>
-                    </form>
-                </div>
-
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <span class="mr-auto">Not a member yet?&nbsp;<a href="#">Register Here</a></span>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary" data-dismiss="modal">Login</button>
-                </div>
-
-            </div>
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Login to Your Account</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <form method="post" action="/users/login">
+            <div class="form-group">
+              <label for="exampleInputEmail1">User Name</label>
+              <input type="email" class="form-control" name="userName" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
+              <input name="samePage" hidden value="true"></input>
+            </div>
+          </form>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <span class="mr-auto">Not a member yet?&nbsp;
+            <a href="#">Register Here</a>
+          </span>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="submit" onclick="javascript:document.forms[3].submit()" class="btn btn-primary" data-dismiss="modal">Login</button>
+        </div>
+
+      </div>
     </div>
+  </div>
 
 
 
-    </body>
-  <script>
+</body>
+<script>
   function getCookie(cname) {
-      var name = cname + "=";
-      var decodedCookie = decodeURIComponent(document.cookie);
-      var ca = decodedCookie.split(';');
-      for(var i = 0; i <ca.length; i++) {
-          var c = ca[i];
-          while (c.charAt(0) == ' ') {
-              c = c.substring(1);
-          }
-          if (c.indexOf(name) == 0) {
-              return c.substring(name.length, c.length);
-          }
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
       }
-      return "";
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
   }
 
 
-  function checkCookie(){
+  function checkCookie() {
 
-  if(getCookie("userName")==""){
-    document.getElementById('action').src="res/login.png";
-  }
-  else {
-   var element = document.getElementById("lol");
-  element.parentNode.removeChild(element);
-    document.getElementById("logout").style.display="inline-block";
-  }
+    if (getCookie("userName") == "") {
+      document.getElementById('action').src = "res/login.png";
+    } else {
+      var element = document.getElementById("lol");
+      element.parentNode.removeChild(element);
+      document.getElementById("logout").style.display = "inline-block";
+    }
   }
 
 
-  function checklogin(){
-  	if(getCookie("userName")==""){
-  		alert("Please Login");
-  	}
-  	else{
-  	document.getElementById('Addtopic_abs').id = 'Addtopic';
-  	}
+  function checklogin() {
+    if (getCookie("userName") == "") {
+      alert("Please Login");
+    } else {
+      document.getElementById('Addtopic_abs').id = 'Addtopic';
+    }
 
   }
-  </script>
-  </html>
+</script>
+
+</html>
