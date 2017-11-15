@@ -1,4 +1,6 @@
 $(document).ready(function () {
+  $(".demo").letterpic();
+
   $('#dd .dropdown-item').click(function () {
     document.retval = $(this).text();
   });
