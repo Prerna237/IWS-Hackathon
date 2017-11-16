@@ -80,24 +80,4 @@ router.use('/logout', (req, res) => {
   res.redirect('/');
 });
 
-router.get('/profile/:userName', (req, res) => {
-  var userName = req.params.userName;
-  if (userName) {
-    db.getUser(userName, (user) => {
-      res.end(pageHandlers.userProfile({
-        userName: user.userName,
-        email: user.email,
-        name: user.name,
-        dateJoin: user.dateJoin,
-        userRating: user.rating,
-        starsGiven: user.ratings.length,
-        starsRecv: user.numRatings,
-        numThreads: user.threads.length,
-        numReplies: user.replies.length,
-        accountType: user.profile_type
-      }));
-    });
-  }
-});
-
 module.exports = router;

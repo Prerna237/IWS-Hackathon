@@ -16,7 +16,7 @@ function getCookie(cname) {
 
 $(document).ready(function () {
     console.log("I'm ready");
-    var userName = getCookie('userName');
+    var userName = getCookie('pseudoUser');
     console.log("Got username: " + userName);
     if (document.cookie) {
         // get threads by user
