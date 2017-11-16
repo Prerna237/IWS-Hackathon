@@ -97,7 +97,7 @@ function createReplyView(reply) {
   <img src="profilephoto.jpg" class="rounded-circle" alt="Cinque Terre" width="40px" height="40px">
   </div>
   <div class="col-11">
-  <p class="post-title">${thread.desc}</p>
+  <p class="post-title">${reply.desc}</p>
   <div class="right">
   </div>
   </div>
