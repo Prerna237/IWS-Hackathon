@@ -65,6 +65,10 @@ $(document).ready(function () {
           alert(id);
           window.location = '/thread/' + id;
         });
+        $('a.user').click(function () {
+          var title = $(this).attr('id');
+          window.location="users/profile/"+title;
+        });
           $(".demo").letterpic();
       },
       type: 'GET'
@@ -89,6 +93,7 @@ $(document).ready(function () {
     $('a.user').click(function () {
       var title = $(this).attr('id');
       alert(title);
+      window.location="users/profile/"+title;
     });
       $(".demo").letterpic();
 
@@ -112,10 +117,34 @@ $('#mypost').click(function() {
   $('a.user').click(function () {
     var title = $(this).attr('id');
     alert(title);
+    window.location="users/profile/"+title;
   });
     $(".demo").letterpic();
 
 });
 
+$('#latest').click(function() {
+
+  document.categories.sort(predicateBy("date"));
+  $("#table").find("tr:gt(0)").remove();
+  var data = "";
+  $.each(document.categories, function (i, item) {
+    data += '<tr><th scope="row">' + document.cat + '</th><td><a class="threadclick" id="' + item.id + '">Why are mobiles black? Are they good?</a></td><td><a class="user" id="'+item.userName+'"><canvas class="demo" title="' + item.userName + '"alt="Pranjal" style="width:34px; height:34px; margin:-12px 10px; border-radius:50%;"></canvas></a></td><td>' + item.numReplies + '</td><td>' + item.views + '</td><td><span class="badge badge-primary"><span class="oi oi-star"></span>'+item.rating+'</span></td></tr>';
+
+  });
+  $('#table').append(data);
+  $('a.threadclick').click(function () {
+    var id = $(this).attr('id');
+    alert(id);
+    window.location = '/thread/' + id;
+  });
+  $('a.user').click(function () {
+    var title = $(this).attr('id');
+    alert(title);
+    window.location="users/profile/"+title;
+  });
+    $(".demo").letterpic();
+
+});
 
 });
