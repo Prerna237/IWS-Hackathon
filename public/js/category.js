@@ -24,6 +24,11 @@ $(document).ready(function () {
       }
     });
   });
+  $('a.threadclick').click(function () {
+    var id = $(this).attr('id');
+    alert(id);
+    window.location = '/thread/' + id;
+  });
 
   $('#ddd .dropdown-item').click(function () {
     cat = $(this).text();
@@ -41,7 +46,12 @@ $(document).ready(function () {
         $("#table").find("tr:gt(0)").remove();
         var data = "";
         $.each(document.categories, function (i, item) {
-          data += '<tr><th scope="row">' + document.cat + '</th> <td>' + item.title + '</td> <td><img src="Pranjal.jpeg" class="rounded-circle" alt="' + item.userName + '" width="30" height="30"> </td><td>' + item.UID + '</td><td>13</td><td><span class="badge badge-primary"><span class="oi oi-star"></span> Star</span></td></tr>';
+          data += '<tr><th scope="row">'+document.cat+'</th><td><a class="threadclick" id="'+item.id+'">Why are mobiles black? Are they good?</a></td><td><canvas class="demo" title="'+item.userName+'"alt="Pranjal" style="width:34px; height:34px; margin:-12px 10px; border-radius:50%;"></canvas></td><td>'+item.numReplies+'</td><td>'+item.views+'</td><td><span class="badge badge-primary"><span class="oi oi-star"></span>5</span></td></tr>';
+          $('a.threadclick').click(function () {
+            var id = $(this).attr('id');
+            alert(id);
+            window.location = '/thread/' + id;
+          });
         });
         $('#table').append(data);
       },
@@ -51,9 +61,5 @@ $(document).ready(function () {
 
   });
 
-  $('a.threadclick').click(function () {
-    var id = $(this).attr('id');
-    alert(id);
-    window.location = '/thread/' + id;
-  });
+
 });
