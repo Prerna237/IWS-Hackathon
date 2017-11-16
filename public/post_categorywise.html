@@ -78,7 +78,7 @@
     </div>
     <button type="button" id="latest" class="btn btn-outline-primary" style="width:10%;">Latest</button>
     <button type="button" id="top" class="btn btn-outline-primary" style="width:10%;">Top</button>
-    <button type="button" id="mypost" class="btn btn-outline-primary" style="width:10%;">My Posts</button>
+    <button type="button" id="mypost" class="btn btn-outline-primary" style="width:10%; display:none;">My Posts</button>
 
     <div style="float:right">
       <form class="navbar-form" role="search" style="display:inline-block;">
@@ -267,6 +267,8 @@
       var element = document.getElementById("lol");
       element.parentNode.removeChild(element);
       document.getElementById("logout").style.display = "inline-block";
+      document.getElementById("mypost").style.display = "inline-block";
+
     }
   }
 
