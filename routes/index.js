@@ -205,9 +205,9 @@ router.use('/analytics', (req, res, next) => {
     console.log("Request by: " + req.session.userName);
     console.log("Type: " + req.session.moderator);
     // if (req.session.moderator) {
-        db.getCategoryAnalytics((details) => {
-            res.end(pageHandlers.analyticsPage(details));
-        });
+    db.getCategoryAnalytics((details) => {
+        res.end(pageHandlers.analyticsPage(details));
+    });
     // } else {
     //     res.end(pageHandlers.errorPage({
     //         status: 404

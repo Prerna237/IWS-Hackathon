@@ -65,10 +65,14 @@ router.use('/login', function (req, res, next) {
         }
       } else if (status === _EVENTS.USER_AUTH_FAIL) {
         console.log("User Authentication Failed");
-        return res.end("You failed miserably Mr. " + userDetails.userName);
+        // return res.end("You failed miserably Mr. " + userDetails.userName);
+        res.cookie('loginStatus', 'FAIL');
+        return res.redirect(req.headers.referer);
       } else {
         console.log("NO SUCH USER");
-        return res.end("You dont exist. Begone.");
+        res.cookie('loginStatus', 'NO_USER');        
+        // return res.end("You dont exist. Begone.");
+        return res.redirect(req.headers.referer);
       }
     });
   }

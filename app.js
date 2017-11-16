@@ -45,6 +45,7 @@ app.use(session({
 // Username setup in Cookie
 app.use('/', (req, res, next) => {
     // console.log("OrigURL: " + req.headers.referer);
+    console.log("Status: " + req.statusCode);
     if (req.session.userName) {
         // res.setHeader("userName", req.session.userName);
         console.log('Cookie set.');
