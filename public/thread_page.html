@@ -24,6 +24,9 @@
     <script type="text/javascript" src="/js/starrating.js"></script>
     <!-- <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
     <script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script> -->
+    <script>
+        document.threadID = {{ threadID }};
+    </script>
     <script type="text/javascript">
         (function (d, t, e, m) {
 
@@ -47,7 +50,7 @@
                 id = "rw-js",
                 l = d.location,
                 ck = "Y" + t.getFullYear() +
-                "M" + t.getMonth() + "D" + t.getDate(),
+                    "M" + t.getMonth() + "D" + t.getDate(),
                 p = l.protocol,
                 f = ((l.search.indexOf("DBG=") > -1) ? "" : ".min"),
                 a = ("https:" == p ? "secure." + m + "js/" : "js." + m);
@@ -63,7 +66,7 @@
     <script type="text/javascript" src="/js/thread_page.js"></script>
 </head>
 
-<body>
+<body onload="checkCookie()">
 
     <!-- navigation bar -->
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark" style="padding:0px 10px;">
@@ -77,23 +80,24 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home
+                    <a class="nav-link" href="/">Home
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Browse</a>
+                    <span class="sr-only">(current)</span>
                 </li>
             </ul>
             <div style="float:left">
 
+                <form id="logout" style="display:none; background-color:#343a40" method="post" action="/users/logout">
+                    <button type="submit" class="btn btn-primary btn-sm" style=" background-color:#343a40">Logout</button>
+                </form>
+                <a style="cursor: pointer; color: white;" data-toggle="modal" data-target="#signinmodal" id="lol">
+                    <img id="action" class="" alt="" style="width:25px; height:25px; margin-bottom:5px;">&nbsp;</a>
 
-                <a style="cursor: pointer; color: white;" data-toggle="modal" data-target="#signinmodal">
-                    <img src="res/login.png" class="" alt="Cinque Terre" width="25" height="25">&nbsp;</a>
-
-                <img src="Pranjal.jpeg" class="rounded-circle" alt="Cinque Terre" width="30" height="30">
             </div>
-        </div>
     </nav>
     <!-- <nav class="navbar navbar-dark bg-dark">
         <a class="navbar-brand" style="color: white;">Forum</a>
@@ -116,14 +120,15 @@
 
                 <!-- Modal body -->
                 <div class="modal-body">
-                    <form>
+                    <form method="post" action="/users/login">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                            <label for="exampleInputEmail1">User Name</label>
+                            <input type="email" class="form-control" name="userName" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
+                            <input name="samePage" hidden value="true"></input>
                         </div>
                     </form>
                 </div>
@@ -134,7 +139,7 @@
                         <a href="#">Register Here</a>
                     </span>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Login</button>
+                    <button type="submit" onclick="javascript:document.forms[1].submit()" class="btn btn-primary" data-dismiss="modal">Login</button>
                 </div>
 
             </div>
@@ -145,10 +150,10 @@
 
     <!-- main content -->
     <div style="margin-left: 5%; margin-right: 5%;">
-        <div class="card text-center">
+        <div id={{threadID}} class="card text-center">
             <div class="card-header">
                 <div style="float:left">
-                    <img src="profilephoto.jpg" class="rounded-circle" alt="Samarjoy Pandit" width="30" height="30">
+                    <!-- <img src="profilephoto.jpg" class="rounded-circle" alt="Samarjoy Pandit" width="30" height="30"> -->
                     <b>{{author}}</b>&nbsp;
                     <span class="badge badge-pill badge-primary">{{userRating}} star</span>
                 </div>
@@ -171,20 +176,18 @@
                 <div style="float: right;">
                     &nbsp;
                     <span class="badge badge-pill badge-warning">5 star</span>
-                    <a onclick="openNav()" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
+                    <a id="reply_1" onclick="openNav(this.id)" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
                     <a href="#" class="badge badge-danger">&nbsp;
                         <span class="oi oi-flag"></span>&nbsp;</a>
                 </div>
             </div>
-
         </div>
         <br>
         <div class="row">
-            <div class="col-lg-8">
-                <div id="iter1" class="col-md-12" style="padding-left: 0" role="tablist">
+            <div id="threadreplies" class="col-8">
+                <!-- <div id="iter1" class="col-12" style="padding-left: 0" role="tablist">
                     <div id="r1" class="card">
                         <div class="card-body">
-                            <img src="profilephoto.jpg" class="rounded-circle" alt="Samarjoy Pandit" width="30" height="30">&nbsp;&nbsp;
                             <b>Samarjoy Pandit</b>
                             <br>
                             <br>
@@ -200,7 +203,7 @@
 
                                 &nbsp;
                                 <span class="badge badge-pill badge-warning">5 star</span>
-                                <a onclick="openNav()" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
+                                <a onclick="openNav(this.id)" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
 
 
                                 <a href="#" class="badge badge-danger">&nbsp;
@@ -214,7 +217,7 @@
 
                         <div id="reply1collapse" class="collapse" role="tabpanel" aria-labelledby="reply1" data-parent="#iter1">
                             <br>
-                            <div id="iter11" class="col-sm-12" role="tablist">
+                            <div id="iter11" class="col-12" role="tablist">
                                 <div class="card">
                                     <div class="card-body">
                                         <p>Reply 11</p>
@@ -223,7 +226,7 @@
 
                                             &nbsp;
                                             <span class="badge badge-pill badge-warning">5 star</span>
-                                            <a onclick="openNav()" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
+                                            <a onclick="openNav(this.id)" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
 
 
                                             <a href="#" class="badge badge-danger">&nbsp;
@@ -237,7 +240,7 @@
 
                                     <div id="reply11collapse" class="collapse" role="tabpanel" aria-labelledby="reply11" data-parent="#iter11">
                                         <br>
-                                        <div id="iter111" class="col-sm-12" role="tablist">
+                                        <div id="iter111" class="col-12" role="tablist">
                                             <div class="card">
                                                 <div class="card-body">
                                                     <p>Reply 111</p>
@@ -246,7 +249,7 @@
 
                                                         &nbsp;
                                                         <span class="badge badge-pill badge-warning">5 star</span>
-                                                        <a onclick="openNav()" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
+                                                        <a onclick="openNav(this.id)" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
 
 
                                                         <a href="#" class="badge badge-danger">&nbsp;
@@ -263,7 +266,7 @@
 
                                                         &nbsp;
                                                         <span class="badge badge-pill badge-warning">5 star</span>
-                                                        <a onclick="openNav()" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
+                                                        <a onclick="openNav(this.id)" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
 
 
                                                         <a href="#" class="badge badge-danger">&nbsp;
@@ -284,7 +287,7 @@
 
                                             &nbsp;
                                             <span class="badge badge-pill badge-warning">5 star</span>
-                                            <a onclick="openNav()" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
+                                            <a onclick="openNav(this.id)" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
 
 
                                             <a href="#" class="badge badge-danger">&nbsp;
@@ -298,7 +301,7 @@
 
                                     <div id="reply12collapse" class="collapse" role="tabpanel" aria-labelledby="reply12" data-parent="#iter11">
                                         <br>
-                                        <div id="iter111" class="col-sm-12" role="tablist">
+                                        <div id="iter111" class="col-12" role="tablist">
                                             <div class="card">
                                                 <div class="card-body">
                                                     <p>Reply 121</p>
@@ -307,7 +310,7 @@
 
                                                         &nbsp;
                                                         <span class="badge badge-pill badge-warning">5 star</span>
-                                                        <a onclick="openNav()" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
+                                                        <a onclick="openNav(this.id)" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
 
 
                                                         <a href="#" class="badge badge-danger">&nbsp;
@@ -325,7 +328,7 @@
 
                                                         &nbsp;
                                                         <span class="badge badge-pill badge-warning">5 star</span>
-                                                        <a onclick="openNav()" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
+                                                        <a onclick="openNav(this.id)" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
 
 
                                                         <a href="#" class="badge badge-danger">&nbsp;
@@ -343,8 +346,7 @@
                     </div>
                     <br>
                 </div>
-
-                <div id="iter2" class="col-md-12" style="padding-left: 0" role="tablist">
+                <div id="iter2" class="col-12" style="padding-left: 0" role="tablist">
                     <div id="r2" class="card">
                         <div class="card-body">
                             <p>Reply 2</p>
@@ -353,7 +355,7 @@
 
                                 &nbsp;
                                 <span class="badge badge-pill badge-warning">5 star</span>
-                                <a onclick="openNav()" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
+                                <a onclick="openNav(this.id)" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
 
 
                                 <a href="#" class="badge badge-danger">&nbsp;
@@ -367,7 +369,7 @@
 
                         <div id="reply2collapse" class="collapse" role="tabpanel" aria-labelledby="reply2" data-parent="#iter2">
                             <br>
-                            <div id="iter21" class="col-sm-12" role="tablist">
+                            <div id="iter21" class="col-12" role="tablist">
                                 <div class="card">
                                     <div class="card-body">
                                         <p>Reply 21</p>
@@ -376,7 +378,7 @@
 
                                             &nbsp;
                                             <span class="badge badge-pill badge-warning">5 star</span>
-                                            <a onclick="openNav()" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
+                                            <a onclick="openNav(this.id)" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
 
 
                                             <a href="#" class="badge badge-danger">&nbsp;
@@ -390,7 +392,7 @@
 
                                     <div id="reply21collapse" class="collapse" role="tabpanel" aria-labelledby="reply21" data-parent="#iter21">
                                         <br>
-                                        <div id="iter211" class="col-sm-12" role="tablist">
+                                        <div id="iter211" class="col-12" role="tablist">
                                             <div class="card">
                                                 <div class="card-body">
                                                     <p>Reply 211</p>
@@ -399,7 +401,7 @@
 
                                                         &nbsp;
                                                         <span class="badge badge-pill badge-warning">5 star</span>
-                                                        <a onclick="openNav()" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
+                                                        <a onclick="openNav(this.id)" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
 
 
                                                         <a href="#" class="badge badge-danger">&nbsp;
@@ -416,7 +418,7 @@
 
                                                         &nbsp;
                                                         <span class="badge badge-pill badge-warning">5 star</span>
-                                                        <a onclick="openNav()" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
+                                                        <a onclick="openNav(this.id)" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
 
 
                                                         <a href="#" class="badge badge-danger">&nbsp;
@@ -437,7 +439,7 @@
 
                                             &nbsp;
                                             <span class="badge badge-pill badge-warning">5 star</span>
-                                            <a onclick="openNav()" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
+                                            <a onclick="openNav(this.id)" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
 
 
                                             <a href="#" class="badge badge-danger">&nbsp;
@@ -451,7 +453,7 @@
 
                                     <div id="reply22collapse" class="collapse" role="tabpanel" aria-labelledby="reply22" data-parent="#iter21">
                                         <br>
-                                        <div id="iter211" class="col-sm-12" role="tablist">
+                                        <div id="iter211" class="col-12" role="tablist">
                                             <div class="card">
                                                 <div class="card-body">
                                                     <p>Reply 221</p>
@@ -460,7 +462,7 @@
 
                                                         &nbsp;
                                                         <span class="badge badge-pill badge-warning">5 star</span>
-                                                        <a onclick="openNav()" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
+                                                        <a onclick="openNav(this.id)" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
 
 
                                                         <a href="#" class="badge badge-danger">&nbsp;
@@ -477,7 +479,7 @@
 
                                                         &nbsp;
                                                         <span class="badge badge-pill badge-warning">5 star</span>
-                                                        <a onclick="openNav()" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
+                                                        <a onclick="openNav(this.id)" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
 
 
                                                         <a href="#" class="badge badge-danger">&nbsp;
@@ -495,7 +497,7 @@
                     </div>
                     <br>
                 </div>
-                <div id="iter3" class="col-md-12" style="padding-left: 0" role="tablist">
+                <div id="iter3" class="col-12" style="padding-left: 0" role="tablist">
                     <div class="card">
                         <div class="card-body">
                             <p>Reply 3</p>
@@ -504,7 +506,7 @@
 
                                 &nbsp;
                                 <span class="badge badge-pill badge-warning">5 star</span>
-                                <a onclick="openNav()" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
+                                <a onclick="openNav(this.id)" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
 
 
                                 <a href="#" class="badge badge-danger">&nbsp;
@@ -518,7 +520,7 @@
 
                         <div id="reply3collapse" class="collapse" role="tabpanel" aria-labelledby="reply3" data-parent="#iter3">
                             <br>
-                            <div id="iter31" class="col-sm-12" role="tablist">
+                            <div id="iter31" class="col-12" role="tablist">
                                 <div class="card">
                                     <div class="card-body">
                                         <p>Reply 31</p>
@@ -527,7 +529,7 @@
 
                                             &nbsp;
                                             <span class="badge badge-pill badge-warning">5 star</span>
-                                            <a onclick="openNav()" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
+                                            <a onclick="openNav(this.id)" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
 
 
                                             <a href="#" class="badge badge-danger">&nbsp;
@@ -541,7 +543,7 @@
 
                                     <div id="reply31collapse" class="collapse" role="tabpanel" aria-labelledby="reply31" data-parent="#iter31">
                                         <br>
-                                        <div id="iter311" class="col-sm-12" role="tablist">
+                                        <div id="iter311" class="col-12" role="tablist">
                                             <div class="card">
                                                 <div class="card-body">
                                                     <p>Reply 311</p>
@@ -550,7 +552,7 @@
 
                                                         &nbsp;
                                                         <span class="badge badge-pill badge-warning">5 star</span>
-                                                        <a onclick="openNav()" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
+                                                        <a onclick="openNav(this.id)" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
 
 
                                                         <a href="#" class="badge badge-danger">&nbsp;
@@ -567,7 +569,7 @@
 
                                                         &nbsp;
                                                         <span class="badge badge-pill badge-warning">5 star</span>
-                                                        <a onclick="openNav()" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
+                                                        <a onclick="openNav(this.id)" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
 
 
                                                         <a href="#" class="badge badge-danger">&nbsp;
@@ -588,7 +590,7 @@
 
                                             &nbsp;
                                             <span class="badge badge-pill badge-warning">5 star</span>
-                                            <a onclick="openNav()" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
+                                            <a onclick="openNav(this.id)" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
 
 
                                             <a href="#" class="badge badge-danger">&nbsp;
@@ -602,7 +604,7 @@
 
                                     <div id="reply32collapse" class="collapse" role="tabpanel" aria-labelledby="reply32" data-parent="#iter31">
                                         <br>
-                                        <div id="iter311" class="col-sm-12" role="tablist">
+                                        <div id="iter311" class="col-12" role="tablist">
                                             <div class="card">
                                                 <div class="card-body">
                                                     <p>Reply 321</p>
@@ -610,7 +612,7 @@
                                                     <div style="float: right; margin-bottom: -10px; margin-right: -10px;">
                                                         &nbsp;
                                                         <span class="badge badge-pill badge-warning">5 star</span>
-                                                        <a onclick="openNav()" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
+                                                        <a onclick="openNav(this.id)" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
 
 
                                                         <a href="#" class="badge badge-danger">&nbsp;
@@ -626,7 +628,7 @@
                                                     <div style="float: right; margin-bottom: -10px; margin-right: -10px;">
                                                         &nbsp;
                                                         <span class="badge badge-pill badge-warning">5 star</span>
-                                                        <a onclick="openNav()" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
+                                                        <a onclick="openNav(this.id)" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
 
                                                         <a href="#" class="badge badge-danger">&nbsp;
                                                             <span class="oi oi-flag"></span>&nbsp;</a>
@@ -642,11 +644,11 @@
                         </div>
                     </div>
                     <br>
-                </div>
+                </div> -->
                 <br>
             </div>
 
-            <div id="parent" class="col-lg-4">
+            <div id="parent" class="col-4">
                 <div id="relatedlinks" class="card">
                     <div class="card-body">
                         <div class="card-header text-center" style="background: blue; color: white;">
@@ -654,60 +656,60 @@
                         </div>
                         <br>
                         <div class="row">
-                            <div class="col-md-1">
+                            <div class="col-1">
                                 <small>
                                     <span class="oi oi-pencil"></span>
                                 </small>
                             </div>
-                            <div class=" col-md-11" style="padding-left: 0px">
+                            <div class=" col-11" style="padding-left: 0px">
                                 Some bullshit that this guy posted some time ago on this stupid category.
                             </div>
 
                         </div>
                         <br>
                         <div class="row">
-                            <div class="col-md-1">
+                            <div class="col-1">
                                 <small>
                                     <span class="oi oi-pencil"></span>
                                 </small>
                             </div>
-                            <div class=" col-md-11" style="padding-left: 0px">
+                            <div class=" col-11" style="padding-left: 0px">
                                 Some bullshit that this guy posted some time ago on this stupid category.
                             </div>
 
                         </div>
                         <br>
                         <div class="row">
-                            <div class="col-md-1">
+                            <div class="col-1">
                                 <small>
                                     <span class="oi oi-pencil"></span>
                                 </small>
                             </div>
-                            <div class=" col-md-11" style="padding-left: 0px">
+                            <div class=" col-11" style="padding-left: 0px">
                                 Some bullshit that this guy posted some time ago on this stupid category.
                             </div>
 
                         </div>
                         <br>
                         <div class="row">
-                            <div class="col-md-1">
+                            <div class="col-1">
                                 <small>
                                     <span class="oi oi-pencil"></span>
                                 </small>
                             </div>
-                            <div class=" col-md-11" style="padding-left: 0px">
+                            <div class=" col-11" style="padding-left: 0px">
                                 Some bullshit that this guy posted some time ago on this stupid category.
                             </div>
 
                         </div>
                         <br>
                         <div class="row">
-                            <div class="col-md-1">
+                            <div class="col-1">
                                 <small>
                                     <span class="oi oi-pencil"></span>
                                 </small>
                             </div>
-                            <div class=" col-md-11" style="padding-left: 0px">
+                            <div class=" col-11" style="padding-left: 0px">
                                 Some bullshit that this guy posted some time ago on this stupid category.
                             </div>
 
@@ -728,7 +730,7 @@
         }
     </script>
     <!-- <script>
-        function openNav() {
+        function openNav(this.id) {
             document.getElementById("mySidenav").style.display = "block";
             document.getElementById("mySidenav").style.height = "33.5%";
         }
@@ -744,6 +746,36 @@
             elem[i].innerHTML = '<div class="rw-ui-container" data-title="my' + i + ' awesome rating""></div>';
         }
     </script>
+    <script>
+        function getCookie(cname) {
+            var name = cname + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        function checkCookie() {
+
+            if (getCookie("userName") == "") {
+                document.getElementById('action').src = "/res/login.png";
+            }
+            else {
+                var element = document.getElementById("lol");
+                element.parentNode.removeChild(element);
+                document.getElementById("logout").style.display = "inline-block";
+
+            }
+        }
+    </script>
 
     <div id="mySidenav" class="sidenav">
 
@@ -754,10 +786,8 @@
             </div>
             <div class="card-body">
                 <textarea id="reply" style="width:100%; height:99px"></textarea>
-                <a href="https://dl2.pushbulletusercontent.com/fPOlswMT3IsBOLGbmkhMn5xUvMfwjcKl/post.html#" class="btn btn-primary btn-sm"
-                    style="display:inline-block" onclick="AddReply()">Add Reply</a>
-                <a href="https://dl2.pushbulletusercontent.com/fPOlswMT3IsBOLGbmkhMn5xUvMfwjcKl/post.html#" class="btn btn-secondary btn-sm"
-                    style="display:inline-block">Cancel</a>
+                <a id="replyButt" class="btn btn-primary btn-sm" style="display:inline-block" onclick="AddReply()">Add Reply</a>
+                <a class="btn btn-secondary btn-sm" style="display:inline-block" onclick="closeNav()">Cancel</a>
             </div>
         </div>
     </div>
