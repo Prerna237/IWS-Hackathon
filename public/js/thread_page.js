@@ -20,7 +20,7 @@ $(document).ready(function () {
     console.log("Got username: " + userName);
     if (document.cookie) {
         $.ajax{
-            url: '/threads/{category}',
+            url: '/thread/:id',
             type: 'GET',
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
