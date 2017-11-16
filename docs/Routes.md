@@ -115,7 +115,7 @@ Route details for http calls
 + Example JSON data (All fields are compulsory)
 ```javascript
 {
-    "replyToID": "ID of post this is a reply to or '0' if reply to main Thread",
+    "replyToID": "ID of reply this is a reply to or '0' if reply to main Thread",
     "userName": "Author's username",
     "text": "Text content of Reply"
 }

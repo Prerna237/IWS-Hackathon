@@ -7,6 +7,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
+var pageHandlers = require('./lib/handles');
 
 var _Emitter = require('./lib/EventEmitter');
 
@@ -75,7 +76,10 @@ app.use(function (err, req, res, next) {
 
     // render the error page
     res.status(err.status || 500);
-    res.render('error');
+    // res.render('error');
+    res.end(pageHandlers.errorPage({
+        status: err.status
+    }));
 });
 
 module.exports = app;
