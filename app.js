@@ -48,6 +48,7 @@ app.use('/', (req, res, next) => {
         // res.setHeader("userName", req.session.userName);
         console.log('Cookie set.');
         res.cookie("userName", req.session.userName);
+        res.cookie("interests", req.session.interests);
     } else {
         res.clearCookie('userName');
     }

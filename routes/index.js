@@ -119,6 +119,7 @@ router.get('/thread/:id', (req, res) => {
 
 router.get('/categorywise', (req, res) => {
     if (req.session.moderator) {
+        // console.log('Sending Moderator Page');
         res.end(pageHandlers.categoryModeratorPage());
     }
     res.end(pageHandlers.categoryPage());

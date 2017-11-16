@@ -27,7 +27,8 @@ router.use('/signup', (req, res) => {
         res.end("Error");
       } else {
         req.session.userName = req.body.userName;
-        
+        req.session.moderator = false;
+        req.session.interests = req.body.interests;
         res.redirect('/profile');
       }
     });
@@ -53,6 +54,8 @@ router.use('/login', function (req, res, next) {
       if (status === _EVENTS.USER_ADD_SUCCESS) {
         req.session.userName = userDetails.userName;
         req.session.moderator = (user.profile_type === 'moderator');
+        req.session.interests = user.interests;
+        // console.log('UserName: ' + req.session.userName + " type: " + req.session.moderator);
         console.log("User Authentication successful: " + req.body.samePage);
         if (req.body.samePage) {
           console.log("In SamePage");
