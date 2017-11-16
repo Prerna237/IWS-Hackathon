@@ -169,4 +169,16 @@ router.get('/threadsByStars/:userName', (req, res) => {
     })
 })
 
+// Analytics page
+
+router.use('/analytics', (req, res, next) => {
+    if (req.session.moderator) {
+        // Need to fill object
+        res.end(pageHandlers.analyticsPage({}));
+    }
+    res.end(pageHandlers.errorPage({
+        status: 404
+    }));
+});
+
 module.exports = router;
