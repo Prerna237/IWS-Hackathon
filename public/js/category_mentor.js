@@ -1,4 +1,54 @@
 $(document).ready(function () {
+  $.ajax({
+    url: '/threadsByCategory/Category1',
+
+    contentType: 'application/json; charset=utf-8',
+    dataType: 'json',
+    async: true,
+    success: function (data) {
+      //some code;
+      document.categories = data;
+      $("#table").find("tr:gt(0)").remove();
+      var data = "";
+      $.each(document.categories, function (i, item) {
+        data += '<tr><th scope="row">Category1</th><td><a class="threadclick" id="' + item.id + '">Why are mobiles black? Are they good?</a></td><td><a class="user" id="'+item.userName+'"><canvas class="demo" title="' + item.userName + '"alt="Pranjal" style="width:34px; height:34px; margin:-12px 10px; border-radius:50%;"></canvas></a></td><td>' + item.numReplies + '</td><td>' + item.views + '</td><td><span class="badge badge-primary"><span class="oi oi-star"></span>'+item.rating+'</span></td><td>5</td><td><input type="button" id="del'+item.id+'" class="btn btn-danger btn-sm" value="Delete"></input></td></tr>';
+
+      });
+      $('#table').append(data);
+      $('a.threadclick').click(function () {
+        var id = $(this).attr('id');
+        alert(id);
+        window.location = '/thread/' + id;
+      });
+      $('a.user').click(function () {
+        var title = $(this).attr('id');
+        window.location="users/profile/"+title;
+      });
+      $('input[type="button"]').click(function(e){
+      var id=$(this).attr("id");
+      var suffix = id.match(/\d+/);
+      alert(suffix);
+
+       $(this).closest('tr').remove()
+
+    });
+        $(".demo").letterpic();
+    },
+    type: 'GET'
+  });
+
+  function predicateBy(prop){
+	return function(a,b){
+      if( a[prop] > b[prop]){
+          return -1;
+      }else if( a[prop] < b[prop] ){
+          return 1;
+      }
+      return 0;
+    }
+  }
+  $(".demo").letterpic();
+
   $('#dd .dropdown-item').click(function () {
     document.retval = $(this).text();
   });
@@ -22,6 +72,11 @@ $(document).ready(function () {
       }
     });
   });
+  $('a.threadclick').click(function () {
+    var id = $(this).attr('id');
+    alert(id);
+    window.location = '/thread/' + id;
+  });
 
   $('#ddd .dropdown-item').click(function () {
     cat = $(this).text();
@@ -39,20 +94,127 @@ $(document).ready(function () {
         $("#table").find("tr:gt(0)").remove();
         var data = "";
         $.each(document.categories, function (i, item) {
-          data += '<tr><th scope="row">' + document.cat + '</th> <td>' + item.title + '</td> <td><img src="Pranjal.jpeg" class="rounded-circle" alt="' + item.userName + '" width="30" height="30"> </td><td>' + item.UID + '</td><td>13</td><td><span class="badge badge-primary"><span class="oi oi-star"></span> Star</span></td></tr>';
+          data += '<tr><th scope="row">Category1</th><td><a class="threadclick" id="' + item.id + '">Why are mobiles black? Are they good?</a></td><td><a class="user" id="'+item.userName+'"><canvas class="demo" title="' + item.userName + '"alt="Pranjal" style="width:34px; height:34px; margin:-12px 10px; border-radius:50%;"></canvas></a></td><td>' + item.numReplies + '</td><td>' + item.views + '</td><td><span class="badge badge-primary"><span class="oi oi-star"></span>'+item.rating+'</span></td><td>5</td><td><input type="button" id="del'+item.id+'" class="btn btn-danger btn-sm" value="Delete"></input></td></tr>';
         });
         $('#table').append(data);
+        $('a.threadclick').click(function () {
+          var id = $(this).attr('id');
+          alert(id);
+          window.location = '/thread/' + id;
+        });
+        $('a.user').click(function () {
+          var title = $(this).attr('id');
+          window.location = "users/profile/" + title;
+        });
+        $('input[type="button"]').click(function(e){
+        var id=$(this).attr("id");
+        var suffix = id.match(/\d+/);
+        alert(suffix);
+
+         $(this).closest('tr').remove()
+
+      });
+        $(".demo").letterpic();
       },
       type: 'GET'
     });
+  });
 
+  $('#top').click(function () {
+
+    document.categories.sort(predicateBy("views"));
+    $("#table").find("tr:gt(0)").remove();
+    var data = "";
+    $.each(document.categories, function (i, item) {
+      data += '<tr><th scope="row">Category1</th><td><a class="threadclick" id="' + item.id + '">Why are mobiles black? Are they good?</a></td><td><a class="user" id="'+item.userName+'"><canvas class="demo" title="' + item.userName + '"alt="Pranjal" style="width:34px; height:34px; margin:-12px 10px; border-radius:50%;"></canvas></a></td><td>' + item.numReplies + '</td><td>' + item.views + '</td><td><span class="badge badge-primary"><span class="oi oi-star"></span>'+item.rating+'</span></td><td>5</td><td><input type="button" id="del'+item.id+'" class="btn btn-danger btn-sm" value="Delete"></input></td></tr>';
+
+    });
+    $('#table').append(data);
+    $('a.threadclick').click(function () {
+      var id = $(this).attr('id');
+      alert(id);
+      window.location = '/thread/' + id;
+    });
+    $('a.user').click(function () {
+      var title = $(this).attr('id');
+      alert(title);
+      window.location = "users/profile/" + title;
+    });
+    $('input[type="button"]').click(function(e){
+    var id=$(this).attr("id");
+    var suffix = id.match(/\d+/);
+    alert(suffix);
+
+     $(this).closest('tr').remove()
+
+  });
+    $(".demo").letterpic();
 
   });
 
-  $('a.threadclick').click(function () {
-    var id = $(this).attr('id');
-    alert(id);
-    window.location = '/thread/' + id;
+  $('#mypost').click(function () {
+
+    $("#table").find("tr:gt(0)").remove();
+    var data = "";
+    $.each(document.categories, function (i, item) {
+      if (item.userName == Cookies.get('userName')) {
+      data += '<tr><th scope="row">Category1</th><td><a class="threadclick" id="' + item.id + '">Why are mobiles black? Are they good?</a></td><td><a class="user" id="'+item.userName+'"><canvas class="demo" title="' + item.userName + '"alt="Pranjal" style="width:34px; height:34px; margin:-12px 10px; border-radius:50%;"></canvas></a></td><td>' + item.numReplies + '</td><td>' + item.views + '</td><td><span class="badge badge-primary"><span class="oi oi-star"></span>'+item.rating+'</span></td><td>5</td><td><input type="button" id="del'+item.id+'" class="btn btn-danger btn-sm" value="Delete"></input></td></tr>';
+
+    }});
+
+    $('#table').append(data);
+    $('a.threadclick').click(function () {
+      var id = $(this).attr('id');
+      alert(id);
+      window.location = '/thread/' + id;
+    });
+    $('a.user').click(function () {
+      var title = $(this).attr('id');
+      alert(title);
+      window.location = "users/profile/" + title;
+    });
+    $('input[type="button"]').click(function(e){
+    var id=$(this).attr("id");
+    var suffix = id.match(/\d+/);
+    alert(suffix);
+
+     $(this).closest('tr').remove()
+
+  });
+    $(".demo").letterpic();
+
+  });
+
+  $('#latest').click(function () {
+
+    document.categories.sort(predicateBy("date"));
+    $("#table").find("tr:gt(0)").remove();
+    var data = "";
+    $.each(document.categories, function (i, item) {
+      data += '<tr><th scope="row">Category1</th><td><a class="threadclick" id="' + item.id + '">Why are mobiles black? Are they good?</a></td><td><a class="user" id="'+item.userName+'"><canvas class="demo" title="' + item.userName + '"alt="Pranjal" style="width:34px; height:34px; margin:-12px 10px; border-radius:50%;"></canvas></a></td><td>' + item.numReplies + '</td><td>' + item.views + '</td><td><span class="badge badge-primary"><span class="oi oi-star"></span>'+item.rating+'</span></td><td>5</td><td><input type="button" id="del'+item.id+'" class="btn btn-danger btn-sm" value="Delete"></input></td></tr>';
+
+    });
+    $('#table').append(data);
+    $('a.threadclick').click(function () {
+      var id = $(this).attr('id');
+      alert(id);
+      window.location = '/thread/' + id;
+    });
+    $('a.user').click(function () {
+      var title = $(this).attr('id');
+      alert(title);
+      window.location = "users/profile/" + title;
+    });
+    $('input[type="button"]').click(function(e){
+    var id=$(this).attr("id");
+    var suffix = id.match(/\d+/);
+    alert(suffix);
+
+     $(this).closest('tr').remove()
+
+  });
+    $(".demo").letterpic();
+
   });
 
   $('input[type="button"]').click(function(e){
@@ -62,6 +224,6 @@ $(document).ready(function () {
 
    $(this).closest('tr').remove()
 
-})
+});
 
 });
