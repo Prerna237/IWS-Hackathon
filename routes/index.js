@@ -204,7 +204,10 @@ router.get('/threadsByStars/:userName', (req, res) => {
 router.use('/analytics', (req, res, next) => {
     if (req.session.moderator) {
         // Need to fill object
-        res.end(pageHandlers.analyticsPage({}));
+        // res.end(pageHandlers.analyticsPage({}));
+        db.getCategoryAnalytics((details) => {
+            res.end(pageHandlers.analyticsPage(details));
+        });
     }
     res.end(pageHandlers.errorPage({
         status: 404
