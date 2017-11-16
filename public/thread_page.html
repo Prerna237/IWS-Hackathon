@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html>
+
 <head>
     <title>User Post</title>
     <!-- meta tags -->
@@ -8,63 +9,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap files -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <link rel="stylesheet" href="open-iconic/font/css/open-iconic-bootstrap.css">
-    <link rel="stylesheet" href="stylesheets/this.css">
-    <link rel="stylesheet" href="stylesheets/post_cat.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="/open-iconic/font/css/open-iconic-bootstrap.css">
+    <link rel="stylesheet" href="/stylesheets/this.css">
+    <link rel="stylesheet" href="/stylesheets/post_cat.css">
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="js/starrating.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/js/starrating.js"></script>
     <!-- <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
     <script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script> -->
-    <script type="text/javascript">(function(d, t, e, m){
+    <script type="text/javascript">
+        (function (d, t, e, m) {
 
-    // Async Rating-Widget initialization.
-    window.RW_Async_Init = function(){
+            // Async Rating-Widget initialization.
+            window.RW_Async_Init = function () {
 
-        RW.init({
-            huid: "381081",
-            uid: "54fb0be2a925ffb881dbeca0d908b038",
-            source: "website",
-            options: {
-                "size": "tiny",
-                "style": "oxygen",
-                "isDummy": false
-            }
-        });
-        RW.render();
-    };
-        // Append Rating-Widget JavaScript library.
-    var rw, s = d.getElementsByTagName(e)[0], id = "rw-js",
-        l = d.location, ck = "Y" + t.getFullYear() +
-        "M" + t.getMonth() + "D" + t.getDate(), p = l.protocol,
-        f = ((l.search.indexOf("DBG=") > -1) ? "" : ".min"),
-        a = ("https:" == p ? "secure." + m + "js/" : "js." + m);
-    if (d.getElementById(id)) return;
-    rw = d.createElement(e);
-    rw.id = id; rw.async = true; rw.type = "text/javascript";
-    rw.src = p + "//" + a + "external" + f + ".js?ck=" + ck;
-    s.parentNode.insertBefore(rw, s);
-    }(document, new Date(), "script", "rating-widget.com/"));</script>
+                RW.init({
+                    huid: "381081",
+                    uid: "54fb0be2a925ffb881dbeca0d908b038",
+                    source: "website",
+                    options: {
+                        "size": "tiny",
+                        "style": "oxygen",
+                        "isDummy": false
+                    }
+                });
+                RW.render();
+            };
+            // Append Rating-Widget JavaScript library.
+            var rw, s = d.getElementsByTagName(e)[0],
+                id = "rw-js",
+                l = d.location,
+                ck = "Y" + t.getFullYear() +
+                "M" + t.getMonth() + "D" + t.getDate(),
+                p = l.protocol,
+                f = ((l.search.indexOf("DBG=") > -1) ? "" : ".min"),
+                a = ("https:" == p ? "secure." + m + "js/" : "js." + m);
+            if (d.getElementById(id)) return;
+            rw = d.createElement(e);
+            rw.id = id;
+            rw.async = true;
+            rw.type = "text/javascript";
+            rw.src = p + "//" + a + "external" + f + ".js?ck=" + ck;
+            s.parentNode.insertBefore(rw, s);
+        }(document, new Date(), "script", "rating-widget.com/"));
+    </script>
 </head>
 
 <body>
 
     <!-- navigation bar -->
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark" style="padding:0px 10px;">
-        <a class="navbar-brand" href="#"><b>Community</b>Forum</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="#">
+            <b>Community</b>Forum</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Browse</a>
@@ -73,7 +89,8 @@
             <div style="float:left">
 
 
-                <a style="cursor: pointer; color: white;" data-toggle="modal" data-target="#signinmodal"><img src="res/login.png" class="" alt="Cinque Terre" width="25" height="25">&nbsp;</a>
+                <a style="cursor: pointer; color: white;" data-toggle="modal" data-target="#signinmodal">
+                    <img src="res/login.png" class="" alt="Cinque Terre" width="25" height="25">&nbsp;</a>
 
                 <img src="Pranjal.jpeg" class="rounded-circle" alt="Cinque Terre" width="30" height="30">
             </div>
@@ -114,7 +131,9 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <span class="mr-auto">Not a member yet?&nbsp;<a href="#">Register Here</a></span>
+                    <span class="mr-auto">Not a member yet?&nbsp;
+                        <a href="#">Register Here</a>
+                    </span>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                     <button type="submit" class="btn btn-primary">Login</button>
                 </div>
@@ -131,25 +150,31 @@
             <div class="card-header">
                 <div style="float:left">
                     <img src="profilephoto.jpg" class="rounded-circle" alt="Samarjoy Pandit" width="30" height="30">
-                    <b>{{author}}</b>&nbsp;<span class="badge badge-pill badge-primary">{{userRating}} star</span>
+                    <b>{{author}}</b>&nbsp;
+                    <span class="badge badge-pill badge-primary">{{userRating}} star</span>
                 </div>
                 <div style="float:right">
-                    Replies&nbsp;<span class="badge badge-secondary" style="margin-right:10px">{{numReplies}}</span>
-                    Stars&nbsp;<span class="badge badge-secondary">{{threadRating}}</span>
+                    Replies&nbsp;
+                    <span class="badge badge-secondary" style="margin-right:10px">{{numReplies}}</span>
+                    Stars&nbsp;
+                    <span class="badge badge-secondary">{{threadRating}}</span>
                 </div>
             </div>
             <div class="card-body thread">
                 <div style="float:left">
-                    <p style="float:left;font-weight:bold">{{title}}</p><br>
+                    <p style="float:left;font-weight:bold">{{title}}</p>
+                    <br>
                     <p style="float:left">{{desc}}</p>
                 </div>
             </div>
             <div class="card-footer text-muted" style="height: 40px !important;">
                 <div class="starrate" style="float: left !important;"></div>
                 <div style="float: right;">
-                    &nbsp;<span class="badge badge-pill badge-warning">5 star</span>
+                    &nbsp;
+                    <span class="badge badge-pill badge-warning">5 star</span>
                     <a onclick="openNav()" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
-                    <a href="#" class="badge badge-danger">&nbsp;<span class="oi oi-flag"></span>&nbsp;</a>
+                    <a href="#" class="badge badge-danger">&nbsp;
+                        <span class="oi oi-flag"></span>&nbsp;</a>
                 </div>
             </div>
 
@@ -160,16 +185,27 @@
                 <div id="iter1" class="col-md-12" style="padding-left: 0" role="tablist">
                     <div id="r1" class="card">
                         <div class="card-body">
-                            <img src="profilephoto.jpg" class="rounded-circle" alt="Samarjoy Pandit" width="30" height="30">&nbsp;&nbsp;<b>Samarjoy Pandit</b><br><br>
-                            <p>Speculative fiction is an umbrella genre encompassing narrative fiction with supernatural or futuristic elements.[1] This includes the genres science fiction, fantasy, superhero fiction, science fantasy, horror and supernatural fiction, as well as their combinations.[2] The broader usage of the term is attributed to Robert Heinlein, who referenced it in 1947 in an editorial essay, although there are prior mentions of speculative fiction or its variant "speculative literature".</p>
+                            <img src="profilephoto.jpg" class="rounded-circle" alt="Samarjoy Pandit" width="30" height="30">&nbsp;&nbsp;
+                            <b>Samarjoy Pandit</b>
+                            <br>
+                            <br>
+                            <p>Speculative fiction is an umbrella genre encompassing narrative fiction with supernatural or
+                                futuristic elements.[1] This includes the genres science fiction, fantasy, superhero fiction,
+                                science fantasy, horror and supernatural fiction, as well as their combinations.[2] The broader
+                                usage of the term is attributed to Robert Heinlein, who referenced it in 1947 in an editorial
+                                essay, although there are prior mentions of speculative fiction or its variant "speculative
+                                literature".
+                            </p>
                             <div class="starrate" style="float: left; margin-bottom: -20px;"></div>
                             <div style="float: right; margin-bottom: -10px; margin-right: -10px;">
 
-                                &nbsp;<span class="badge badge-pill badge-warning">5 star</span>
+                                &nbsp;
+                                <span class="badge badge-pill badge-warning">5 star</span>
                                 <a onclick="openNav()" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
 
 
-                                <a href="#" class="badge badge-danger">&nbsp;<span class="oi oi-flag"></span>&nbsp;</a>
+                                <a href="#" class="badge badge-danger">&nbsp;
+                                    <span class="oi oi-flag"></span>&nbsp;</a>
                             </div>
                         </div>
 
@@ -186,11 +222,13 @@
                                         <div class="starrate" style="float: left; margin-bottom: -20px;"></div>
                                         <div style="float: right; margin-bottom: -10px; margin-right: -10px;">
 
-                                            &nbsp;<span class="badge badge-pill badge-warning">5 star</span>
+                                            &nbsp;
+                                            <span class="badge badge-pill badge-warning">5 star</span>
                                             <a onclick="openNav()" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
 
 
-                                            <a href="#" class="badge badge-danger">&nbsp;<span class="oi oi-flag"></span>&nbsp;</a>
+                                            <a href="#" class="badge badge-danger">&nbsp;
+                                                <span class="oi oi-flag"></span>&nbsp;</a>
                                         </div>
                                     </div>
 
@@ -207,11 +245,13 @@
                                                     <div class="starrate" style="float: left; margin-bottom: -20px;"></div>
                                                     <div style="float: right; margin-bottom: -10px; margin-right: -10px;">
 
-                                                        &nbsp;<span class="badge badge-pill badge-warning">5 star</span>
+                                                        &nbsp;
+                                                        <span class="badge badge-pill badge-warning">5 star</span>
                                                         <a onclick="openNav()" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
 
 
-                                                        <a href="#" class="badge badge-danger">&nbsp;<span class="oi oi-flag"></span>&nbsp;</a>
+                                                        <a href="#" class="badge badge-danger">&nbsp;
+                                                            <span class="oi oi-flag"></span>&nbsp;</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -222,11 +262,13 @@
                                                     <div class="starrate" style="float: left; margin-bottom: -20px;"></div>
                                                     <div style="float: right; margin-bottom: -10px; margin-right: -10px;">
 
-                                                        &nbsp;<span class="badge badge-pill badge-warning">5 star</span>
+                                                        &nbsp;
+                                                        <span class="badge badge-pill badge-warning">5 star</span>
                                                         <a onclick="openNav()" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
 
 
-                                                        <a href="#" class="badge badge-danger">&nbsp;<span class="oi oi-flag"></span>&nbsp;</a>
+                                                        <a href="#" class="badge badge-danger">&nbsp;
+                                                            <span class="oi oi-flag"></span>&nbsp;</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -241,11 +283,13 @@
                                         <div class="starrate" style="float: left; margin-bottom: -20px;"></div>
                                         <div style="float: right; margin-bottom: -10px; margin-right: -10px;">
 
-                                            &nbsp;<span class="badge badge-pill badge-warning">5 star</span>
+                                            &nbsp;
+                                            <span class="badge badge-pill badge-warning">5 star</span>
                                             <a onclick="openNav()" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
 
 
-                                            <a href="#" class="badge badge-danger">&nbsp;<span class="oi oi-flag"></span>&nbsp;</a>
+                                            <a href="#" class="badge badge-danger">&nbsp;
+                                                <span class="oi oi-flag"></span>&nbsp;</a>
                                         </div>
                                     </div>
 
@@ -262,26 +306,31 @@
                                                     <div class="starrate" style="float: left; margin-bottom: -20px;"></div>
                                                     <div style="float: right; margin-bottom: -10px; margin-right: -10px;">
 
-                                                        &nbsp;<span class="badge badge-pill badge-warning">5 star</span>
+                                                        &nbsp;
+                                                        <span class="badge badge-pill badge-warning">5 star</span>
                                                         <a onclick="openNav()" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
 
 
-                                                        <a href="#" class="badge badge-danger">&nbsp;<span class="oi oi-flag"></span>&nbsp;</a>
+                                                        <a href="#" class="badge badge-danger">&nbsp;
+                                                            <span class="oi oi-flag"></span>&nbsp;</a>
                                                     </div>
                                                 </div>
                                             </div>
                                             <br>
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <p>Is Christianity seen as exotic in Asia, just like Asian religions are seen as cool and exotic in Western countries?</p>
+                                                    <p>Is Christianity seen as exotic in Asia, just like Asian religions are
+                                                        seen as cool and exotic in Western countries?</p>
                                                     <div class="starrate" style="float: left; margin-bottom: -20px;"></div>
                                                     <div style="float: right; margin-bottom: -10px; margin-right: -10px;">
 
-                                                        &nbsp;<span class="badge badge-pill badge-warning">5 star</span>
+                                                        &nbsp;
+                                                        <span class="badge badge-pill badge-warning">5 star</span>
                                                         <a onclick="openNav()" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
 
 
-                                                        <a href="#" class="badge badge-danger">&nbsp;<span class="oi oi-flag"></span>&nbsp;</a>
+                                                        <a href="#" class="badge badge-danger">&nbsp;
+                                                            <span class="oi oi-flag"></span>&nbsp;</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -303,11 +352,13 @@
                             <div class="starrate" style="float: left; margin-bottom: -20px;"></div>
                             <div style="float: right; margin-bottom: -10px; margin-right: -10px;">
 
-                                &nbsp;<span class="badge badge-pill badge-warning">5 star</span>
+                                &nbsp;
+                                <span class="badge badge-pill badge-warning">5 star</span>
                                 <a onclick="openNav()" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
 
 
-                                <a href="#" class="badge badge-danger">&nbsp;<span class="oi oi-flag"></span>&nbsp;</a>
+                                <a href="#" class="badge badge-danger">&nbsp;
+                                    <span class="oi oi-flag"></span>&nbsp;</a>
                             </div>
                         </div>
 
@@ -324,11 +375,13 @@
                                         <div class="starrate" style="float: left; margin-bottom: -20px;"></div>
                                         <div style="float: right; margin-bottom: -10px; margin-right: -10px;">
 
-                                            &nbsp;<span class="badge badge-pill badge-warning">5 star</span>
+                                            &nbsp;
+                                            <span class="badge badge-pill badge-warning">5 star</span>
                                             <a onclick="openNav()" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
 
 
-                                            <a href="#" class="badge badge-danger">&nbsp;<span class="oi oi-flag"></span>&nbsp;</a>
+                                            <a href="#" class="badge badge-danger">&nbsp;
+                                                <span class="oi oi-flag"></span>&nbsp;</a>
                                         </div>
                                     </div>
 
@@ -345,11 +398,13 @@
                                                     <div class="starrate" style="float: left; margin-bottom: -20px;"></div>
                                                     <div style="float: right; margin-bottom: -10px; margin-right: -10px;">
 
-                                                        &nbsp;<span class="badge badge-pill badge-warning">5 star</span>
+                                                        &nbsp;
+                                                        <span class="badge badge-pill badge-warning">5 star</span>
                                                         <a onclick="openNav()" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
 
 
-                                                        <a href="#" class="badge badge-danger">&nbsp;<span class="oi oi-flag"></span>&nbsp;</a>
+                                                        <a href="#" class="badge badge-danger">&nbsp;
+                                                            <span class="oi oi-flag"></span>&nbsp;</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -360,11 +415,13 @@
                                                     <div class="starrate" style="float: left; margin-bottom: -20px;"></div>
                                                     <div style="float: right; margin-bottom: -10px; margin-right: -10px;">
 
-                                                        &nbsp;<span class="badge badge-pill badge-warning">5 star</span>
+                                                        &nbsp;
+                                                        <span class="badge badge-pill badge-warning">5 star</span>
                                                         <a onclick="openNav()" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
 
 
-                                                        <a href="#" class="badge badge-danger">&nbsp;<span class="oi oi-flag"></span>&nbsp;</a>
+                                                        <a href="#" class="badge badge-danger">&nbsp;
+                                                            <span class="oi oi-flag"></span>&nbsp;</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -379,11 +436,13 @@
                                         <div class="starrate" style="float: left; margin-bottom: -20px;"></div>
                                         <div style="float: right; margin-bottom: -10px; margin-right: -10px;">
 
-                                            &nbsp;<span class="badge badge-pill badge-warning">5 star</span>
+                                            &nbsp;
+                                            <span class="badge badge-pill badge-warning">5 star</span>
                                             <a onclick="openNav()" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
 
 
-                                            <a href="#" class="badge badge-danger">&nbsp;<span class="oi oi-flag"></span>&nbsp;</a>
+                                            <a href="#" class="badge badge-danger">&nbsp;
+                                                <span class="oi oi-flag"></span>&nbsp;</a>
                                         </div>
                                     </div>
 
@@ -400,11 +459,13 @@
                                                     <div class="starrate" style="float: left; margin-bottom: -20px;"></div>
                                                     <div style="float: right; margin-bottom: -10px; margin-right: -10px;">
 
-                                                        &nbsp;<span class="badge badge-pill badge-warning">5 star</span>
+                                                        &nbsp;
+                                                        <span class="badge badge-pill badge-warning">5 star</span>
                                                         <a onclick="openNav()" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
 
 
-                                                        <a href="#" class="badge badge-danger">&nbsp;<span class="oi oi-flag"></span>&nbsp;</a>
+                                                        <a href="#" class="badge badge-danger">&nbsp;
+                                                            <span class="oi oi-flag"></span>&nbsp;</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -415,11 +476,13 @@
                                                     <div class="starrate" style="float: left; margin-bottom: -20px;"></div>
                                                     <div style="float: right; margin-bottom: -10px; margin-right: -10px;">
 
-                                                        &nbsp;<span class="badge badge-pill badge-warning">5 star</span>
+                                                        &nbsp;
+                                                        <span class="badge badge-pill badge-warning">5 star</span>
                                                         <a onclick="openNav()" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
 
 
-                                                        <a href="#" class="badge badge-danger">&nbsp;<span class="oi oi-flag"></span>&nbsp;</a>
+                                                        <a href="#" class="badge badge-danger">&nbsp;
+                                                            <span class="oi oi-flag"></span>&nbsp;</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -440,11 +503,13 @@
                             <div class="starrate" style="float: left; margin-bottom: -20px;"></div>
                             <div style="float: right; margin-bottom: -10px; margin-right: -10px;">
 
-                                &nbsp;<span class="badge badge-pill badge-warning">5 star</span>
+                                &nbsp;
+                                <span class="badge badge-pill badge-warning">5 star</span>
                                 <a onclick="openNav()" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
 
 
-                                <a href="#" class="badge badge-danger">&nbsp;<span class="oi oi-flag"></span>&nbsp;</a>
+                                <a href="#" class="badge badge-danger">&nbsp;
+                                    <span class="oi oi-flag"></span>&nbsp;</a>
                             </div>
                         </div>
 
@@ -461,11 +526,13 @@
                                         <div class="starrate" style="float: left; margin-bottom: -20px;"></div>
                                         <div style="float: right; margin-bottom: -10px; margin-right: -10px;">
 
-                                            &nbsp;<span class="badge badge-pill badge-warning">5 star</span>
+                                            &nbsp;
+                                            <span class="badge badge-pill badge-warning">5 star</span>
                                             <a onclick="openNav()" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
 
 
-                                            <a href="#" class="badge badge-danger">&nbsp;<span class="oi oi-flag"></span>&nbsp;</a>
+                                            <a href="#" class="badge badge-danger">&nbsp;
+                                                <span class="oi oi-flag"></span>&nbsp;</a>
                                         </div>
                                     </div>
 
@@ -482,11 +549,13 @@
                                                     <div class="starrate" style="float: left; margin-bottom: -20px;"></div>
                                                     <div style="float: right; margin-bottom: -10px; margin-right: -10px;">
 
-                                                        &nbsp;<span class="badge badge-pill badge-warning">5 star</span>
+                                                        &nbsp;
+                                                        <span class="badge badge-pill badge-warning">5 star</span>
                                                         <a onclick="openNav()" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
 
 
-                                                        <a href="#" class="badge badge-danger">&nbsp;<span class="oi oi-flag"></span>&nbsp;</a>
+                                                        <a href="#" class="badge badge-danger">&nbsp;
+                                                            <span class="oi oi-flag"></span>&nbsp;</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -497,11 +566,13 @@
                                                     <div class="starrate" style="float: left; margin-bottom: -20px;"></div>
                                                     <div style="float: right; margin-bottom: -10px; margin-right: -10px;">
 
-                                                        &nbsp;<span class="badge badge-pill badge-warning">5 star</span>
+                                                        &nbsp;
+                                                        <span class="badge badge-pill badge-warning">5 star</span>
                                                         <a onclick="openNav()" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
 
 
-                                                        <a href="#" class="badge badge-danger">&nbsp;<span class="oi oi-flag"></span>&nbsp;</a>
+                                                        <a href="#" class="badge badge-danger">&nbsp;
+                                                            <span class="oi oi-flag"></span>&nbsp;</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -516,11 +587,13 @@
                                         <div class="starrate" style="float: left; margin-bottom: -20px;"></div>
                                         <div style="float: right; margin-bottom: -10px; margin-right: -10px;">
 
-                                            &nbsp;<span class="badge badge-pill badge-warning">5 star</span>
+                                            &nbsp;
+                                            <span class="badge badge-pill badge-warning">5 star</span>
                                             <a onclick="openNav()" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
 
 
-                                            <a href="#" class="badge badge-danger">&nbsp;<span class="oi oi-flag"></span>&nbsp;</a>
+                                            <a href="#" class="badge badge-danger">&nbsp;
+                                                <span class="oi oi-flag"></span>&nbsp;</a>
                                         </div>
                                     </div>
 
@@ -536,11 +609,13 @@
                                                     <p>Reply 321</p>
                                                     <div class="starrate" style="float: left; margin-bottom: -20px;"></div>
                                                     <div style="float: right; margin-bottom: -10px; margin-right: -10px;">
-                                                        &nbsp;<span class="badge badge-pill badge-warning">5 star</span>
+                                                        &nbsp;
+                                                        <span class="badge badge-pill badge-warning">5 star</span>
                                                         <a onclick="openNav()" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
 
 
-                                                        <a href="#" class="badge badge-danger">&nbsp;<span class="oi oi-flag"></span>&nbsp;</a>
+                                                        <a href="#" class="badge badge-danger">&nbsp;
+                                                            <span class="oi oi-flag"></span>&nbsp;</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -550,10 +625,12 @@
                                                     <p>Reply 322</p>
                                                     <div class="starrate" style="float: left; margin-bottom: -20px;"></div>
                                                     <div style="float: right; margin-bottom: -10px; margin-right: -10px;">
-                                                        &nbsp;<span class="badge badge-pill badge-warning">5 star</span>
+                                                        &nbsp;
+                                                        <span class="badge badge-pill badge-warning">5 star</span>
                                                         <a onclick="openNav()" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
 
-                                                        <a href="#" class="badge badge-danger">&nbsp;<span class="oi oi-flag"></span>&nbsp;</a>
+                                                        <a href="#" class="badge badge-danger">&nbsp;
+                                                            <span class="oi oi-flag"></span>&nbsp;</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -578,7 +655,11 @@
                         </div>
                         <br>
                         <div class="row">
-                            <div class="col-md-1"><small><span class="oi oi-pencil"></span></small></div>
+                            <div class="col-md-1">
+                                <small>
+                                    <span class="oi oi-pencil"></span>
+                                </small>
+                            </div>
                             <div class=" col-md-11" style="padding-left: 0px">
                                 Some bullshit that this guy posted some time ago on this stupid category.
                             </div>
@@ -586,7 +667,11 @@
                         </div>
                         <br>
                         <div class="row">
-                            <div class="col-md-1"><small><span class="oi oi-pencil"></span></small></div>
+                            <div class="col-md-1">
+                                <small>
+                                    <span class="oi oi-pencil"></span>
+                                </small>
+                            </div>
                             <div class=" col-md-11" style="padding-left: 0px">
                                 Some bullshit that this guy posted some time ago on this stupid category.
                             </div>
@@ -594,7 +679,11 @@
                         </div>
                         <br>
                         <div class="row">
-                            <div class="col-md-1"><small><span class="oi oi-pencil"></span></small></div>
+                            <div class="col-md-1">
+                                <small>
+                                    <span class="oi oi-pencil"></span>
+                                </small>
+                            </div>
                             <div class=" col-md-11" style="padding-left: 0px">
                                 Some bullshit that this guy posted some time ago on this stupid category.
                             </div>
@@ -602,7 +691,11 @@
                         </div>
                         <br>
                         <div class="row">
-                            <div class="col-md-1"><small><span class="oi oi-pencil"></span></small></div>
+                            <div class="col-md-1">
+                                <small>
+                                    <span class="oi oi-pencil"></span>
+                                </small>
+                            </div>
                             <div class=" col-md-11" style="padding-left: 0px">
                                 Some bullshit that this guy posted some time ago on this stupid category.
                             </div>
@@ -610,7 +703,11 @@
                         </div>
                         <br>
                         <div class="row">
-                            <div class="col-md-1"><small><span class="oi oi-pencil"></span></small></div>
+                            <div class="col-md-1">
+                                <small>
+                                    <span class="oi oi-pencil"></span>
+                                </small>
+                            </div>
                             <div class=" col-md-11" style="padding-left: 0px">
                                 Some bullshit that this guy posted some time ago on this stupid category.
                             </div>
@@ -625,45 +722,47 @@
             </div>
         </div>
     </div>
-</div>
-<script>
-function scrollPage() {
-    $('#relatedlinks').css('top', $(this).scrollTop());
-}
-</script>
-<script>
-function openNav() {
-    document.getElementById("mySidenav").style.display = "block";
-    document.getElementById("mySidenav").style.height = "33.5%";
-}
+    </div>
+    <script>
+        function scrollPage() {
+            $('#relatedlinks').css('top', $(this).scrollTop());
+        }
+    </script>
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.display = "block";
+            document.getElementById("mySidenav").style.height = "33.5%";
+        }
 
-function closeNav() {
-    document.getElementById("mySidenav").style.height = "0%";
-    document.getElementById("mySidenav").style.display = "none";
-}
-</script>
-<script>
-var elem = document.getElementsByClassName('starrate');
-for(var i = 0; i < elem.length; i++){
-    elem[i].innerHTML = '<div class="rw-ui-container" data-title="my'+i+' awesome rating""></div>';
-}
+        function closeNav() {
+            document.getElementById("mySidenav").style.height = "0%";
+            document.getElementById("mySidenav").style.display = "none";
+        }
+    </script>
+    <script>
+        var elem = document.getElementsByClassName('starrate');
+        for (var i = 0; i < elem.length; i++) {
+            elem[i].innerHTML = '<div class="rw-ui-container" data-title="my' + i + ' awesome rating""></div>';
+        }
+    </script>
 
-</script>
+    <div id="mySidenav" class="sidenav">
 
-<div id="mySidenav" class="sidenav">
-
-    <div class="card">
-        <div class="card-header">
-            Enter your Reply
-            <a href="javascript:void(0)" class="closebtn" style="float:right;" onclick="closeNav()">×</a>
-        </div>
-        <div class="card-body">
-            <textarea id="reply" style="width:100%; height:99px"></textarea>
-            <a href="https://dl2.pushbulletusercontent.com/fPOlswMT3IsBOLGbmkhMn5xUvMfwjcKl/post.html#" class="btn btn-primary btn-sm" style="display:inline-block">Go somewhere</a>
-            <a href="https://dl2.pushbulletusercontent.com/fPOlswMT3IsBOLGbmkhMn5xUvMfwjcKl/post.html#" class="btn btn-primary btn-sm" style="display:inline-block">Go somewhere</a>
+        <div class="card">
+            <div class="card-header">
+                Enter your Reply
+                <a href="javascript:void(0)" class="closebtn" style="float:right;" onclick="closeNav()">×</a>
+            </div>
+            <div class="card-body">
+                <textarea id="reply" style="width:100%; height:99px"></textarea>
+                <a href="https://dl2.pushbulletusercontent.com/fPOlswMT3IsBOLGbmkhMn5xUvMfwjcKl/post.html#" class="btn btn-primary btn-sm"
+                    style="display:inline-block">Go somewhere</a>
+                <a href="https://dl2.pushbulletusercontent.com/fPOlswMT3IsBOLGbmkhMn5xUvMfwjcKl/post.html#" class="btn btn-primary btn-sm"
+                    style="display:inline-block">Go somewhere</a>
+            </div>
         </div>
     </div>
-</div>
 
 </body>
+
 </html>
