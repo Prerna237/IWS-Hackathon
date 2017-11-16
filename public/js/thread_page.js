@@ -1,3 +1,5 @@
+var tid = 1;
+
 function getCookie(cname) {
     var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
@@ -14,59 +16,36 @@ function getCookie(cname) {
     return "";
 }
 
-$(document).ready(function () {
-    console.log("I'm ready");
-    var userName = getCookie('userName');
-    console.log("Got username: " + userName);
+$(document).ready(function() {
+    console.log('I am ready');
     if (document.cookie) {
-        $.ajax{
-            url: '/thread/:id',
+        $.ajax({
+            url: '/replies/thread/' + tid,
             type: 'GET',
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
             async: true,
             success: function (threads) {
-                console.log("Threads received");
-                console.log(threads);
+                console.log("Replies received");
+                document.threadReplies = threads;
             }
-        }
-        // // get threads by user
-        // $.ajax({
-        //     url: '/threadsByUser/' + userName,
-        //     type: 'GET',
-        //     contentType: 'application/json; charset=utf-8',
-        //     dataType: 'json',
-        //     async: true,
-        //     success: function (threads) {
-        //         console.log("Threads received");
-        //         document.userThreads = threads;
-        //     }
-        // });
-        //
-        // // get replies by user
-        // $.ajax({
-        //     url: '/replies/user/' + userName,
-        //     type: 'GET',
-        //     contentType: 'application/json; charset=utf-8',
-        //     dataType: 'json',
-        //     async: true,
-        //     success: (replies) => {
-        //         console.log("Got replies");
-        //         document.userReplies = replies;
-        //     }
-        // });
-        //
-        // // get threads starred
-        // $.ajax({
-        //     url: '/threadsByStars/' + userName,
-        //     type: 'GET',
-        //     contentType: 'application/json; charset=utf-8',
-        //     dataType: 'json',
-        //     async: true,
-        //     success: (replies) => {
-        //         console.log("Got replies");
-        //         document.userStarred = replies;
-        //     }
-        // });
+        });
     }
 });
+
+function CheckLogin() {
+    if (getCookie("userName") == "") {
+      alert("Please Login");
+      return 0;
+    } else {
+        return 1;
+    }
+
+  }
+
+function openNav() {
+    if (CheckLogin() == 1) {
+        document.getElementById("mySidenav").style.display = "block";
+        document.getElementById("mySidenav").style.height = "33.5%";   
+    }
+}
