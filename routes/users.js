@@ -27,6 +27,7 @@ router.use('/signup', (req, res) => {
         res.end("Error");
       } else {
         req.session.userName = req.body.userName;
+        
         res.redirect('/profile');
       }
     });
@@ -51,6 +52,7 @@ router.use('/login', function (req, res, next) {
       console.log("Called with status: " + status);
       if (status === _EVENTS.USER_ADD_SUCCESS) {
         req.session.userName = userDetails.userName;
+        req.session.moderator = (user.profile_type === 'moderator');
         console.log("User Authentication successful: " + req.body.samePage);
         if (req.body.samePage) {
           console.log("In SamePage");

@@ -104,6 +104,7 @@ router.get('/thread/:id', (req, res) => {
     var threadID = req.params.id;
     db.getThread(threadID, (thread) => {
         res.end(pageHandlers.threadPage({
+            threadID: thread.id,
             title: thread.title,
             desc: thread.desc,
             category: thread.category,
@@ -117,6 +118,9 @@ router.get('/thread/:id', (req, res) => {
 // Category-wise page
 
 router.get('/categorywise', (req, res) => {
+    if (req.session.moderator) {
+        res.end(pageHandlers.categoryModeratorPage());
+    }
     res.end(pageHandlers.categoryPage());
 });
 
