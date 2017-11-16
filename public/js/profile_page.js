@@ -29,6 +29,7 @@ $(document).ready(function () {
             success: function (threads) {
                 console.log("Threads received");
                 document.userThreads = threads;
+                showThreads();
             }
         });
 
