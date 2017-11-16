@@ -22,7 +22,6 @@
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <!-- Numeric JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"></script>
-  <script src="category.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 
@@ -64,7 +63,7 @@
       <div class="col">
         <div class="card">
           <div class="card-header">
-            Featured
+            Views per Category 
           </div>
           <div class="card-body">
             <div id="j"></div>
@@ -76,7 +75,7 @@
 
         <div class="card">
           <div class="card-header">
-            Featured
+            Threads per Category
           </div>
           <div class="card-body">
             <div id="k"></div>
@@ -127,19 +126,17 @@
 
 </body>
 <script>
-  $(document).ready(() => {
-
-    $.ajax()
-
     var data = [{
       // values: [19, 26, 55],
-      values: [19, 26, 55],
-      labels: ['Residential', 'Non-Residential', 'Utility'],
+      values: [{{categoryViews}}],
+      // labels: ['Residential', 'Non-Residential', 'Utility'],
+      labels: [{{#each categories}}"{{this}}",{{/each}}],
       type: 'pie'
     }];
     var data1 = [{
-      x: ['giraffes', 'orangutans', 'monkeys'],
-      y: [20, 14, 23],
+      x: [{{#each categories}}"{{this}}",{{/each}}],
+      // y: [20, 14, 23],
+      y: [{{categoryThreads}}],
       type: 'bar'
     }];
 
@@ -169,7 +166,6 @@
     };
 
     Plotly.newPlot('myDiv', data, layout);
-  });
 </script>
 
 </html>
