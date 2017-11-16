@@ -22,7 +22,7 @@ $(document).ready(function () {
       });
       $('a.user').click(function () {
         var title = $(this).attr('id');
-        window.location="users/profile/"+title;
+        window.location="/profile/"+title;
       });
       $('input[type="button"]').click(function(e){
       var id=$(this).attr("id");
@@ -104,7 +104,7 @@ $(document).ready(function () {
         });
         $('a.user').click(function () {
           var title = $(this).attr('id');
-          window.location = "users/profile/" + title;
+          window.location = "/profile/" + title;
         });
         $('input[type="button"]').click(function(e){
         var id=$(this).attr("id");
@@ -138,7 +138,7 @@ $(document).ready(function () {
     $('a.user').click(function () {
       var title = $(this).attr('id');
       alert(title);
-      window.location = "users/profile/" + title;
+      window.location = "/profile/" + title;
     });
     $('input[type="button"]').click(function(e){
     var id=$(this).attr("id");
@@ -171,7 +171,7 @@ $(document).ready(function () {
     $('a.user').click(function () {
       var title = $(this).attr('id');
       alert(title);
-      window.location = "users/profile/" + title;
+      window.location = "/profile/" + title;
     });
     $('input[type="button"]').click(function(e){
     var id=$(this).attr("id");
@@ -203,7 +203,7 @@ $(document).ready(function () {
     $('a.user').click(function () {
       var title = $(this).attr('id');
       alert(title);
-      window.location = "users/profile/" + title;
+      window.location = "/profile/" + title;
     });
     $('input[type="button"]').click(function(e){
     var id=$(this).attr("id");

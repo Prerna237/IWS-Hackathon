@@ -24,7 +24,7 @@ if(Cookies.get("userName")==undefined){
 
       $('a.user').click(function () {
         var title = $(this).attr('id');
-        window.location="users/profile/"+title;
+        window.location="/profile/"+title;
       });
         $(".demo").letterpic();
     },

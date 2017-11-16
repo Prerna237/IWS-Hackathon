@@ -22,7 +22,7 @@ $(document).ready(function () {
       });
       $('a.user').click(function () {
         var title = $(this).attr('id');
-        window.location="users/profile/"+title;
+        window.location="/profile/"+title;
       });
         $(".demo").letterpic();
     },
@@ -97,7 +97,7 @@ $(document).ready(function () {
         });
         $('a.user').click(function () {
           var title = $(this).attr('id');
-          window.location = "users/profile/" + title;
+          window.location = "/profile/" + title;
         });
         $(".demo").letterpic();
       },
@@ -123,7 +123,7 @@ $(document).ready(function () {
     $('a.user').click(function () {
       var title = $(this).attr('id');
       alert(title);
-      window.location = "users/profile/" + title;
+      window.location = "/profile/" + title;
     });
     $(".demo").letterpic();
 
@@ -147,7 +147,7 @@ $(document).ready(function () {
     $('a.user').click(function () {
       var title = $(this).attr('id');
       alert(title);
-      window.location = "users/profile/" + title;
+      window.location = "/profile/" + title;
     });
     $(".demo").letterpic();
 
@@ -171,7 +171,7 @@ $(document).ready(function () {
     $('a.user').click(function () {
       var title = $(this).attr('id');
       alert(title);
-      window.location = "users/profile/" + title;
+      window.location = "/profile/" + title;
     });
     $(".demo").letterpic();
 
