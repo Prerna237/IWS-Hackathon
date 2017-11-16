@@ -22,6 +22,17 @@
             }
         });
         RW.render();
+
+        RW.init('54fb0be2a925ffb881dbeca0d908b038', {
+            beforeRate: (rating, vote) => {
+                alert("Checking");
+                if (!Cookies.get('userName')) {
+                    alert("Please login before rating.");
+                    return false;
+                }
+                return true;
+            }
+        });
     };
     // Append Rating-Widget JavaScript library.
     var rw, s = d.getElementsByTagName(e)[0],
