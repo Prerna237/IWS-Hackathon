@@ -54,3 +54,8 @@ function closeNav() {
     document.getElementById("mySidenav").style.height = "0%";
     document.getElementById("mySidenav").style.display = "none";
 }
+
+function AddReply() {
+    var replytext = document.getElementById('reply').value;
+    alert(replytext);
+}
