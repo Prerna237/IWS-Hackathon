@@ -73,6 +73,15 @@ router.post('/util/rate', (req, res) => {
     }));
 });
 
+// Report Things
+router.use('/util/report/:type/:id', (req, res) => {
+    if (req.session.userName)
+        db.report(req.params.type, req.params.id, req.session.userName);
+    res.end({
+        status: "success"
+    });
+});
+
 // Others
 
 // Profile page
@@ -159,5 +168,17 @@ router.get('/threadsByStars/:userName', (req, res) => {
         res.end(JSON.stringify(results));
     })
 })
+
+// Analytics page
+
+router.use('/analytics', (req, res, next) => {
+    if (req.session.moderator) {
+        // Need to fill object
+        res.end(pageHandlers.analyticsPage({}));
+    }
+    res.end(pageHandlers.errorPage({
+        status: 404
+    }));
+});
 
 module.exports = router;
