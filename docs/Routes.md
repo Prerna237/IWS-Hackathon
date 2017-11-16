@@ -50,27 +50,10 @@ Route details for http calls
 
 ### Thread
 
-#### Get Threads
-+ Method: AJAX
-+ GET call to `[base URL]/threads/{category}`
-+ Example JSON Result `{"threads": [] //Array of results}`
-+ Each Thread object has the following structure
-```javascript
-{
-    threadID: "Thread ID",
-    title: "Title of the Thread",
-    desc: "Description",
-    userName: "Author's username",
-    replieIDs: [],
-    numViews: Number,
-    rating: rating,
-    reports: Number
-}
-```
-
 #### Get all threads of a category
 + Method: AJAX
 + Get call to `[base URL]/threadsByCategory/{category}`
++ Example JSON Result `{[] //Array of results}`
 + Example result: 
 ``` javascript
 {
