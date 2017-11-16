@@ -67,6 +67,23 @@ Route details for http calls
     reports: Number
 }
 ```
+
+#### Get all threads of a category
++ Method: AJAX
++ Get call to `[base URL]/threadsByCategory/{category}`
++ Example result: 
+``` javascript
+{
+    'id': 'thread.id',
+    'title': 'thread.title',
+    'numReplies': 'thread.replies.length',
+    'views': 'thread.views',
+    'desc': 'thread.desc',
+    'userName': 'thread.userName',
+    'rating': 'thread.rating',
+    'date': 'thread.date'
+}
+```
 #### Add Thread
 + Method: AJAX
 + Post JSON object to `[base URL]/util/addThread`
