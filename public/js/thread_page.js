@@ -35,7 +35,7 @@ $(document).ready(function() {
 
 function CheckLogin() {
     if (getCookie("userName") == "") {
-      alert("Please Login");
+      //alert("Please Login");
       return 0;
     } else {
         return 1;
@@ -44,8 +44,18 @@ function CheckLogin() {
   }
 
 function openNav() {
-    if (CheckLogin() == 1) {
+    if (CheckLogin() == 0) {
         document.getElementById("mySidenav").style.display = "block";
         document.getElementById("mySidenav").style.height = "33.5%";   
     }
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.height = "0%";
+    document.getElementById("mySidenav").style.display = "none";
+}
+
+function AddReply() {
+    var replytext = document.getElementById('reply').value;
+    alert(replytext);
 }
