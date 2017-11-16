@@ -148,7 +148,7 @@ router.get('/thread/:id', (req, res) => {
             desc: thread.desc,
             category: thread.category,
             numReplies: thread.numReplies,
-            user: thread.userName,
+            author: thread.userName,
             threadRating: thread.avgStars
         }));
     });
