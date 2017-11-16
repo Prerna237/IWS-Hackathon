@@ -127,43 +127,49 @@
 
 </body>
 <script>
-  var data = [{
-    values: [19, 26, 55],
-    labels: ['Residential', 'Non-Residential', 'Utility'],
-    type: 'pie'
-  }];
-  var data1 = [{
-    x: ['giraffes', 'orangutans', 'monkeys'],
-    y: [20, 14, 23],
-    type: 'bar'
-  }];
+  $(document).ready(() => {
 
-  Plotly.newPlot('k', data1);
+    $.ajax()
 
-  Plotly.newPlot("j", data);
+    var data = [{
+      // values: [19, 26, 55],
+      values: [19, 26, 55],
+      labels: ['Residential', 'Non-Residential', 'Utility'],
+      type: 'pie'
+    }];
+    var data1 = [{
+      x: ['giraffes', 'orangutans', 'monkeys'],
+      y: [20, 14, 23],
+      type: 'bar'
+    }];
+
+    Plotly.newPlot('k', data1);
+
+    Plotly.newPlot("j", data);
 
 
-  var trace1 = {
-    x: ['giraffes', 'orangutans', 'monkeys'],
-    y: [20, 14, 23],
-    name: 'SF Zoo',
-    type: 'bar'
-  };
+    var trace1 = {
+      x: ['giraffes', 'orangutans', 'monkeys'],
+      y: [20, 14, 23],
+      name: 'SF Zoo',
+      type: 'bar'
+    };
 
-  var trace2 = {
-    x: ['giraffes', 'orangutans', 'monkeys'],
-    y: [12, 18, 29],
-    name: 'LA Zoo',
-    type: 'bar'
-  };
+    var trace2 = {
+      x: ['giraffes', 'orangutans', 'monkeys'],
+      y: [12, 18, 29],
+      name: 'LA Zoo',
+      type: 'bar'
+    };
 
-  var data = [trace1, trace2];
+    var data = [trace1, trace2];
 
-  var layout = {
-    barmode: 'stack'
-  };
+    var layout = {
+      barmode: 'stack'
+    };
 
-  Plotly.newPlot('myDiv', data, layout);
+    Plotly.newPlot('myDiv', data, layout);
+  });
 </script>
 
 </html>
