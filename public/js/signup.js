@@ -14,7 +14,7 @@ $(document).ready(function () {
       jobject.password = $("#password").val();
       jobject.social = social_array;
       jobject.interests = interest_array;
-      jobject.profile_type = "Normal";
+      
 
       $.ajax({
         url: '/util/addUser',

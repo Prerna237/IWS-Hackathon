@@ -90,11 +90,43 @@ function createThreadView(thread) {
 }
 
 function createReplyView(reply) {
-    return `Not Implemented`;
+  return `<div class="tab-content col-9" id="v-pills-tabContent">
+  <div class="tab-pane fade show active" id="quesasked" role="tabpanel" aria-labelledby="QuestionsAsked">
+  <div class="row">
+  <div class="col-1">
+  <img src="profilephoto.jpg" class="rounded-circle" alt="Cinque Terre" width="40px" height="40px">
+  </div>
+  <div class="col-11">
+  <p class="post-title">${thread.desc}</p>
+  <div class="right">
+  </div>
+  </div>
+  <div class="col" style="padding: 10px"></div>
+  </div>
+  </div>
+  <div class="tab-pane fade" id="repliesgiven" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
+  <div class="tab-pane fade" id="starredthreads" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
+  </div>`
 }
 
 function createStarredThreadView(thread) {
-    return `Not Implemented`;
+  return `<div class="tab-content col-9" id="v-pills-tabContent">
+  <div class="tab-pane fade show active" id="quesasked" role="tabpanel" aria-labelledby="QuestionsAsked">
+  <div class="row">
+  <div class="col-1">
+  <img src="profilephoto.jpg" class="rounded-circle" alt="Cinque Terre" width="40px" height="40px">
+  </div>
+  <div class="col-11">
+  <p class="post-title">${thread.desc}</p>
+  <div class="right">
+  </div>
+  </div>
+  <div class="col" style="padding: 10px"></div>
+  </div>
+  </div>
+  <div class="tab-pane fade" id="repliesgiven" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
+  <div class="tab-pane fade" id="starredthreads" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
+  </div>`
 }
 
 var showThreads = function () {
