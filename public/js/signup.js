@@ -1,5 +1,6 @@
 $(document).ready(function () {
-  $("#submitBtn").click(function () {
+  // $("#submitBtn").click(function () {
+  $('#formy').submit(function () {
     var jobject = new Object();
 
     var social_array = [$("#facebook").val(), $("#twitter").val(), $("#google").val(), $("#skype").val()];
@@ -14,7 +15,7 @@ $(document).ready(function () {
       jobject.password = $("#password").val();
       jobject.social = social_array;
       jobject.interests = interest_array;
-      
+
 
       $.ajax({
         url: '/util/addUser',
@@ -27,7 +28,6 @@ $(document).ready(function () {
           console.log("MSG: " + JSON.stringify(msg));
           // var m = JSON.parse(msg);
           if (msg.status === "Failure") {
-            console.log("Fuck off");
             alert("Username already in use");
           } else {
             window.location = '/profile';
