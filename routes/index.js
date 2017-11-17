@@ -54,7 +54,7 @@ router.get('/util/categories', (req, res) => {
 })
 
 // Report Thread
-router.get('/util/threadReport/:threadID', (req, res) => {
+router.use('/util/threadReport/:threadID', (req, res) => {
     var userName = req.session.userName;
     db.reportThread(req.params.threadID, userName);
     res.end({
@@ -90,10 +90,10 @@ router.use('/util/report/:type/:id', (req, res) => {
 // Profile page
 router.get('/profile', (req, res) => {
     console.log("Username: " + req.session.userName);
-    if (req.session.userName != undefined) {
+    if (req.session.userName) {
         res.cookie('pseudoUser', req.session.userName);
-        console.log("Profile Setting pseudoUser to " + userName);
         db.getUser(req.session.userName, (user) => {
+            console.log('Sending User ' + user.userName);
             res.end(pageHandlers.userProfile({
                 userName: user.userName,
                 email: user.email,
@@ -108,12 +108,14 @@ router.get('/profile', (req, res) => {
             }));
         })
     } else {
+        console.log('Redirecting to landing page');
         res.redirect('/');
     }
 });
 
 // Profile page
 router.get('/profile/:userName', (req, res) => {
+    console.log("I'm getting called");
     var userName = req.params.userName;
     res.cookie('pseudoUser', userName);
     console.log("Setting pseudoUser to " + userName);
