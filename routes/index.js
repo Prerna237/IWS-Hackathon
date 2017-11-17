@@ -57,6 +57,9 @@ router.get('/util/categories', (req, res) => {
 router.get('/util/threadReport/:threadID', (req, res) => {
     var userName = req.session.userName;
     db.reportThread(req.params.threadID, userName);
+    res.end({
+        status: 'success'
+    });
 });
 
 // Rate Things
