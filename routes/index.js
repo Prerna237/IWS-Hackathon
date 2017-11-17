@@ -209,6 +209,13 @@ router.get('/threadsByStars/:userName', (req, res) => {
     })
 })
 
+// Trending
+router.get('/trending', (req, res) => {
+    db.getTrending(5, (results) => {
+        res.end(JSON.stringify(results));
+    });
+});
+
 // Analytics page
 
 router.use('/analytics', (req, res, next) => {
