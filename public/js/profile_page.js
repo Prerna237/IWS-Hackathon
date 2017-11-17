@@ -166,9 +166,11 @@ var showReplies = function () {
                 return q + t
             });
             quesasked.innerHTML = ques;
-        }else{
+        } else {
             alert("WHY");
-            quesasked.innerHTML = createReplyView({text: "No contento here"});
+            quesasked.innerHTML = createReplyView({
+                text: "No contento here"
+            });
         }
     }
 }
@@ -185,6 +187,14 @@ var showStarred = function () {
                 return q + t
             });
             quesasked.innerHTML = ques;
+        } else {
+            quesasked.innerHTML = createStarredThreadView({
+                title: "No content here"
+            });
         }
+    } else {
+        quesasked.innerHTML = createStarredThreadView({
+            title: "No content here"
+        });
     }
 }

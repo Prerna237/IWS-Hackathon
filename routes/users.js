@@ -62,6 +62,7 @@ router.use('/login', function (req, res, next) {
         req.session.interests = user.interests;
         // console.log('UserName: ' + req.session.userName + " type: " + req.session.moderator);
         console.log("User Authentication successful: " + req.body.samePage);
+        res.cookie('loginStatus', 'SUCCESS');        
         if (req.body.samePage) {
           console.log("In SamePage");
           return res.redirect(req.headers.referer);

@@ -165,8 +165,10 @@
 
 
     var values = [
-          ['Salaries', 'Office', 'Merchandise', 'Legal', 'TOTAL'],
-          [1200000, 20000, 80000, 2000, 12120000],[323,323,322,323,23]]
+          [{{#each userNames}}'{{this}}',{{/each}}],
+          [{{ratings}}],
+          ["No Comments","No Comments","No Comments","No Comments","No Comments"]
+        ]
 
     var datatable = [{
       type: 'table',
