@@ -1,4 +1,9 @@
 $(document).ready(function () {
+  if(Cookies.get("loginStatus")=="FAIL"){
+    alert("Login Failed");
+    Cookies.remove("loginStatus")
+
+  }
 if(Cookies.get("userName")==undefined){
   $.ajax({
     url: '/trending',
