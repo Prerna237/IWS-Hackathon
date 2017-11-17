@@ -89,6 +89,7 @@ router.get('/profile', (req, res) => {
     console.log("Username: " + req.session.userName);
     if (req.session.userName != undefined) {
         res.cookie('pseudoUser', req.session.userName);
+        console.log("Profile Setting pseudoUser to " + userName);
         db.getUser(req.session.userName, (user) => {
             res.end(pageHandlers.userProfile({
                 userName: user.userName,
@@ -112,6 +113,7 @@ router.get('/profile', (req, res) => {
 router.get('/profile/:userName', (req, res) => {
     var userName = req.params.userName;
     res.cookie('pseudoUser', userName);
+    console.log("Setting pseudoUser to " + userName);
     if (userName) {
         db.getUser(userName, (user) => {
             if (user) {

@@ -17,6 +17,7 @@ function getCookie(cname) {
 $(document).ready(function () {
     console.log("I'm ready");
     var userName = getCookie('pseudoUser');
+    console.log("Got pseudoUser to " + userName);
     console.log("Got username: " + userName);
     if (document.cookie) {
         // get threads by user
@@ -75,10 +76,9 @@ function createThreadView(thread) {
     <div class="tab-pane fade show active" id="quesasked" role="tabpanel" aria-labelledby="QuestionsAsked">
     <div class="row">
     <div class="col-1">
-    <img src="profilephoto.jpg" class="rounded-circle" alt="Cinque Terre" width="40px" height="40px">
     </div>
     <div class="col-11">
-    <p class="post-title">${thread.desc}</p>
+    <p class="post-title">${thread.title}</p>
     <div class="right">
     </div>
     </div>
@@ -91,14 +91,13 @@ function createThreadView(thread) {
 }
 
 function createReplyView(reply) {
-  return `<div class="tab-content col-9" id="v-pills-tabContent">
+    return `<div class="tab-content col-9" id="v-pills-tabContent">
   <div class="tab-pane fade show active" id="quesasked" role="tabpanel" aria-labelledby="QuestionsAsked">
   <div class="row">
   <div class="col-1">
-  <img src="profilephoto.jpg" class="rounded-circle" alt="Cinque Terre" width="40px" height="40px">
   </div>
   <div class="col-11">
-  <p class="post-title">${reply.desc}</p>
+  <p class="post-title">${reply.title}</p>
   <div class="right">
   </div>
   </div>
@@ -111,14 +110,13 @@ function createReplyView(reply) {
 }
 
 function createStarredThreadView(thread) {
-  return `<div class="tab-content col-9" id="v-pills-tabContent">
+    return `<div class="tab-content col-9" id="v-pills-tabContent">
   <div class="tab-pane fade show active" id="quesasked" role="tabpanel" aria-labelledby="QuestionsAsked">
   <div class="row">
   <div class="col-1">
-  <img src="profilephoto.jpg" class="rounded-circle" alt="Cinque Terre" width="40px" height="40px">
   </div>
   <div class="col-11">
-  <p class="post-title">${thread.desc}</p>
+  <p class="post-title">${thread.title}</p>
   <div class="right">
   </div>
   </div>
