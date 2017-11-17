@@ -63,15 +63,15 @@
   <br>
   <div style="margin-left:5%; margin-right:5%">
     <div class="btn-group">
-      <button type="button" style="width:150%" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+      <button type="button" id="category" style="width:150%" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
         aria-expanded="false">
         Select Category
       </button>
       <div class="dropdown-menu" id="ddd">
-        <a class="dropdown-item" id="4">Category1</a>
-        <a class="dropdown-item" id="5">Category2</a>
-        <a class="dropdown-item" href="#" id="6">Category3</a>
-        <a class="dropdown-item" href="#" id="6">Category4</a>
+        <a class="dropdown-item" href="#" id="1">Category1</a>
+        <a class="dropdown-item" href="#" id="2">Category2</a>
+        <a class="dropdown-item" href="#" id="3">Category3</a>
+        <a class="dropdown-item" href="#" id="4">Category4</a>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="#">Misc</a>
       </div>
@@ -180,10 +180,10 @@
         </div>
         <div class="modal-footer">
           <div class="dropdown show" style="float:left;">
-            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false">
+            <button class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false" id="modal_category">
               Select Category
-            </a>
+            </button>
 
             <div class="dropdown-menu" id="dd" aria-labelledby="dropdownMenuLink">
 
@@ -228,7 +228,7 @@
         <!-- Modal footer -->
         <div class="modal-footer">
           <span class="mr-auto">Not a member yet?&nbsp;
-            <a href="#">Register Here</a>
+            <a href="users/signup">Register Here</a>
           </span>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
           <button type="submit" onclick="javascript:document.forms[3].submit()" class="btn btn-primary" data-dismiss="modal">Login</button>
