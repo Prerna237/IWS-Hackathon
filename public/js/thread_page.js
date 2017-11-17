@@ -46,42 +46,44 @@ function UpdateThreads() {
             document.threadReplies = threads;
             document.len = document.threadReplies.length;
             $('#threadreplies').empty();
-            
+
             var i = 0;
             var str = '';
             var uname;
             var rtext;
             for (i = 1; i <= document.len; i++) {
-                rid = document.threadReplies[i-1].id;
-                // console.log(i);
+                rid = document.threadReplies[i - 1].id;
                 uname = document.threadReplies[i - 1].author;
-                // console.log(uname);
                 rtext = document.threadReplies[i - 1].text;
-                // console.log(rtext);
-                str = '<div id="iter' + i + '" class="col-12" style="padding-left: 0" role="tablist"></div><br>';
-                // console.log(str);
-                var content_fill = `<div id="r1" class="card">
-                <div id="reply${i}" class="card-body">
-                    <b>${uname}</b>
-                    <br>
-                    <br>
-                    <p>${rtext}</p>
-                    <div class="starrate" style="float: left; margin-bottom: -20px;"></div>
-                    <div style="float: right; margin-bottom: -10px; margin-right: -10px;">
+                str = `<div id="${rid}" class="col-12" style="padding-left: 0" role="tablist"></div><br>`;
 
-                        &nbsp;
-                        <a id="reply_${rid}" onclick="openNav(this.id)" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
-                        <a id="report_${rid}" style="color: white; cursor: pointer;" onclick="reportPost(this.id)" class="badge badge-danger">&nbsp;<span class="oi oi-flag"></span>&nbsp;</a>
-                    </div>
-                </div>
-
-                <div id="reply${i}" class="card-footer accordian-toggle" role="tab" data-toggle="collapse" data-parent="#iter1" href="#reply1collapse">
-                    <h6 style="color: dimgrey">View Replies</h6>
-                </div>
-            </div>`;
+                var content_fill = `<div class="card">
+                                            <div class="card-body">
+                                                <b>${uname}</b>
+                                                <br>
+                                                <br>
+                                                <p>${rtext}</p>
+                                                <div class="starrate" style="float: left; margin-bottom: -20px;"></div>
+                                                <div style="float: right; margin-bottom: -10px; margin-right: -10px;">
+                                                    &nbsp;
+                                                    <a id="reply_${rid}" onclick="openNav(this.id)" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
+                                                    <a id="report_${rid}" style="color: white; cursor: pointer;" onclick="reportPost(this.id)" class="badge badge-danger">&nbsp;<span class="oi oi-flag"></span>&nbsp;</a>
+                                                </div>
+                                            </div>
+                                    
+                                            <div id="footer_${rid}" class="card-footer accordian-toggle" role="tab" data-toggle="collapse" data-parent="#${rid}" href="#footer_${rid}collapse">
+                                                <h6 style="color: dimgrey">View Replies</h6>
+                                            </div>
+                                    
+                                            <div id="footer_${rid}collapse" class="collapse" role="tabpanel" aria-labelledby="footer_${rid}" data-parent="#${rid}">
+                                            Hello
+                                            </div>
+                                        </div>
+                                        <br>`;
                 $("#threadreplies").append(str);
                 // console.log(content_fill);
-                $("#iter" + i).append(content_fill);
+                $(`#${rid}`).append(content_fill);
+                // $(`#footer_${rid}`).click(addReplies(rid));
             }
         }
     });
@@ -125,10 +127,10 @@ function AddReply() {
     var jObj = new Object();
     console.log(thread_id);
     jObj.threadID = thread_id;
-    if(reply_id == '0'){
+    if (reply_id == '0') {
         jObj.replyToID = 0;
     }
-    else{
+    else {
         jObj.replyToID = parseInt(reply_id.substr(6));
     }
     jObj.userName = getCookie("userName");
@@ -151,18 +153,15 @@ function AddReply() {
 }
 
 function reportPost(id) {
-    if(CheckLogin() == 1){
+    if (CheckLogin() == 1) {
         var report_id = parseInt(id.toString().substr(7));
         $.ajax({
             url: '/util/threadReport/' + report_id,
-            type: 'POST',
-            // data: JSON.stringify(jObj),
-            // contentType: 'application/json; charset=utf-8',
-            // dataType: 'json',
             async: true,
             success: function (msg) {
                 console.log("MSG: " + JSON.stringify(msg));
                 console.log("Post Reported.");
+                $('#reportmodal').modal('show');
             }
         });
     }
