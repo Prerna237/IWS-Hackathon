@@ -11,7 +11,7 @@ $(document).ready(function () {
     if ($("#password").val() == $("#cpassword").val()) {
       jobject.userName = $("#username").val();
       jobject.name = $("#name").val();
-      jobject.email = $("#exampleInputEmail1").val();
+      jobject.email = $("#exampleInputEmail3").val();
       jobject.password = $("#password").val();
       jobject.social = social_array;
       jobject.interests = interest_array;
@@ -30,6 +30,7 @@ $(document).ready(function () {
           if (msg.status === "Failure") {
             alert("Username already in use");
           } else {
+            alert("Succesful Signup");
             window.location = '/profile';
           }
         }
