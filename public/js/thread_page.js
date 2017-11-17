@@ -45,17 +45,14 @@ function UpdateThreads() {
             // console.log(threads);
             document.threadReplies = threads;
             document.len = document.threadReplies.length;
-            alert(document.len);
-            // console.log("WWWWWWWW " + document.getElementById('threadreplies').innerHTML);
-            // (document.getElementById('threadreplies')).innerHTML = '';
             $('#threadreplies').empty();
-            console.log("WWWWWWWW " + document.getElementById('threadreplies').innerHTML);
             
             var i = 0;
             var str = '';
             var uname;
             var rtext;
             for (i = 1; i <= document.len; i++) {
+                rid = document.threadReplies[i-1].id;
                 // console.log(i);
                 uname = document.threadReplies[i - 1].author;
                 // console.log(uname);
@@ -73,7 +70,7 @@ function UpdateThreads() {
                     <div style="float: right; margin-bottom: -10px; margin-right: -10px;">
 
                         &nbsp;
-                        <a id="reply_${i}${i}"onclick="openNav(this.id)" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
+                        <a id="reply_${rid}"onclick="openNav(this.id)" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
                         <a href="#" class="badge badge-danger">&nbsp;<span class="oi oi-flag"></span>&nbsp;</a>
                     </div>
                 </div>
@@ -128,7 +125,12 @@ function AddReply() {
     var jObj = new Object();
     console.log(thread_id);
     jObj.threadID = thread_id;
-    jObj.replyToID = 0;
+    if(reply_id == '0'){
+        jObj.replyToID = 0;
+    }
+    else{
+        jObj.replyToID = parseInt(reply_id.substr(6));
+    }
     jObj.userName = getCookie("userName");
     jObj.text = replytext;
     $.ajax({
