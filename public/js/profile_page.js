@@ -97,7 +97,7 @@ function createReplyView(reply) {
   <div class="col-1">
   </div>
   <div class="col-11">
-  <p class="post-title">${reply.title}</p>
+  <p class="post-title">${reply.text}</p>
   <div class="right">
   </div>
   </div>

@@ -18,6 +18,7 @@ router.get('/', (req, res, next) => {
 // Sign up
 router.use('/signup', (req, res) => {
   if (req.session.userName) {
+    console.log("Trying to signup. Already logged in " + req.session.userName);
     res.redirect('/');
   } else {
     if (req.method) {
