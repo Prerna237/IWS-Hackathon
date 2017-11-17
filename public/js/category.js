@@ -11,7 +11,7 @@ $(document).ready(function () {
       $("#table").find("tr:gt(0)").remove();
       var data = "";
       $.each(document.categories, function (i, item) {
-        data += '<tr><th scope="row">Category1</th><td><a class="threadclick" id="' + item.id + '">Why are mobiles black? Are they good?</a></td><td><a class="user" id="'+item.userName+'"><canvas class="demo" title="' + item.userName + '"alt="Pranjal" style="width:34px; height:34px; margin:-12px 10px; border-radius:50%;"></canvas></a></td><td>' + item.numReplies + '</td><td>' + item.views + '</td><td><span class="badge badge-primary"><span class="oi oi-star"></span>'+item.rating+'</span></td></tr>';
+        data += '<tr><th scope="row">Category1</th><td><a class="threadclick" id="' + item.id + '">'+item.title+'</a></td><td><a class="user" id="'+item.userName+'"><canvas class="demo" title="' + item.userName + '"alt="Pranjal" style="width:34px; height:34px; margin:-12px 10px; border-radius:50%;"></canvas></a></td><td>' + item.numReplies + '</td><td>' + item.views + '</td><td><span class="badge badge-primary"><span class="oi oi-star"></span>'+item.rating+'</span></td></tr>';
 
       });
       $('#table').append(data);
@@ -43,6 +43,7 @@ $(document).ready(function () {
 
   $('#dd .dropdown-item').click(function () {
     document.retval = $(this).text();
+    $('#modal_category').text(document.retval);
   });
   $("#addThreadButton").click(function () {
     alert(document.retval);
@@ -86,7 +87,7 @@ $(document).ready(function () {
         $("#table").find("tr:gt(0)").remove();
         var data = "";
         $.each(document.categories, function (i, item) {
-          data += '<tr><th scope="row">' + document.cat + '</th><td><a class="threadclick" id="' + item.id + '">Why are mobiles black? Are they good?</a></td><td><a class="user" id="' + item.userName + '"><canvas class="demo" title="' + item.userName + '"alt="Pranjal" style="width:34px; height:34px; margin:-12px 10px; border-radius:50%;"></canvas></a></td><td>' + item.numReplies + '</td><td>' + item.views + '</td><td><span class="badge badge-primary"><span class="oi oi-star"></span>' + item.rating + '</span></td></tr>';
+          data += '<tr><th scope="row">' + document.cat + '</th><td><a class="threadclick" id="' + item.id + '">'+item.title+'</a></td><td><a class="user" id="' + item.userName + '"><canvas class="demo" title="' + item.userName + '"alt="Pranjal" style="width:34px; height:34px; margin:-12px 10px; border-radius:50%;"></canvas></a></td><td>' + item.numReplies + '</td><td>' + item.views + '</td><td><span class="badge badge-primary"><span class="oi oi-star"></span>' + item.rating + '</span></td></tr>';
 
         });
         $('#table').append(data);
@@ -111,7 +112,7 @@ $(document).ready(function () {
     $("#table").find("tr:gt(0)").remove();
     var data = "";
     $.each(document.categories, function (i, item) {
-      data += '<tr><th scope="row">' + document.cat + '</th><td><a class="threadclick" id="' + item.id + '">Why are mobiles black? Are they good?</a></td><td><a class="user" id="' + item.userName + '"><canvas class="demo" title="' + item.userName + '"alt="Pranjal" style="width:34px; height:34px; margin:-12px 10px; border-radius:50%;"></canvas></a></td><td>' + item.numReplies + '</td><td>' + item.views + '</td><td><span class="badge badge-primary"><span class="oi oi-star"></span>' + item.rating + '</span></td></tr>';
+      data += '<tr><th scope="row">' + document.cat + '</th><td><a class="threadclick" id="' + item.id + '">'+item.title+'</a></td><td><a class="user" id="' + item.userName + '"><canvas class="demo" title="' + item.userName + '"alt="Pranjal" style="width:34px; height:34px; margin:-12px 10px; border-radius:50%;"></canvas></a></td><td>' + item.numReplies + '</td><td>' + item.views + '</td><td><span class="badge badge-primary"><span class="oi oi-star"></span>' + item.rating + '</span></td></tr>';
 
     });
     $('#table').append(data);
@@ -135,7 +136,7 @@ $(document).ready(function () {
     var data = "";
     $.each(document.categories, function (i, item) {
       if (item.userName == Cookies.get('userName')) {
-        data += '<tr><th scope="row">' + document.cat + '</th><td><a class="threadclick" id="' + item.id + '">Why are mobiles black? Are they good?</a></td><td><a class="user" id="' + item.userName + '"><canvas class="demo" title="' + item.userName + '"alt="Pranjal" style="width:34px; height:34px; margin:-12px 10px; border-radius:50%;"></canvas></a></td><td>' + item.numReplies + '</td><td>' + item.views + '</td><td><span class="badge badge-primary"><span class="oi oi-star"></span>' + item.rating + '</span></td></tr>';
+        data += '<tr><th scope="row">' + document.cat + '</th><td><a class="threadclick" id="' + item.id + '">'+item.title+'</a></td><td><a class="user" id="' + item.userName + '"><canvas class="demo" title="' + item.userName + '"alt="Pranjal" style="width:34px; height:34px; margin:-12px 10px; border-radius:50%;"></canvas></a></td><td>' + item.numReplies + '</td><td>' + item.views + '</td><td><span class="badge badge-primary"><span class="oi oi-star"></span>' + item.rating + '</span></td></tr>';
       }
     });
     $('#table').append(data);
@@ -159,7 +160,7 @@ $(document).ready(function () {
     $("#table").find("tr:gt(0)").remove();
     var data = "";
     $.each(document.categories, function (i, item) {
-      data += '<tr><th scope="row">' + document.cat + '</th><td><a class="threadclick" id="' + item.id + '">Why are mobiles black? Are they good?</a></td><td><a class="user" id="' + item.userName + '"><canvas class="demo" title="' + item.userName + '"alt="Pranjal" style="width:34px; height:34px; margin:-12px 10px; border-radius:50%;"></canvas></a></td><td>' + item.numReplies + '</td><td>' + item.views + '</td><td><span class="badge badge-primary"><span class="oi oi-star"></span>' + item.rating + '</span></td></tr>';
+      data += '<tr><th scope="row">' + document.cat + '</th><td><a class="threadclick" id="' + item.id + '">'+item.title+'</a></td><td><a class="user" id="' + item.userName + '"><canvas class="demo" title="' + item.userName + '"alt="Pranjal" style="width:34px; height:34px; margin:-12px 10px; border-radius:50%;"></canvas></a></td><td>' + item.numReplies + '</td><td>' + item.views + '</td><td><span class="badge badge-primary"><span class="oi oi-star"></span>' + item.rating + '</span></td></tr>';
 
     });
     $('#table').append(data);
