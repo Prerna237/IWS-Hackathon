@@ -30,7 +30,7 @@ $(document).ready(function () {
             success: function (threads) {
                 console.log("Threads received");
                 document.userThreads = threads;
-                showThreads();
+                showThreads(threads);
             }
         });
 
@@ -128,17 +128,27 @@ function createStarredThreadView(thread) {
   </div>`
 }
 
-var showThreads = function () {
-    if (document.userThreads) {
-        var quesasked = document.getElementById('quesasked');
-        var ques = document.userThreads.map((thread, threadView) => {
+var showThreads = function (threads) {
+    var quesasked = document.getElementById('quesasked');
+    quesasked.innerHTML = "";
+    if (document.userThreads || threads) {
+        var uThreads = (Array.isArray(threads)) ? threads : document.userThreads;
+        var ques = uThreads.map((thread, threadView) => {
             return createThreadView(thread);
         });
         if (ques.length > 0) {
+
             ques = ques.reduce((q, t) => {
                 return q + t
             });
             quesasked.innerHTML = ques;
+        } else {
+            var nill = createThreadView({
+                title: "No content here"
+            });
+            quesasked.innerHTML = nill;
+            console.log(nill);
+
         }
     }
 }
@@ -156,6 +166,9 @@ var showReplies = function () {
                 return q + t
             });
             quesasked.innerHTML = ques;
+        }else{
+            alert("WHY");
+            quesasked.innerHTML = createReplyView({text: "No contento here"});
         }
     }
 }
