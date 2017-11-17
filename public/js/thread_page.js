@@ -102,7 +102,7 @@ function predicateBy(prop) {
 
 function UpdateSideBox(category) {
     $.ajax({
-        url: '/threadsByCategory/Category1',
+        url: '/threadsByCategory/' + category,
 
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
@@ -134,8 +134,10 @@ $(document).ready(function () {
         //     return decodeURIComponent(results[2].replace(/\+/g, " "));
         // }
 
+        // var cat = getParameterByName("cat", "http://localhost:3000/thread/1?cat=Category1");
+        // console.log('Category: '+cat);
         UpdateThreads();
-        UpdateSideBox();
+        UpdateSideBox('Category1');
     }
 
 
