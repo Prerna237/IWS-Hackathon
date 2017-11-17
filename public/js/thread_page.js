@@ -1,5 +1,6 @@
 var thread_id = document.threadID;
 var reply_id = '';
+var mainreplies = [];
 
 function getCookie(cname) {
     var name = cname + "=";
@@ -39,7 +40,7 @@ function UpdateThreads() {
         type: 'GET',
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
-        async: true,
+        async: false,
         success: function (threads) {
             console.log("Replies received");
             // console.log(threads);
@@ -53,6 +54,7 @@ function UpdateThreads() {
             var rtext;
             for (i = 1; i <= document.len; i++) {
                 rid = document.threadReplies[i - 1].id;
+                mainreplies.push(rid);
                 uname = document.threadReplies[i - 1].author;
                 rtext = document.threadReplies[i - 1].text;
                 str = `<div id="${rid}" class="col-12" style="padding-left: 0" role="tablist"></div><br>`;
@@ -71,19 +73,50 @@ function UpdateThreads() {
                                                 </div>
                                             </div>
                                     
-                                            <div id="footer_${rid}" class="card-footer accordian-toggle" role="tab" data-toggle="collapse" data-parent="#${rid}" href="#footer_${rid}collapse">
+                                            <div id="footer_${rid}" style="cursor: pointer" onclick="javascript:addReplies(${rid})" class="card-footer accordian-toggle" role="tab" data-toggle="collapse" data-parent="#${rid}" href="#footer_${rid}collapse">
                                                 <h6 style="color: dimgrey">View Replies</h6>
                                             </div>
                                     
                                             <div id="footer_${rid}collapse" class="collapse" role="tabpanel" aria-labelledby="footer_${rid}" data-parent="#${rid}">
-                                            No Replies !!!
+                                            <h6 style="margin: 5px; color: dimgrey; text-align: center">No Replies</h6>
                                             </div>
                                         </div>
                                         <br>`;
                 $("#threadreplies").append(str);
                 $(`#${rid}`).append(content_fill);
-                addReplies(rid);
             }
+        }
+    });
+}
+
+function predicateBy(prop) {
+    return function (a, b) {
+        if (a[prop] > b[prop]) {
+            return -1;
+        } else if (a[prop] < b[prop]) {
+            return 1;
+        }
+        return 0;
+    }
+}
+
+function UpdateSideBox(category) {
+    $.ajax({
+        url: '/threadsByCategory/Category1',
+
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        async: true,
+        success: function (data) {
+            //some code;
+            document.categories = data;
+            document.categories.sort(predicateBy("views"));
+            document.getElementById('sidebox').innerHTML = '';
+            var data = '<div class="card-header text-center" style="background: blue; color: white;">More from this category</div><br>';
+            for(var o = 0; o < 5; o++) {
+                data += '<div class="row"><div class="col-1"><small><span class="oi oi-pencil"></span></small></div><div class="col-10 " style="padding-left: 0px"><a href="'+document.categories[o].id+'">'+document.categories[o].title+'</a></div></div><br>';
+            }
+            $('#sidebox').append(data);
         }
     });
 }
@@ -91,7 +124,18 @@ function UpdateThreads() {
 $(document).ready(function () {
     console.log('I am ready');
     if (document.cookie) {
+        // function getParameterByName(name, url) {
+        //     if (!url) url = window.location.href;
+        //     name = name.replace(/[\[\]]/g, "\\$&");
+        //     var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        //         results = regex.exec(url);
+        //     if (!results) return null;
+        //     if (!results[2]) return '';
+        //     return decodeURIComponent(results[2].replace(/\+/g, " "));
+        // }
+
         UpdateThreads();
+        UpdateSideBox();
     }
 
 
@@ -176,10 +220,9 @@ function addReplies(id) {
         success: function (threads) {
             console.log("Replies received");
             document.replyReplies = threads;
-            console.log(threads);
             document.rlen = document.replyReplies.length;
             // $(`#footer_${id}collapse`).empty();
-            if(document.rlen != 0){
+            if (document.rlen != 0) {
                 $(`#footer_${id}collapse`).empty();
             }
 
@@ -207,12 +250,12 @@ function addReplies(id) {
                                                 </div>
                                             </div>
                                     
-                                            <div id="footer_${rid}" class="card-footer accordian-toggle" role="tab" data-toggle="collapse" data-parent="#${rid}" href="#footer_${rid}collapse">
+                                            <div id="footer_${rid}" onclick="javascript:addReplies(${rid})" class="card-footer accordian-toggle" role="tab" data-toggle="collapse" data-parent="#${rid}" href="#footer_${rid}collapse" style="cursor: pointer">
                                                 <h6 style="color: dimgrey">View Replies</h6>
                                             </div>
                                     
                                             <div id="footer_${rid}collapse" class="collapse" role="tabpanel" aria-labelledby="footer_${rid}" data-parent="#${rid}">
-                                            No Replies
+                                            <h6 style="margin: 5px; color: dimgrey; text-align: center">No Replies</h6>
                                             </div>
                                         </div>
                                         <br>`;
@@ -220,6 +263,7 @@ function addReplies(id) {
                 // console.log(content_fill);
                 $(`#${rid}`).append(content_fill);
             }
-        }   
+        }
     });
+
 }
