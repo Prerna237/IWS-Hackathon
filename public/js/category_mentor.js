@@ -1,7 +1,22 @@
 $(document).ready(function () {
-  $.ajax({
-    url: '/threadsByCategory/Category1',
 
+  function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+document.precat=getParameterByName("cat");
+if(document.precat==null){
+  alert("here");
+  document.precat="Category1";
+}
+alert(document.precat);
+  $.ajax({
+    url: '/threadsByCategory/'+document.precat,
     contentType: 'application/json; charset=utf-8',
     dataType: 'json',
     async: true,
@@ -11,7 +26,7 @@ $(document).ready(function () {
       $("#table").find("tr:gt(0)").remove();
       var data = "";
       $.each(document.categories, function (i, item) {
-        data += '<tr><th scope="row">Category1</th><td><a class="threadclick" id="' + item.id + '">'+item.title+'</a></td><td><a class="user" id="'+item.userName+'"><canvas class="demo" title="' + item.userName + '"alt="Pranjal" style="width:34px; height:34px; margin:-12px 10px; border-radius:50%;"></canvas></a></td><td>' + item.numReplies + '</td><td>' + item.views + '</td><td><span class="badge badge-primary"><span class="oi oi-star"></span>'+item.rating+'</span></td><td>5</td><td><input type="button" id="del'+item.id+'" class="btn btn-danger btn-sm" value="Delete"></input></td></tr>';
+        data += '<tr><th scope="row">'+document.precat+'</th><td><a class="threadclick" id="' + item.id + '">'+item.title+'</a></td><td><a class="user" id="'+item.userName+'"><canvas class="demo" title="' + item.userName + '"alt="Pranjal" style="width:34px; height:34px; margin:-12px 10px; border-radius:50%;"></canvas></a></td><td>' + item.numReplies + '</td><td>' + item.views + '</td><td><span class="badge badge-primary"><span class="oi oi-star"></span>'+item.rating+'</span></td><td>5</td><td><input type="button" id="del'+item.id+'" class="btn btn-danger btn-sm" value="Delete"></input></td></tr>';
 
       });
       $('#table').append(data);

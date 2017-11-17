@@ -8,7 +8,7 @@ $(document).ready(function () {
       return this.value;
     }).get();
 
-    if ($("#password").val() == $("#cpassword").val()) {
+
       jobject.userName = $("#username").val();
       jobject.name = $("#name").val();
       jobject.email = $("#exampleInputEmail3").val();
@@ -30,14 +30,12 @@ $(document).ready(function () {
           if (msg.status === "Failure") {
             alert("Username already in use");
           } else {
-            alert("Succesful Signup");
-            window.location = '/profile';
+            alert("Successful Signup");
+
           }
         }
       });
-    } else {
-      alert("Mismatch");
-    }
 
+return true;
   });
 });

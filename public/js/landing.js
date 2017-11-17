@@ -1,7 +1,7 @@
 $(document).ready(function () {
 if(Cookies.get("userName")==undefined){
   $.ajax({
-    url: '/threadsByCategory/Category1',
+    url: '/trending',
 
     contentType: 'application/json; charset=utf-8',
     dataType: 'json',
@@ -12,7 +12,7 @@ if(Cookies.get("userName")==undefined){
       document.getElementById('content').innerHTML="";
       var data = "";
       $.each(document.trends, function (i, item) {
-        data += '<div class="row"><div class="col-2"><a class="user" id="'+item.userName+'"><canvas class="demo" title="' + item.userName + '"alt="Pranjal" style="width:34px; height:34px; margin:5px 10px; border-radius:50%;"></canvas></a></div><div class="col-8" style="padding-left: 0px"><a class="threadclick" id="' + item.id + '">Some bullshit that this guy posted some time ago on this stupid category.</a></div><div class="col-2"><span class="badge badge-tab badge-secondary"> Category1</span></div></div><hr>';
+        data += '<div class="row"><div class="col-2"><a class="user" id="'+item.author+'"><canvas class="demo" title="' + item.author + '"alt="Pranjal" style="width:34px; height:34px; margin:5px 10px; border-radius:50%;"></canvas></a></div><div class="col-8" style="padding-left: 0px"><a class="threadclick" id="' + item.id + '">'+item.title+'</a></div><div class="col-2"><span class="badge badge-tab badge-secondary">'+item.category+'</span></div></div><hr>';
 
       });
       $('#content').append(data);
