@@ -56,9 +56,11 @@ router.get('/util/categories', (req, res) => {
 // Report Thread
 router.use('/util/threadReport/:threadID', (req, res) => {
     var userName = req.session.userName;
-    db.reportThread(req.params.threadID, userName);
-    res.end({
-        status: 'success'
+    console.log("Reporting by username: " + req.session.userName);
+    db.reportThread(req.params.threadID, userName, () => {
+        res.end(JSON.stringify({
+            status: 'success'
+        }));
     });
 });
 
