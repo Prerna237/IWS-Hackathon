@@ -76,14 +76,13 @@ function UpdateThreads() {
                                             </div>
                                     
                                             <div id="footer_${rid}collapse" class="collapse" role="tabpanel" aria-labelledby="footer_${rid}" data-parent="#${rid}">
-                                            Hello
+                                            No Replies !!!
                                             </div>
                                         </div>
                                         <br>`;
                 $("#threadreplies").append(str);
-                // console.log(content_fill);
                 $(`#${rid}`).append(content_fill);
-                // $(`#footer_${rid}`).click(addReplies(rid));
+                addReplies(rid);
             }
         }
     });
@@ -165,4 +164,62 @@ function reportPost(id) {
             }
         });
     }
+}
+
+function addReplies(id) {
+    $.ajax({
+        url: '/replies/reply/' + id,
+        type: 'GET',
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        async: false,
+        success: function (threads) {
+            console.log("Replies received");
+            document.replyReplies = threads;
+            console.log(threads);
+            document.rlen = document.replyReplies.length;
+            // $(`#footer_${id}collapse`).empty();
+            if(document.rlen != 0){
+                $(`#footer_${id}collapse`).empty();
+            }
+
+            var i = 0;
+            var str = '';
+            var uname;
+            var rtext;
+            for (i = 1; i <= document.rlen; i++) {
+                rid = document.replyReplies[i - 1].id;
+                uname = document.replyReplies[i - 1].author;
+                rtext = document.replyReplies[i - 1].text;
+                str = `<br><div id="${rid}" class="col-12" role="tablist"></div>`;
+
+                var content_fill = `<div class="card">
+                                            <div class="card-body">
+                                                <b>${uname}</b>
+                                                <br>
+                                                <br>
+                                                <p>${rtext}</p>
+                                                <div class="starrate" style="float: left; margin-bottom: -20px;"></div>
+                                                <div style="float: right; margin-bottom: -10px; margin-right: -10px;">
+                                                    &nbsp;
+                                                    <a id="reply_${rid}" onclick="openNav(this.id)" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
+                                                    <a id="report_${rid}" style="color: white; cursor: pointer;" onclick="reportPost(this.id)" class="badge badge-danger">&nbsp;<span class="oi oi-flag"></span>&nbsp;</a>
+                                                </div>
+                                            </div>
+                                    
+                                            <div id="footer_${rid}" class="card-footer accordian-toggle" role="tab" data-toggle="collapse" data-parent="#${rid}" href="#footer_${rid}collapse">
+                                                <h6 style="color: dimgrey">View Replies</h6>
+                                            </div>
+                                    
+                                            <div id="footer_${rid}collapse" class="collapse" role="tabpanel" aria-labelledby="footer_${rid}" data-parent="#${rid}">
+                                            No Replies
+                                            </div>
+                                        </div>
+                                        <br>`;
+                $(`#footer_${id}collapse`).append(str);
+                // console.log(content_fill);
+                $(`#${rid}`).append(content_fill);
+            }
+        }   
+    });
 }
