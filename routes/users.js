@@ -17,21 +17,25 @@ router.get('/', (req, res, next) => {
 
 // Sign up
 router.use('/signup', (req, res) => {
-  if (req.method) {
-    console.log("Sending signup page.");
-    res.end(pageHandlers.signUpPage());
+  if (req.session.userName) {
+    res.redirect('/');
   } else {
-    var ud = res.body;
-    db.addUser(req.body, (status) => {
-      if (status == _EVENTS.USER_ADD_ERR) {
-        res.end("Error");
-      } else {
-        req.session.userName = req.body.userName;
-        req.session.moderator = false;
-        req.session.interests = req.body.interests;
-        res.redirect('/profile');
-      }
-    });
+    if (req.method) {
+      console.log("Sending signup page.");
+      res.end(pageHandlers.signUpPage());
+    } else {
+      var ud = res.body;
+      db.addUser(req.body, (status) => {
+        if (status == _EVENTS.USER_ADD_ERR) {
+          res.end("Error");
+        } else {
+          req.session.userName = req.body.userName;
+          req.session.moderator = false;
+          req.session.interests = req.body.interests;
+          res.redirect('/profile');
+        }
+      });
+    }
   }
 });
 
@@ -70,7 +74,7 @@ router.use('/login', function (req, res, next) {
         return res.redirect(req.headers.referer);
       } else {
         console.log("NO SUCH USER");
-        res.cookie('loginStatus', 'NO_USER');        
+        res.cookie('loginStatus', 'NO_USER');
         // return res.end("You dont exist. Begone.");
         return res.redirect(req.headers.referer);
       }
