@@ -78,11 +78,12 @@ router.post('/util/rate', (req, res) => {
 
 // Report Things
 router.use('/util/report/:type/:id', (req, res) => {
-    if (req.session.userName)
+    if (req.session.userName) {
+        res.end({
+            status: "success"
+        });
         db.report(req.params.type, req.params.id, req.session.userName);
-    res.end({
-        status: "success"
-    });
+    }
 });
 
 // Others
