@@ -70,8 +70,8 @@ function UpdateThreads() {
                     <div style="float: right; margin-bottom: -10px; margin-right: -10px;">
 
                         &nbsp;
-                        <a id="reply_${rid}"onclick="openNav(this.id)" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
-                        <a href="#" class="badge badge-danger">&nbsp;<span class="oi oi-flag"></span>&nbsp;</a>
+                        <a id="reply_${rid}" onclick="openNav(this.id)" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
+                        <a id="report_${rid}" style="color: white; cursor: pointer;" onclick="reportPost(this.id)" class="badge badge-danger">&nbsp;<span class="oi oi-flag"></span>&nbsp;</a>
                     </div>
                 </div>
 
@@ -148,4 +148,22 @@ function AddReply() {
 
     UpdateThreads();
     closeNav();
+}
+
+function reportPost(id) {
+    if(CheckLogin() == 1){
+        var report_id = parseInt(id.toString().substr(7));
+        $.ajax({
+            url: '/util/threadReport/' + report_id,
+            type: 'POST',
+            // data: JSON.stringify(jObj),
+            // contentType: 'application/json; charset=utf-8',
+            // dataType: 'json',
+            async: true,
+            success: function (msg) {
+                console.log("MSG: " + JSON.stringify(msg));
+                console.log("Post Reported.");
+            }
+        });
+    }
 }
