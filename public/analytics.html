@@ -63,7 +63,7 @@
       <div class="col">
         <div class="card">
           <div class="card-header">
-            Views per Category 
+            Views per Category
           </div>
           <div class="card-body">
             <div id="j"></div>
@@ -92,7 +92,7 @@
       <div class="col">
         <div class="card">
           <div class="card-header">
-            Interests 
+            Interests
           </div>
           <div class="card-body">
             <div id="myDiv"></div>
@@ -106,19 +106,12 @@
             Featured
           </div>
           <div class="card-body">
-
+<div id="graph"></div>
           </div>
 
 
         </div>
-        <div class="card">
-          <div class="card-header">
-            Featured
-          </div>
-          <div class="card-body">
 
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -147,7 +140,7 @@
 
     var trace1 = {
       // x: ['giraffes', 'orangutans', 'monkeys'],
-      x: [{{#each categories}}"{{this}}",{{/each}}],      
+      x: [{{#each categories}}"{{this}}",{{/each}}],
       // y: [20, 14, 23],
       y: [{{categoryInterested}}],
       // name: 'SF Zoo',
@@ -168,6 +161,32 @@
     };
 
     Plotly.newPlot('myDiv', data, layout);
+
+
+
+    var values = [
+          ['Salaries', 'Office', 'Merchandise', 'Legal', 'TOTAL'],
+          [1200000, 20000, 80000, 2000, 12120000],[323,323,322,323,23]]
+
+    var datatable = [{
+      type: 'table',
+      header: {
+        values: [["User Names"], ["Average Rating"],
+    				 ["Suggestions if Any"]],
+        align: "center",
+        line: {width: 1, color: 'black'},
+        fill: {color: "grey"},
+        font: {family: "Arial", size: 12, color: "white"}
+      },
+      cells: {
+        values: values,
+        align: "center",
+        line: {color: "black", width: 1},
+        font: {family: "Arial", size: 11, color: ["black"]}
+      }
+    }]
+
+    Plotly.plot('graph', datatable);
 </script>
 
 </html>
