@@ -1,4 +1,9 @@
 function getCookie(cname) {
+  if(Cookies.get("loginStatus")=="FAIL"){
+    alert("Login Failed");
+    Cookies.remove("loginStatus")
+
+  }
     var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
     var ca = decodedCookie.split(';');

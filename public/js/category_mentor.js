@@ -1,5 +1,9 @@
 $(document).ready(function () {
+  if(Cookies.get("loginStatus")=="FAIL"){
+    alert("Login Failed");
+    Cookies.remove("loginStatus")
 
+  }
   function getParameterByName(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, "\\$&");
@@ -11,7 +15,6 @@ $(document).ready(function () {
 }
 document.precat=getParameterByName("cat");
 if(document.precat==null){
-  alert("here");
   document.precat="Category1";
 }
 alert(document.precat);
