@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="/stylesheets/post_cat.css">
     <link rel="stylesheet" href="/stylesheets/styles.css">
 
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -26,54 +27,62 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="/pic/js/jquery.letterpic.min.js"></script>
+
+<script src="/js/profile_page.js"></script>
+
 
     <script>
         console.log(document.cookie);
     </script>
 </head>
 
-<body>
+<body onload="checkCookie()">
     <!-- navigation bar -->
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark" style="padding:0px 10px;">
-        <a class="navbar-brand" href="#">
-            <b>Community</b>Forum</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-badge="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+      <a class="navbar-brand" href="#">
+        <b>Community</b>Forum</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/categorywise">Browse</a>
-                </li>
-            </ul>
-            <div style="float:left">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/categorywise">Browse</a>
+            <span class="sr-only">(current)</span>
+          </li>
+        </ul>
+        <div style="float:left">
 
+          <form id="logout" style="display:none; background-color:#343a40" method="post" action="/users/logout">
+            <button type="submit" class="btn btn-primary btn-sm" style=" background-color:#343a40">Logout</button>
+          </form>
+          <a style="cursor: pointer; color: white;" data-toggle="modal" data-target="#signinmodal" id="lol">
+            <img id="action" class="" alt=""style="width:25px; height:25px; margin-bottom:5px;">&nbsp;</a>
 
-                <a style="cursor: pointer; color: white;" data-toggle="modal" data-target="#signinmodal">
-                    <img src="res/login.png" class="" alt="Cinque Terre" width="25" height="25">&nbsp;</a>
-
-                <!-- <img src="profilephoto.jpg" class="rounded-circle" alt="Cinque Terre" width="30" height="30"> -->
-            </div>
-        </div>
+      </div>
     </nav>
     <br>
     <br>
     <div class="container">
         <div class="row">
-            <div class="col-2">
+            <div class="col-1/" id="profile_pic">
                 <!-- <img src="profilephoto.jpg" class="rounded-circle" alt="Cinque Terre" width="150" height="150"> -->
             </div>
             <div class="col-10">
-                <h1>{{name}}&nbsp;&nbsp;
+                <h1>{{name}}&nbsp;&nbsp;  </h1>
                     <script type="text/javascript" src="https://secure.skypeassets.com/i/scom/js/skype-uri.js">
                     </script>
+                    <span class="badge badge-secondary">
+                    <h6 style="display:inline-block">{{Type}}Regular</h6>
+                    </span>
                     <div id="SkypeButton_Call_pranjalmathur_1" style="display: inline-block !important; padding: -10px !important;">
                         <script type="text/javascript">
                             Skype.ui({
@@ -84,14 +93,8 @@
                             });
                         </script>
                     </div>
-                </h1>
-                <span class="badge badge-secondary">
-                    <h6 style="font-weight: bold">Mentor</h6>
-                </span>
-                <span class="badge badge-primary">
-                    <h6 style="font-weight: bold">
-                        <i class="oi oi-star"></i>&nbsp;&nbsp;{{userRating}} star</h6>
-                </span>
+
+
             </div>
         </div>
         <hr style="border: 1px solid rgba(0,0,0,.125);">
@@ -121,25 +124,17 @@
             <div class="col">
                 <ul class="list-inline">
                     <li style="float: left">
-                        <h5>Replies:&nbsp;
-                            <span class="badge badge-secondary">{{numReplies}}</span>
-                        </h5>
+                        <h6>Replies:&nbsp;
+                            <span class="badge badge-secondary">{{numReplies}}</span>&nbsp;&nbsp;
+                        </h6>
                     </li>
+
                     <li style="float: left">
-                        <h5>&nbsp;Threads Created:&nbsp;
+                        <h6>&nbsp;Threads Created:&nbsp;
                             <span class="badge badge-primary">{{numThreads}}</span>
-                        </h5>
+                        </h6>
                     </li>
-                    <li style="float: left">
-                        <h5>&nbsp;Stars Given:&nbsp;
-                            <span class="badge badge-success">{{starsGiven}}</span>
-                        </h5>
-                    </li>
-                    <li style="float: left">
-                        <h5>&nbsp;Stars Received:&nbsp;
-                            <span class="badge badge-danger">{{starsRecv}}</span>
-                        </h5>
-                    </li>
+
                 </ul>
             </div>
         </div>
@@ -152,7 +147,7 @@
                 <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile"
                     aria-selected="false">Replies</a>
                 <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings"
-                    aria-selected="false">Starred Threads</a>
+                    aria-selected="false">Bookmarked Threads</a>
             </div>
             <div class="tab-content col-9" id="v-pills-tabContent">
                 <div class="tab-pane fade show active" id="quesasked" role="tabpanel" aria-labelledby="QuestionsAsked">
@@ -163,7 +158,74 @@
             </div>
         </div>
     </div>
-    <script src="/js/profile_page.js"></script>
+    <div class="modal fade" id="signinmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Login to Your Account</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body">
+            <form method="post" action="/users/login">
+              <div class="form-group">
+                <label for="exampleInputEmail1">User Name</label>
+                <input type="email" class="form-control" name="userName" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
+                <input name="samePage" hidden value="true"></input>
+              </div>
+            </form>
+          </div>
+
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <span class="mr-auto">Not a member yet?&nbsp;
+              <a href="users/signup">Register Here</a>
+            </span>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button type="submit" onclick="javascript:document.forms[1].submit()" class="btn btn-primary" data-dismiss="modal">Login</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <script>
+    function getCookie(cname) {
+      var name = cname + "=";
+      var decodedCookie = decodeURIComponent(document.cookie);
+      var ca = decodedCookie.split(';');
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
+      }
+      return "";
+    }
+
+
+    function checkCookie() {
+
+      if (getCookie("userName") == "") {
+        document.getElementById('action').src = "/res/login.png";
+      } else {
+        var element = document.getElementById("lol");
+        element.parentNode.removeChild(element);
+        document.getElementById("logout").style.display = "inline-block";
+
+
+      }
+    }
+</script>
 </body>
 
 </html>
