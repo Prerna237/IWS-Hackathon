@@ -123,7 +123,8 @@ router.get('/profile', (req, res) => {
                 starsRecv: user.numRatings,
                 numThreads: user.threads.length,
                 numReplies: user.replies.length,
-                accountType: user.profile_type
+                accountType: user.profile_type,
+                interests: user.interests
             }));
         })
     } else {
@@ -151,7 +152,8 @@ router.get('/profile/:userName', (req, res) => {
                     starsRecv: user.numRatings,
                     numThreads: user.threads.length,
                     numReplies: user.replies.length,
-                    accountType: user.profile_type
+                    accountType: user.profile_type,
+                    interests: user.interests
                 }));
             } else {
                 res.end(pageHandlers.errorPage({

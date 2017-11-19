@@ -81,7 +81,7 @@
                     <script type="text/javascript" src="https://secure.skypeassets.com/i/scom/js/skype-uri.js">
                     </script>
                     <span class="badge badge-secondary">
-                    <h6 style="display:inline-block">{{Type}}Regular</h6>
+                    <h6 style="display:inline-block">{{accountType}}</h6>
                     </span>
                     <div id="SkypeButton_Call_pranjalmathur_1" style="display: inline-block !important; padding: -10px !important;">
                         <script type="text/javascript">
@@ -196,6 +196,7 @@
       </div>
     </div>
     <script>
+    document.interests = [ {{#each interests}}"{{this}}",{{/each}}];
     function getCookie(cname) {
       var name = cname + "=";
       var decodedCookie = decodeURIComponent(document.cookie);

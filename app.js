@@ -51,6 +51,7 @@ app.use('/', (req, res, next) => {
         console.log('Cookie set.');
         res.cookie("userName", req.session.userName);
         res.cookie("interests", req.session.interests);
+        console.log("Interests: " + req.session.interests);
     } else {
         res.clearCookie('userName');
     }
