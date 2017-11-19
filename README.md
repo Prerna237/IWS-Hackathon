@@ -1,36 +1,45 @@
 # IWS-Hackathon
 Website: https://iws-forum.herokuapp.com/
 
-## Important : Add the following CDN to your pages for cookie management.
-`<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>`
-
 **Check `docs` folder for full documentation**
 
-- [Tech Stack: MongoDB | Node | Express | Bootstrap](#tech-stack-mongodb-node-express-bootstrap)
-- [Basic theme to be followed: https://platform.github.community](#basic-theme-to-be-followed-httpsplatformgithubcommunity)
+- [Tech Stack: MongoDB | Node | Express | Bootstrap](#tech-stack)
+- [Features](#features)
+- [UI Pages](#ui-pages)
 - [Using Node](#using-node)
     - [Instructions](#instructions)
-- [UI Pages](#ui-pages)
-    - [Regular Users](#regular-users)
-    - [Moderator](#moderator)
-## Tech Stack: MongoDB | Node | Express | Bootstrap
+ 
+## Tech Stack
+* Backend: Node
+* Database: MongoDB (MLab : Database as a Service)
+* Frontend: Bootstrap
+* Hosted at: Heroku
+
+## Features
+* Bookmark
+* Stars
+* Comments to replies (Questions + Comments | Replies + Comments)
+* Flag Inappropriate
+* Thread Suggestions based on interests
+* Chat option
+* Delete by moderator
+* Sort by Time and Views
+* Relative thread suggestions based on answer viewed
 * Analytics:
-    * https://keen.github.io/dashboards/
-    * Google Analytics for device based analytics
+    * Google Analytics for device based analytics or facebook Analytics
+    * Moderator Dashboard
         * Clicks per category
         * Threads per category
         * Interests Chart
-        * What else
-* Add: Other packages/plugins being used.
+        * Moderator suggestion
 
-## Basic theme to be followed: https://platform.github.community
-* Chat option
-* Bookmark
-* Stars
-* #tags or just tags
-* Comments to replies (Questions + Comments | Replies + Comments)
-* Flag Inappropriate
-* Suggest Categories based on the past searches or the interests tagged during sign up
+## UI Pages
+- [x] Profile Page
+- [x] Categorywise Posts: Regular and Moderator
+- [x] Posts and Replies
+- [x] Home Page
+- [x] Signup Page
+- [x] Analytics Page
 
 ## Using Node
 ### Instructions
@@ -41,17 +50,3 @@ Website: https://iws-forum.herokuapp.com/
 * Edit website interface files in ./public/
 
 * Using Express framework
-
-
-## UI Pages
-### Regular Users
-- [x] Profile Page
-- [x] Categorywise Posts
-- [x] Posts and Replies
-- [x] Home Page
-- [x] Signup Page
-
-### Moderator
-* Modify Categorywise post page - Show "reports" if any | Allow to close a thread | Delete the thread
-
-
