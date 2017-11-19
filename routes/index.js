@@ -81,7 +81,7 @@ router.post('/util/rate', (req, res) => {
 // Bookmark
 router.post('/util/bookmark/:threadID', (req, res) => {
     let userName = req.session.userName;
-    let threadID = req.body.threadID;
+    let threadID = req.params.threadID;
     if (userName == undefined) {
         res.end(JSON.stringify({
             status: "failure"
