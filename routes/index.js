@@ -78,6 +78,22 @@ router.post('/util/rate', (req, res) => {
     }));
 });
 
+// Bookmark
+router.post('/util/bookmark/:threadID', (req, res) => {
+    let userName = req.session.userName;
+    let threadID = req.body.threadID;
+    if (userName == undefined) {
+        res.end(JSON.stringify({
+            status: "failure"
+        }));
+    } else {
+        db.bookmark(userName, threadID);
+        res.end(JSON.stringify({
+            status: "success"
+        }));
+    }
+});
+
 // Report Things
 router.use('/util/report/:type/:id', (req, res) => {
     if (req.session.userName) {
@@ -201,6 +217,12 @@ router.get('/threadsByUser/:userName', (req, res) => {
     });
 });
 
+router.get('/bookmarks/:userName', (req, res) => {
+    db.getBookmarks(req.params.userName, (bookmarks) => {
+        res.end(JSON.stringify(bookmarks));
+    });
+});
+
 router.get('/threadsByStars/:userName', (req, res) => {
     console.log('threadsByStars');
     var userName = req.params.userName;
@@ -222,9 +244,9 @@ router.use('/analytics', (req, res, next) => {
     console.log("Request by: " + req.session.userName);
     console.log("Type: " + req.session.moderator);
     if (req.session.moderator) {
-    db.getCategoryAnalytics((details) => {
-        res.end(pageHandlers.analyticsPage(details));
-    });
+        db.getCategoryAnalytics((details) => {
+            res.end(pageHandlers.analyticsPage(details));
+        });
     } else {
         res.end(pageHandlers.errorPage({
             status: 404
