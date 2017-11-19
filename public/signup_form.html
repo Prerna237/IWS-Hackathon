@@ -28,25 +28,25 @@
 
 <body onload="checkCookie()">
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark" style="padding:0px 10px;">
-        <a class="navbar-brand" href="#">
-            <b>Community</b>Forum</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+      <a class="navbar-brand" href="/">
+          <b>Community</b>Forum</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/">Home
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/categorywise">Browse</a>
-                </li>
-            </ul>
-            <div style="float:left">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item active" id="myprofile" style="display:none">
+                  <a class="nav-link" href="/profile">My Profile
+                      <span class="sr-only">(current)</span>
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="categorywise">Browse</a>
+              </li>
+          </ul>
+          <div style="float:left">
               <form id="logout" style="display:none; background-color:#343a40" method="post" action="/users/logout">
                 <button type="submit" class="btn btn-primary btn-sm" style=" background-color:#343a40">Logout</button>
               </form>
