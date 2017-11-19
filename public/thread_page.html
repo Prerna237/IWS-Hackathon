@@ -85,7 +85,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Browse</a>
+                    <a class="nav-link" href="/categorywise">Browse</a>
                     <span class="sr-only">(current)</span>
                 </li>
             </ul>
@@ -175,7 +175,9 @@
                 <div class="starrate" style="float: left !important;"></div>
                 <div style="float: right;">&nbsp;
                     <a id="0" onclick="openNav(this.id)" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
-                    <a id="report_1" onclick="reportPost(this.id)" class="badge badge-danger" style="color: white; cursor: pointer;">&nbsp;
+                    <a id="bookmark_1" onclick="bookmarkPost(this.id)" class="badge badge-success" style="color: white; cursor: pointer;">&nbsp;
+                        <span class="oi oi-bookmark"></span>&nbsp;</a>
+                    <a id="report_{{threadID}}" onclick="reportPost(this.id)" class="badge badge-danger" style="color: white; cursor: pointer;">&nbsp;
                         <span class="oi oi-flag"></span>&nbsp;</a>
                 </div>
             </div>
@@ -271,7 +273,7 @@
         </div>
     </div>
 
-    <!-- Modal -->
+    <!-- Report Modal -->
     <div class="modal fade" id="reportmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -286,6 +288,24 @@
             </div>
         </div>
     </div>
+
+    <!-- Bookmark Modal
+    <div class="modal fade" id="bookmarkmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="alert alert-primary" role="alert">
+                        Post Bookmarked !
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
 </body>
 
 </html>
