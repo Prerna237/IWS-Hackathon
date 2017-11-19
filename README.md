@@ -50,3 +50,10 @@ Website: https://iws-forum.herokuapp.com/
 * Edit website interface files in ./public/
 
 * Using Express framework
+
+## Contributors
+
+![Saketh Vallakatla](https://avatars2.githubusercontent.com/u/9252678?v=3&s=460) | ![Pranjal Mathur](https://avatars1.githubusercontent.com/u/9745016?v=3&s=400) | ![Samarjoy Pandit](https://avatars0.githubusercontent.com/u/10145506?s=400&v=4) | ![Prerna](https://avatars0.githubusercontent.com/u/9744854?v=3&s=400)
+--- | --- | --- | --- | ---
+[Saketh Vallakatla](https://github.com/saketh21v) | [Pranjal Mathur](https://github.com/pranjalmathur) | [Samarjoy Pandit](https://github.com/samarjoypandit) | [Prerna](https://github.com/prerna237)
+
