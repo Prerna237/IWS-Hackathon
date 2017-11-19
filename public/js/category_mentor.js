@@ -13,13 +13,13 @@ $(document).ready(function () {
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
-document.precat=getParameterByName("cat");
-if(document.precat==null){
-  document.precat="Category1";
+document.cat=getParameterByName("cat");
+if(document.cat==null){
+  document.cat="Category1";
 }
-alert(document.precat);
+alert(document.cat);
   $.ajax({
-    url: '/threadsByCategory/'+document.precat,
+    url: '/threadsByCategory/'+document.cat,
     contentType: 'application/json; charset=utf-8',
     dataType: 'json',
     async: true,
@@ -29,7 +29,7 @@ alert(document.precat);
       $("#table").find("tr:gt(0)").remove();
       var data = "";
       $.each(document.categories, function (i, item) {
-        data += '<tr><th scope="row">'+document.precat+'</th><td><a class="threadclick" id="' + item.id + '">'+item.title+'</a></td><td><a class="user" id="'+item.userName+'"><canvas class="demo" title="' + item.userName + '"alt="Pranjal" style="width:34px; height:34px; margin:-12px 10px; border-radius:50%;"></canvas></a></td><td>' + item.numReplies + '</td><td>' + item.views + '</td><td><span class="badge badge-primary"><span class="oi oi-star"></span>'+item.rating+'</span></td><td>5</td><td><input type="button" id="del'+item.id+'" class="btn btn-danger btn-sm" value="Delete"></input></td></tr>';
+        data += '<tr><th scope="row">'+document.cat+'</th><td><a class="threadclick" id="' + item.id + '"style="cursor:pointer;">'+item.title+'</a></td><td><a class="user" id="'+item.userName+'" style="cursor:pointer;"><canvas class="demo" title="' + item.userName + '"alt="Pranjal" style="width:34px; height:34px; margin:-12px 10px; border-radius:50%;"></canvas></a></td><td>' + item.numReplies + '</td><td>' + item.views + '</td><td><span class="badge badge-primary"><span class="oi oi-star"></span>'+item.rating+'</span></td><td>5</td><td><input type="button" id="del'+item.id+'" class="btn btn-danger btn-sm" value="Delete"></input></td></tr>';
 
       });
       $('#table').append(data);
@@ -101,7 +101,7 @@ alert(document.precat);
     $("#category").html(cat);
     document.cat = cat;
     $.ajax({
-      url: '/threadsByCategory/' + cat,
+      url: '/threadsByCategory/' + document.cat,
 
       contentType: 'application/json; charset=utf-8',
       dataType: 'json',
@@ -112,7 +112,7 @@ alert(document.precat);
         $("#table").find("tr:gt(0)").remove();
         var data = "";
         $.each(document.categories, function (i, item) {
-          data += '<tr><th scope="row">'+document.cat+'</th><td><a class="threadclick" id="' + item.id + '">'+item.title+'</a></td><td><a class="user" id="'+item.userName+'"><canvas class="demo" title="' + item.userName + '"alt="Pranjal" style="width:34px; height:34px; margin:-12px 10px; border-radius:50%;"></canvas></a></td><td>' + item.numReplies + '</td><td>' + item.views + '</td><td><span class="badge badge-primary"><span class="oi oi-star"></span>'+item.rating+'</span></td><td>5</td><td><input type="button" id="del'+item.id+'" class="btn btn-danger btn-sm" value="Delete"></input></td></tr>';
+          data += '<tr><th scope="row">'+document.cat+'</th><td><a class="threadclick" id="' + item.id + '" style="cursor:pointer;">'+item.title+'</a></td><td><a class="user" id="'+item.userName+'" style="cursor:pointer;"><canvas class="demo" title="' + item.userName + '"alt="Pranjal" style="width:34px; height:34px; margin:-12px 10px; border-radius:50%;"></canvas></a></td><td>' + item.numReplies + '</td><td>' + item.views + '</td><td><span class="badge badge-primary"><span class="oi oi-star"></span>'+item.rating+'</span></td><td>5</td><td><input type="button" id="del'+item.id+'" class="btn btn-danger btn-sm" value="Delete"></input></td></tr>';
         });
         $('#table').append(data);
         $('a.threadclick').click(function () {
@@ -144,7 +144,7 @@ alert(document.precat);
     $("#table").find("tr:gt(0)").remove();
     var data = "";
     $.each(document.categories, function (i, item) {
-      data += '<tr><th scope="row">'+document.cat+'</th><td><a class="threadclick" id="' + item.id + '">'+item.title+'</a></td><td><a class="user" id="'+item.userName+'"><canvas class="demo" title="' + item.userName + '"alt="Pranjal" style="width:34px; height:34px; margin:-12px 10px; border-radius:50%;"></canvas></a></td><td>' + item.numReplies + '</td><td>' + item.views + '</td><td><span class="badge badge-primary"><span class="oi oi-star"></span>'+item.rating+'</span></td><td>5</td><td><input type="button" id="del'+item.id+'" class="btn btn-danger btn-sm" value="Delete"></input></td></tr>';
+      data += '<tr><th scope="row">'+document.cat+'</th><td><a class="threadclick" id="' + item.id + '" style="cursor:pointer;">'+item.title+'</a></td><td><a class="user" id="'+item.userName+'" style="cursor:pointer;"><canvas class="demo" title="' + item.userName + '"alt="Pranjal" style="width:34px; height:34px; margin:-12px 10px; border-radius:50%;"></canvas></a></td><td>' + item.numReplies + '</td><td>' + item.views + '</td><td><span class="badge badge-primary"><span class="oi oi-star"></span>'+item.rating+'</span></td><td>5</td><td><input type="button" id="del'+item.id+'" class="btn btn-danger btn-sm" value="Delete"></input></td></tr>';
 
     });
     $('#table').append(data);
@@ -176,7 +176,7 @@ alert(document.precat);
     var data = "";
     $.each(document.categories, function (i, item) {
       if (item.userName == Cookies.get('userName')) {
-      data += '<tr><th scope="row">'+document.cat+'</th><td><a class="threadclick" id="' + item.id + '">'+item.title+'</a></td><td><a class="user" id="'+item.userName+'"><canvas class="demo" title="' + item.userName + '"alt="Pranjal" style="width:34px; height:34px; margin:-12px 10px; border-radius:50%;"></canvas></a></td><td>' + item.numReplies + '</td><td>' + item.views + '</td><td><span class="badge badge-primary"><span class="oi oi-star"></span>'+item.rating+'</span></td><td>5</td><td><input type="button" id="del'+item.id+'" class="btn btn-danger btn-sm" value="Delete"></input></td></tr>';
+      data += '<tr><th scope="row">'+document.cat+'</th><td><a class="threadclick" id="' + item.id + '" style="cursor:pointer;">'+item.title+'</a></td><td><a class="user" id="'+item.userName+'" style="cursor:pointer;"><canvas class="demo" title="' + item.userName + '"alt="Pranjal" style="width:34px; height:34px; margin:-12px 10px; border-radius:50%;"></canvas></a></td><td>' + item.numReplies + '</td><td>' + item.views + '</td><td><span class="badge badge-primary"><span class="oi oi-star"></span>'+item.rating+'</span></td><td>5</td><td><input type="button" id="del'+item.id+'" class="btn btn-danger btn-sm" value="Delete"></input></td></tr>';
 
     }});
 
@@ -209,7 +209,7 @@ alert(document.precat);
     $("#table").find("tr:gt(0)").remove();
     var data = "";
     $.each(document.categories, function (i, item) {
-      data += '<tr><th scope="row">'+document.cat+'</th><td><a class="threadclick" id="' + item.id + '">'+item.title+'</a></td><td><a class="user" id="'+item.userName+'"><canvas class="demo" title="' + item.userName + '"alt="Pranjal" style="width:34px; height:34px; margin:-12px 10px; border-radius:50%;"></canvas></a></td><td>' + item.numReplies + '</td><td>' + item.views + '</td><td><span class="badge badge-primary"><span class="oi oi-star"></span>'+item.rating+'</span></td><td>5</td><td><input type="button" id="del'+item.id+'" class="btn btn-danger btn-sm" value="Delete"></input></td></tr>';
+      data += '<tr><th scope="row">'+document.cat+'</th><td><a class="threadclick" id="' + item.id + '" style="cursor:pointer;">'+item.title+'</a></td><td><a class="user" id="'+item.userName+'" style="cursor:pointer;"><canvas class="demo" title="' + item.userName + '"alt="Pranjal" style="width:34px; height:34px; margin:-12px 10px; border-radius:50%;"></canvas></a></td><td>' + item.numReplies + '</td><td>' + item.views + '</td><td><span class="badge badge-primary"><span class="oi oi-star"></span>'+item.rating+'</span></td><td>5</td><td><input type="button" id="del'+item.id+'" class="btn btn-danger btn-sm" value="Delete"></input></td></tr>';
 
     });
     $('#table').append(data);

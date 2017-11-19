@@ -14,8 +14,8 @@ $(document).ready(function () {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 document.cat=getParameterByName("cat");
-if(document.precat==null){
-
+if(document.cat==null){
+alert("I am here");
   document.cat="Category1";
 }
 
