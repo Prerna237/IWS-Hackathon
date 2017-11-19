@@ -229,7 +229,7 @@ function reportPost(id) {
 
 function bookmarkPost() {
     if (CheckLogin() == 1) {
-        if(is_bookmarked != -1){
+        if(is_bookmarked == -1){
             $.ajax({
                 url: '/util/bookmark/' + thread_id,
                 type: 'POST',
@@ -312,9 +312,9 @@ function isBookmarked() {
         dataType: 'json',
         async: false,
         success: function (threads) {
-            document.bookmarkArr = threads;
+            document.bookmarkArr = threads.map(thread => thread.id);
         }
     });
 
-    return ($.inArray(document.threadID.toString(), document.bookmarkArr));
+    return (document.bookmarkArr.findIndex(e => e == document.threadID));
 }
