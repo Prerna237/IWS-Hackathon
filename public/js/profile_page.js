@@ -1,27 +1,16 @@
-function getCookie(cname) {
+$(document).ready(function () {
   if(Cookies.get("loginStatus")=="FAIL"){
     alert("Login Failed");
     Cookies.remove("loginStatus")
 
   }
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for (var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
-}
-
-$(document).ready(function () {
+    $(".demo").letterpic();
     console.log("I'm ready");
     var userName = getCookie('pseudoUser');
+    var pic='<canvas class="demo" title="' + userName + '"alt="Pranjal" style="width:120px; height:120px; margin:5px 10px; border-radius:50%;"></canvas>'
+      $('#profile_pic').append(pic);
+        $(".demo").letterpic();
+
     console.log("Got pseudoUser to " + userName);
     console.log("Got username: " + userName);
     if (document.cookie) {
