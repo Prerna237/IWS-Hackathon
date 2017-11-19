@@ -212,6 +212,24 @@ function reportPost(id) {
     }
 }
 
+function bookmarkPost(id) {
+    if (CheckLogin() == 1) {
+        var bookmark_id = parseInt(id.toString().substr(9));
+        $.ajax({
+            url: '/util/bookmark/' + bookmark_id,
+            type: 'POST',
+            async: false,
+            success: function (msg) {
+                console.log("MSG: " + JSON.stringify(msg));
+                console.log("Post Bookmarked.");
+                $('#bookmarkmodal').modal('show');
+                $('#'+id).attr('class', '');
+                $('#'+id).attr('class', 'badge badge-warning');
+            }
+        });
+    }
+}
+
 function addReplies(id) {
     $.ajax({
         url: '/replies/reply/' + id,
