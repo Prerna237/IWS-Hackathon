@@ -6,7 +6,7 @@ Website: https://iws-forum.herokuapp.com/
 - [Tech Stack: MongoDB | Node | Express | Bootstrap](#tech-stack)
 - [Features](#features)
 - [UI Pages](#ui-pages)
-- [Using Node](#using-node)
+- [Setup on local machine](#using-node)
     - [Instructions](#instructions)
  
 ## Tech Stack
