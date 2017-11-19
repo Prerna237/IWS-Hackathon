@@ -1,6 +1,7 @@
 var thread_id = document.threadID;
 var reply_id = '';
 var mainreplies = [];
+var is_bookmarked = 999;
 
 function getCookie(cname) {
     var name = cname + "=";
@@ -30,7 +31,11 @@ function checkCookie() {
         element.parentNode.removeChild(element);
         document.getElementById("logout").style.display = "inline-block";
         document.getElementById("mypost").style.display = "inline-block";
-
+        // console.log(isBookmarked());
+        // if(isBookmarked() == -1){
+        //     $('#book_mark').attr('class', '');
+        //     $('#book_mark').attr('class', 'badge badge-warning');
+        // }
     }
 }
 
@@ -137,6 +142,13 @@ $(document).ready(function () {
         // var cat = getParameterByName("cat", "http://localhost:3000/thread/1?cat=Category1");
         // console.log('Category: '+cat);
         UpdateThreads();
+        if(getCookie('userName') != ""){
+            is_bookmarked = isBookmarked();
+        }
+        if(is_bookmarked == -1){
+            $('#book_mark').attr('class', '');
+            $('#book_mark').attr('class', 'badge badge-warning');
+        }
         UpdateSideBox('Category1');
     }
 
@@ -200,6 +212,9 @@ function AddReply() {
 function reportPost(id) {
     if (CheckLogin() == 1) {
         var report_id = parseInt(id.toString().substr(7));
+        if(report_id == 0){
+            report_id = thread_id;
+        }
         $.ajax({
             url: '/util/threadReport/' + report_id,
             async: true,
@@ -212,21 +227,22 @@ function reportPost(id) {
     }
 }
 
-function bookmarkPost(id) {
+function bookmarkPost() {
     if (CheckLogin() == 1) {
-        var bookmark_id = parseInt(id.toString().substr(9));
-        $.ajax({
-            url: '/util/bookmark/' + bookmark_id,
-            type: 'POST',
-            async: false,
-            success: function (msg) {
-                console.log("MSG: " + JSON.stringify(msg));
-                console.log("Post Bookmarked.");
-                $('#bookmarkmodal').modal('show');
-                $('#'+id).attr('class', '');
-                $('#'+id).attr('class', 'badge badge-warning');
-            }
-        });
+        if(is_bookmarked != -1){
+            $.ajax({
+                url: '/util/bookmark/' + thread_id,
+                type: 'POST',
+                async: false,
+                success: function (msg) {
+                    console.log("MSG: " + JSON.stringify(msg));
+                    console.log("Post Bookmarked.");
+                    $('#bookmarkmodal').modal('show');
+                    $('#book_mark').attr('class', '');
+                    $('#book_mark').attr('class', 'badge badge-warning');
+                }
+            });
+        }
     }
 }
 
@@ -286,4 +302,19 @@ function addReplies(id) {
         }
     });
 
+}
+
+function isBookmarked() {
+    $.ajax({
+        url: '/bookmarks/' + getCookie('userName'),
+        type: 'GET',
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        async: false,
+        success: function (threads) {
+            document.bookmarkArr = threads;
+        }
+    });
+
+    return ($.inArray(document.threadID.toString(), document.bookmarkArr));
 }

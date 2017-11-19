@@ -175,9 +175,9 @@
                 <div class="starrate" style="float: left !important;"></div>
                 <div style="float: right;">&nbsp;
                     <a id="0" onclick="openNav(this.id)" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
-                    <a id="bookmark_1" onclick="bookmarkPost(this.id)" class="badge badge-success" style="color: white; cursor: pointer;">&nbsp;
+                    <a id="book_mark" onclick="bookmarkPost()" class="badge badge-success" style="color: white; cursor: pointer;">&nbsp;
                         <span class="oi oi-bookmark"></span>&nbsp;</a>
-                    <a id="report_{{threadID}}" onclick="reportPost(this.id)" class="badge badge-danger" style="color: white; cursor: pointer;">&nbsp;
+                    <a id="report_0" onclick="reportPost(this.id)" class="badge badge-danger" style="color: white; cursor: pointer;">&nbsp;
                         <span class="oi oi-flag"></span>&nbsp;</a>
                 </div>
             </div>
@@ -210,17 +210,6 @@
             $('#relatedlinks').css('top', $(this).scrollTop());
         }
     </script>
-    <!-- <script>
-        function openNav(this.id) {
-            document.getElementById("mySidenav").style.display = "block";
-            document.getElementById("mySidenav").style.height = "33.5%";
-        }
-
-        function closeNav() {
-            document.getElementById("mySidenav").style.height = "0%";
-            document.getElementById("mySidenav").style.display = "none";
-        }
-    </script> -->
     <!-- <script>
         var elem = document.getElementsByClassName('starrate');
         for (var i = 0; i < elem.length; i++) {
@@ -289,7 +278,7 @@
         </div>
     </div>
 
-    <!-- Bookmark Modal
+    <!-- Bookmark Modal -->
     <div class="modal fade" id="bookmarkmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -303,9 +292,7 @@
                 </div>
             </div>
         </div>
-    </div> -->
-
-
+    </div>
 </body>
 
 </html>
