@@ -89,7 +89,7 @@ function createReplyView(reply) {
   <div class="tab-pane fade show active" id="repliesgiven" role="tabpanel" aria-labelledby="RepliesGiven">
   <div class="row">
   <div class="col-2">
-  <span class="badge badge-secondary">${thread.category}</span>
+  <span class="badge badge-secondary">${reply.category}</span>
   </div>
   <div class="col-10">
   <p class="post-title">${reply.text}</p>
@@ -104,7 +104,7 @@ function createReplyView(reply) {
   </div>`
 }
 
-function createBookmarksView(reply) {
+function createBookmarksView(thread) {
     return `<div class="tab-content col-9" id="v-pills-tabContent">
     <div class="tab-pane fade show active" id="quesasked" role="tabpanel" aria-labelledby="QuestionsAsked"></div>
   <div class="tab-pane fade show active" id="repliesgiven" role="tabpanel" aria-labelledby="RepliesGiven"></div>
@@ -172,8 +172,8 @@ var showThreads = function (threads) {
 }
 
 var showReplies = function () {
-    var repliesgiven = document.getElementById('repliesgiven');
-    repliesgiven.innerHTML = "";
+    var replys = document.getElementById('repliesgiven');
+    replys.innerHTML = "";
     if (document.userReplies) {
         var ques = document.userReplies.map((thread, threadView) => {
             return createReplyView(thread);
@@ -183,10 +183,10 @@ var showReplies = function () {
             ques = ques.reduce((q, t) => {
                 return q + t
             });
-            repliesgiven.innerHTML = ques;
+            replys.innerHTML = ques;
         } else {
             alert("WHY");
-            repliesgiven.innerHTML = createReplyView({
+            replys.innerHTML = createReplyView({
                 text: "No contento here"
             });
         }
