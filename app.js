@@ -78,11 +78,11 @@ app.use(function (err, req, res, next) {
 
     // render the error page
     res.status(err.status || 500);
-    res.render('error');
-    console.log('Referer: ' + req.headers.referer);
-    // res.end(pageHandlers.errorPage({
-    //     status: err.status
-    // }));
+    // res.render('error');
+    console.log('Error Msg: ' + res.locals.message + " Error : " + res.locals.error);
+    res.end(pageHandlers.errorPage({
+        status: err.status
+    }));
 });
 
 module.exports = app;
