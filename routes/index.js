@@ -201,6 +201,16 @@ router.get('/categorywise', (req, res) => {
 
 // Data Fetching (AJAX)
 
+router.get('/threadByID/:id', (req, res) => {
+    db.getThread(req.params.id, (thread) => {
+        res.end(JSON.stringify({
+            title: thread.title,
+            category: thread.category,
+            id: thread.id
+        }));
+    })
+});
+
 router.get('/replies/:type/:id', (req, res) => {
     console.log("Type: " + req.params.type);
     var type = req.params.type;
