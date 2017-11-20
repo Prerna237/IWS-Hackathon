@@ -215,12 +215,22 @@
 
     function checkCookie() {
 
+<<<<<<< HEAD
+            if (getCookie("userName") == "") {
+                document.getElementById('action').src = "/res/login.png";
+            } else {
+                var element = document.getElementById("lol");
+                element.parentNode.removeChild(element);
+                document.getElementById("logout").style.display = "inline-block";
+                document.getElementById("myprofile").style.display = "inline-block";
+=======
       if (getCookie("userName") == "") {
         document.getElementById('action').src = "/res/login.png";
       } else {
         var element = document.getElementById("lol");
         element.parentNode.removeChild(element);
         document.getElementById("logout").style.display = "inline-block";
+>>>>>>> 1b317e869db2a2248af8bb3e061e2929933bb05c
 
 
       }
