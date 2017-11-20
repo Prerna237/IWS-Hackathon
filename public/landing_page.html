@@ -265,6 +265,7 @@
 </body>
 
 <script>
+  document.interests = [ {{#each interests}}"{{this}}",{{/each}}];
 function check(){
   function getCookie(cname) {
     var name = cname + "=";

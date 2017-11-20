@@ -4,10 +4,11 @@ $(document).ready(function () {
     var jobject = new Object();
 
     var social_array = [$("#facebook").val(), $("#twitter").val(), $("#google").val(), $("#skype").val()];
-    var interest_array = $('input:checkbox:checked.form-check-input').map(function () {
+    var interest_array = $('input:checkbox:checked.custom-control-input').map(function () {
+
       return this.value;
     }).get();
-
+alert(interest_array);
 
       jobject.userName = $("#username").val();
       jobject.name = $("#name").val();
