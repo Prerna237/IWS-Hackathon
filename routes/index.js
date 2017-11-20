@@ -13,13 +13,7 @@ var db = require('../lib/DB');
 router.get('/', function (req, res) {
     // res.render('index', { title: 'Express' });
     // res.end("<html><body>This is working</body></html>");
-    if (req.session.userName) {
-        res.end(pageHandlers.landingPage({
-            interests: req.session.interests
-        }));
-    } else {
-        res.end(pageHandlers.landingPage());
-    }
+    res.end(pageHandlers.landingPage());
     // next();
 });
 
@@ -241,7 +235,7 @@ router.get('/threadsByStars/:userName', (req, res) => {
 
 // Trending
 router.get('/trending', (req, res) => {
-    db.getTrending(5, (results) => {
+    db.getTrending(50, (results) => {
         res.end(JSON.stringify(results));
     });
 });
