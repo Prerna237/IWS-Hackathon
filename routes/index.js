@@ -13,7 +13,14 @@ var db = require('../lib/DB');
 router.get('/', function (req, res) {
     // res.render('index', { title: 'Express' });
     // res.end("<html><body>This is working</body></html>");
-    res.end(pageHandlers.landingPage());
+    if (req.session.userName) {
+        res.end(pageHandlers.landingPage({
+           interests: req.session.interests
+        }));
+    } else {
+        res.end(pageHandlers.landingPage());
+    }
+
     // next();
 });
 
@@ -194,13 +201,11 @@ router.get('/categorywise', (req, res) => {
 
 // Data Fetching (AJAX)
 
-router.get('/threadByID/:id', (req, res) => {
-    db.getThread(req.params.id, (thread) => {
-        res.end(JSON.stringify({
-            title: thread.title,
-            category: thread.category,
-            id: thread.id
-        }));
+router.get('/threadByID/:ids', (req, res) => {
+    let ids = JSON.parse(req.params.ids);
+    console.log("IDS : " + ids);
+    db.getThreads(ids, (threads) => {
+        res.end(JSON.stringify(threads));
     })
 });
 

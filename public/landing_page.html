@@ -178,8 +178,8 @@
             </div>
             <div class="col-5">
                 <div class="card">
-                    <div class="card-header">
-                        <h5>Categories</h5>
+                    <div class="card-header" id="trends">
+                        <h5>Trending</h5>
                     </div>
                     <div class="card-body" id="content">
                         <div class="row">
@@ -290,6 +290,7 @@ function check(){
     element.parentNode.removeChild(element);
     document.getElementById("logout").style.display = "inline-block";
       document.getElementById("myprofile").style.display = "inline-block";
+        document.getElementById("trends").innerHTML='<h5>Trending in your Interests</h5>';
 
 
   }
