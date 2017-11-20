@@ -194,13 +194,11 @@ router.get('/categorywise', (req, res) => {
 
 // Data Fetching (AJAX)
 
-router.get('/threadByID/:id', (req, res) => {
-    db.getThread(req.params.id, (thread) => {
-        res.end(JSON.stringify({
-            title: thread.title,
-            category: thread.category,
-            id: thread.id
-        }));
+router.get('/threadByID/:ids', (req, res) => {
+    let ids = JSON.parse(req.params.ids);
+    console.log("IDS : " + ids);
+    db.getThreads(ids, (threads) => {
+        res.end(JSON.stringify(threads));
     })
 });
 
