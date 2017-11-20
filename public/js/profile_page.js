@@ -1,15 +1,15 @@
 $(document).ready(function () {
-  if(Cookies.get("loginStatus")=="FAIL"){
-    alert("Login Failed");
-    Cookies.remove("loginStatus")
+    if (Cookies.get("loginStatus") == "FAIL") {
+        alert("Login Failed");
+        Cookies.remove("loginStatus")
 
-  }
+    }
     $(".demo").letterpic();
     console.log("I'm ready");
     var userName = getCookie('pseudoUser');
-    var pic='<canvas class="demo" title="' + userName + '"alt="Pranjal" style="width:120px; height:120px; margin:5px 10px; border-radius:50%;"></canvas>'
-      $('#profile_pic').append(pic);
-        $(".demo").letterpic();
+    var pic = '<canvas class="demo" title="' + userName + '"alt="Pranjal" style="width:120px; height:120px; margin:5px 10px; border-radius:50%;"></canvas>'
+    $('#profile_pic').append(pic);
+    $(".demo").letterpic();
 
     console.log("Got pseudoUser to " + userName);
     console.log("Got username: " + userName);
@@ -73,7 +73,7 @@ function createThreadView(thread) {
     <span class="badge badge-secondary">${thread.category}</span>
     </div>
     <div class="col-11">
-    <p class="post-title" href="/thread/${thread.id}">&nbsp;&nbsp;${thread.title}</p>
+    <p class="post-title">&nbsp;&nbsp;<a href="/thread/${thread.id}" style="color:black; text-decoration:none;">${thread.title}</a></p>
     <div class="right">
     </div>
     </div>
@@ -85,18 +85,36 @@ function createThreadView(thread) {
     </div>`
 }
 
+// function getThreadByReplyID(reply_id) {
+//     // console.log('Reply ID: ', reply_id);
+//     $.ajax({
+//         url: '/thread/' + reply_id.threadID,
+//         type: 'GET',
+//         contentType: 'application/json; charset=utf-8',
+//         dataType: 'json',
+//         async: false,
+//         success: function (data) {
+//             document.replyThread = data;
+//             console.log(document.replyThread);      
+//         }
+//     });
+    
+// }
+
 function createReplyView(reply) {
     return `<div class="tab-content col-9" id="v-pills-tabContent">
   <div class="tab-pane fade show active" id="quesasked" role="tabpanel" aria-labelledby="QuestionsAsked">
   <div class="row">
-  <div class="col-1">
-  <span class="badge badge-secondary">${reply.category}</span>
+  <div class="col-1"><span class="badge badge-primary">Thread</span></div>
+  <div class="col-11"></div>
+  <div class="col" style="padding: 10px"></div>
   </div>
-  <div class="col-11">
-  <p class="post-title">&nbsp;&nbsp;${reply.text}</p>
-  <div class="right">
+  <div class="row">
+  <div class="col-1"><span class="badge badge-success">Reply</span></div>
+  <div class="col-11">${reply.text}</div>
+  <div class="col" style="padding: 10px"></div>
   </div>
-  </div>
+  <div class="row">
   <div class="col" style="padding: 10px"></div>
   </div>
   </div>
@@ -110,10 +128,12 @@ function createStarredThreadView(thread) {
   <div class="tab-pane fade show active" id="quesasked" role="tabpanel" aria-labelledby="QuestionsAsked">
   <div class="row">
   <div class="col-1">
-  <span class="badge badge-secondary">${thread.category}</span>
+  ${ (thread.title != "No content here") ?
+            `<span class="badge badge-secondary">${thread.category}</span>` : ''
+        }
   </div>
   <div class="col-11">
-  <p class="post-title">&nbsp;&nbsp;${thread.title}</p>
+  <p class="post-title">&nbsp;&nbsp;${(thread.title != "No content here")? `<a href="/thread/${thread.id}" style="color:black; text-decoration:none;">` : ''}${thread.title}</a></p>
   <div class="right">
   </div>
   </div>
@@ -157,7 +177,7 @@ var showReplies = function () {
         var ques = document.userReplies.map((thread, threadView) => {
             return createReplyView(thread);
         });
-        console.log(ques);
+        // console.log(ques);
         if (ques.length > 0) {
             ques = ques.reduce((q, t) => {
                 return q + t
@@ -194,4 +214,8 @@ var showStarred = function () {
             title: "No content here"
         });
     }
+}
+
+function getThreadsByID(id) {
+    
 }
