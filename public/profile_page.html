@@ -76,24 +76,22 @@
                 <!-- <img src="profilephoto.jpg" class="rounded-circle" alt="Cinque Terre" width="150" height="150"> -->
             </div>
             <div class="col-10">
-                <h1>{{name}}&nbsp;&nbsp;  </h1>
+                <div class="row"><h1>{{name}}&nbsp;&nbsp;</h1></div>
+                <div class="row" style="vertical-align:middle">
                     <script type="text/javascript" src="https://secure.skypeassets.com/i/scom/js/skype-uri.js">
                     </script>
-                    <span class="badge badge-secondary">
-                    <h6 style="display:inline-block">{{accountType}}</h6>
-                    </span>
-                    <div id="SkypeButton_Call_pranjalmathur_1" style="display: inline-block !important; padding: -10px !important;">
+                    <span class="badge badge-secondary" style="height:30px; margin-top:10px"><h6 style="display:inline-block">{{accountType}}</h6></span>
+                    <div id="SkypeButton_Call_pranjalmathur_1" style="display: inline-block !important; padding: -50px !important;">
                         <script type="text/javascript">
                             Skype.ui({
                                 "name": "chat",
                                 "element": "SkypeButton_Call_pranjalmathur_1",
                                 "participants": ["pranjalmathur"],
-                                "imageSize": 24
+                                "imageSize": 20
                             });
                         </script>
                     </div>
-
-
+                </div>
             </div>
         </div>
         <hr style="border: 1px solid rgba(0,0,0,.125);">
@@ -195,7 +193,7 @@
       </div>
     </div>
     <script>
-    document.interests = [ {{#each interests}}"{{this}}",{{/each}}];
+    // document.interests = [ {{#each interests}}"{{this}}",{{/each}}];
     function getCookie(cname) {
       var name = cname + "=";
       var decodedCookie = decodeURIComponent(document.cookie);

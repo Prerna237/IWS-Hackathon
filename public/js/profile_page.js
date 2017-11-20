@@ -70,9 +70,10 @@ function createThreadView(thread) {
     <div class="tab-pane fade show active" id="quesasked" role="tabpanel" aria-labelledby="QuestionsAsked">
     <div class="row">
     <div class="col-1">
+    <span class="badge badge-secondary">${thread.category}</span>
     </div>
     <div class="col-11">
-    <p class="post-title">${thread.title}</p>
+    <p class="post-title" href="/thread/${thread.id}">&nbsp;&nbsp;${thread.title}</p>
     <div class="right">
     </div>
     </div>
@@ -89,9 +90,10 @@ function createReplyView(reply) {
   <div class="tab-pane fade show active" id="quesasked" role="tabpanel" aria-labelledby="QuestionsAsked">
   <div class="row">
   <div class="col-1">
+  <span class="badge badge-secondary">${reply.category}</span>
   </div>
   <div class="col-11">
-  <p class="post-title">${reply.text}</p>
+  <p class="post-title">&nbsp;&nbsp;${reply.text}</p>
   <div class="right">
   </div>
   </div>
@@ -108,9 +110,10 @@ function createStarredThreadView(thread) {
   <div class="tab-pane fade show active" id="quesasked" role="tabpanel" aria-labelledby="QuestionsAsked">
   <div class="row">
   <div class="col-1">
+  <span class="badge badge-secondary">${thread.category}</span>
   </div>
   <div class="col-11">
-  <p class="post-title">${thread.title}</p>
+  <p class="post-title">&nbsp;&nbsp;${thread.title}</p>
   <div class="right">
   </div>
   </div>
