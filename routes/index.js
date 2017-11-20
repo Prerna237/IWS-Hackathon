@@ -13,7 +13,13 @@ var db = require('../lib/DB');
 router.get('/', function (req, res) {
     // res.render('index', { title: 'Express' });
     // res.end("<html><body>This is working</body></html>");
-    res.end(pageHandlers.landingPage());
+    if (req.session.userName) {
+        res.end(pageHandlers.landingPage({
+            interests: req.session.interests
+        }));
+    } else {
+        res.end(pageHandlers.landingPage());
+    }
     // next();
 });
 
