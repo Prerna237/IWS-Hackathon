@@ -1,3 +1,5 @@
+var RThreadIDs = [];
+
 $(document).ready(function () {
     if (Cookies.get("loginStatus") == "FAIL") {
         alert("Login Failed");
@@ -70,10 +72,12 @@ function createThreadView(thread) {
     <div class="tab-pane fade show active" id="quesasked" role="tabpanel" aria-labelledby="QuestionsAsked">
     <div class="row">
     <div class="col-1">
-    <span class="badge badge-secondary">${thread.category}</span>
+    ${ (thread.title != "No content here") ?
+              `<span class="badge badge-secondary">${thread.category}</span>` : ''
+          }
     </div>
     <div class="col-11">
-    <p class="post-title">&nbsp;&nbsp;<a href="/thread/${thread.id}" style="color:black; text-decoration:none;">${thread.title}</a></p>
+    <p class="post-title">&nbsp;&nbsp;${(thread.title != "No content here")? `<a href="/thread/${thread.id}" style="color:black; text-decoration:none;">` : ''}${thread.title}</a></p>
     <div class="right">
     </div>
     </div>
@@ -106,7 +110,7 @@ function createReplyView(reply) {
   <div class="tab-pane fade show active" id="quesasked" role="tabpanel" aria-labelledby="QuestionsAsked">
   <div class="row">
   <div class="col-1"><span class="badge badge-primary">Thread</span></div>
-  <div class="col-11"></div>
+  <div class="col-11">${getTitle(reply.threadID)}</div>
   <div class="col" style="padding: 10px"></div>
   </div>
   <div class="row">
@@ -174,8 +178,14 @@ var showReplies = function () {
     var quesasked = document.getElementById('quesasked');
     quesasked.innerHTML = "";
     if (document.userReplies) {
-        var ques = document.userReplies.map((thread, threadView) => {
-            return createReplyView(thread);
+        document.userReplies.map((thread, threadView) => {
+            if(RThreadIDs.indexOf(thread.threadID) == -1){
+                RThreadIDs.push(thread.threadID);
+            }
+        });
+        getThreadsByID(RThreadIDs);        
+        var ques = document.userReplies.map(thread => {
+            return createReplyView(thread);            
         });
         // console.log(ques);
         if (ques.length > 0) {
@@ -190,6 +200,8 @@ var showReplies = function () {
             });
         }
     }
+    // console.log('Thread IDs:');
+    // console.log(RThreadIDs);
 }
 
 var showStarred = function () {
@@ -216,6 +228,25 @@ var showStarred = function () {
     }
 }
 
-function getThreadsByID(id) {
-    
+function getThreadsByID(ids) {
+    $.ajax({
+        url: '/threadByID/' + JSON.stringify(ids),
+        type: 'GET',
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        async: false,
+        success: (data) => {
+            document.replyThreads = data;
+            // console.log('Replied Threads:');
+            // console.log(document.replyThreads);
+        }
+    });
+}
+
+function getTitle(id) {
+    var t = document.replyThreads;
+    var rtitle = t.find(t => t.id == id).title;
+    console.log('title');
+    console.log(rtitle);
+    return rtitle;
 }
