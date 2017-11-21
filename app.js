@@ -33,13 +33,20 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public'))); // Have to remove this.
 app.use(session({
     secret: 'Secret',
     saveUninitialized: false,
     resave: false
 }));
 
+app.use("*.html", (req, res, next) => {
+    console.log("Requesting html");
+    let err = new Error();
+    err.message = "Requesting static html page";
+    next(err);
+});
+
+app.use(express.static(path.join(__dirname, 'public'))); // Have to remove this.
 // ======= Authentication setup ======== //
 
 // Username setup in Cookie
