@@ -15,7 +15,7 @@ router.get('/', function (req, res) {
     // res.end("<html><body>This is working</body></html>");
     if (req.session.userName) {
         res.end(pageHandlers.landingPage({
-           interests: req.session.interests
+            interests: req.session.interests
         }));
     } else {
         res.end(pageHandlers.landingPage());
@@ -253,6 +253,17 @@ router.get('/trending', (req, res) => {
     db.getTrending(50, (results) => {
         res.end(JSON.stringify(results));
     });
+});
+
+// Delete thread
+
+router.post('/deleteThread/:id', (req, res) => {
+    if (req.session.moderator) {
+        db.deleteThread(req.params.id);
+        res.end("{'status': 'success'}");
+    } else {
+        res.end("Unauthorized access!");
+    }
 });
 
 // Analytics page
