@@ -38,7 +38,7 @@ alert("I am here");
       $('a.threadclick').click(function () {
         var id = $(this).attr('id');
         alert(id);
-        window.location = '/thread/' + id;
+      window.location = '/thread/'+id+'?cat='+document.cat;
       });
       $('a.user').click(function () {
         var title = $(this).attr('id');
@@ -88,7 +88,7 @@ alert("I am here");
   $('a.threadclick').click(function () {
     var id = $(this).attr('id');
     alert(id);
-    window.location = '/thread/' + id;
+    window.location = '/thread/'+id+'?cat='+document.cat;
   });
 
   $('#ddd .dropdown-item').click(function () {
@@ -114,7 +114,7 @@ alert("I am here");
         $('a.threadclick').click(function () {
           var id = $(this).attr('id');
           alert(id);
-          window.location = '/thread/' + id;
+        window.location = '/thread/'+id+'?cat='+document.cat;
         });
         $('a.user').click(function () {
           var title = $(this).attr('id');
@@ -139,7 +139,7 @@ alert("I am here");
     $('a.threadclick').click(function () {
       var id = $(this).attr('id');
       alert(id);
-      window.location = '/thread/' + id;
+      window.location = '/thread/'+id+'?cat='+document.cat;
     });
     $('a.user').click(function () {
       var title = $(this).attr('id');
@@ -163,7 +163,7 @@ alert("I am here");
     $('a.threadclick').click(function () {
       var id = $(this).attr('id');
       alert(id);
-      window.location = '/thread/' + id;
+    window.location = '/thread/'+id+'?cat='+document.cat;
     });
     $('a.user').click(function () {
       var title = $(this).attr('id');
@@ -187,7 +187,7 @@ alert("I am here");
     $('a.threadclick').click(function () {
       var id = $(this).attr('id');
       alert(id);
-      window.location = '/thread/' + id;
+      window.location = '/thread/'+id+'?cat='+document.cat;
     });
     $('a.user').click(function () {
       var title = $(this).attr('id');
