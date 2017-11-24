@@ -67,7 +67,7 @@ if(document.cat==null){
 
   $('#dd .dropdown-item').click(function () {
     document.retval = $(this).text();
-    $('#modal_category').text(document.retval);
+    $('#modal_category').html(document.retval);
   });
   $("#addThreadButton").click(function () {
     //alert(document.retval);
