@@ -2,7 +2,11 @@ var RThreadIDs = [];
 
 $(document).ready(function () {
     if (Cookies.get("loginStatus") == "FAIL") {
-        alert("Login Failed");
+      swal(
+  'Oops!',
+  'Wrong Credentials, Try Again',
+  'error'
+)
         Cookies.remove("loginStatus")
 
     }
@@ -99,10 +103,10 @@ function createThreadView(thread) {
 //         async: false,
 //         success: function (data) {
 //             document.replyThread = data;
-//             console.log(document.replyThread);      
+//             console.log(document.replyThread);
 //         }
 //     });
-    
+
 // }
 
 function createReplyView(reply) {
@@ -183,9 +187,9 @@ var showReplies = function () {
                 RThreadIDs.push(thread.threadID);
             }
         });
-        getThreadsByID(RThreadIDs);        
+        getThreadsByID(RThreadIDs);
         var ques = document.userReplies.map(thread => {
-            return createReplyView(thread);            
+            return createReplyView(thread);
         });
         // console.log(ques);
         if (ques.length > 0) {

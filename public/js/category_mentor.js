@@ -1,6 +1,10 @@
 $(document).ready(function () {
   if(Cookies.get("loginStatus")=="FAIL"){
-    alert("Login Failed");
+    swal(
+    'Oops!',
+    'Wrong Credentials, Try Again',
+    'error'
+  )
     Cookies.remove("loginStatus")
 
   }
@@ -17,7 +21,7 @@ document.cat=getParameterByName("cat");
 if(document.cat==null){
   document.cat="Category1";
 }
-alert(document.cat);
+//alert(document.cat);
   $.ajax({
     url: '/threadsByCategory/'+document.cat,
     contentType: 'application/json; charset=utf-8',
@@ -35,8 +39,8 @@ alert(document.cat);
       $('#table').append(data);
       $('a.threadclick').click(function () {
         var id = $(this).attr('id');
-        alert(id);
-        window.location = '/thread/' + id;
+      //  alert(id);
+        window.location = '/thread/'+id+'?cat='+document.cat;
       });
       $('a.user').click(function () {
         var title = $(this).attr('id');
@@ -45,7 +49,7 @@ alert(document.cat);
       $('input[type="button"]').click(function(e){
       var id=$(this).attr("id");
       var suffix = id.match(/\d+/);
-      alert(suffix);
+    //  alert(suffix);
 
        $(this).closest('tr').remove()
 
@@ -71,7 +75,7 @@ alert(document.cat);
     document.retval = $(this).text();
   });
   $("#addThreadButton").click(function () {
-    alert(document.retval);
+  //  alert(document.retval);
     var jobject = new Object();
     jobject.title = $("#title").val();
     jobject.desc = $("#desc").val();
@@ -92,8 +96,8 @@ alert(document.cat);
   });
   $('a.threadclick').click(function () {
     var id = $(this).attr('id');
-    alert(id);
-    window.location = '/thread/' + id;
+  //  alert(id);
+      window.location = '/thread/'+id+'?cat='+document.cat;
   });
 
   $('#ddd .dropdown-item').click(function () {
@@ -117,8 +121,8 @@ alert(document.cat);
         $('#table').append(data);
         $('a.threadclick').click(function () {
           var id = $(this).attr('id');
-          alert(id);
-          window.location = '/thread/' + id;
+      //    alert(id);
+            window.location = '/thread/'+id+'?cat='+document.cat;
         });
         $('a.user').click(function () {
           var title = $(this).attr('id');
@@ -127,7 +131,7 @@ alert(document.cat);
         $('input[type="button"]').click(function(e){
         var id=$(this).attr("id");
         var suffix = id.match(/\d+/);
-        alert(suffix);
+    //    alert(suffix);
 
          $(this).closest('tr').remove()
 
@@ -150,18 +154,18 @@ alert(document.cat);
     $('#table').append(data);
     $('a.threadclick').click(function () {
       var id = $(this).attr('id');
-      alert(id);
-      window.location = '/thread/' + id;
+    //  alert(id);
+      window.location = '/thread/'+id+'?cat='+document.cat;
     });
     $('a.user').click(function () {
       var title = $(this).attr('id');
-      alert(title);
+  //    alert(title);
       window.location = "/profile/" + title;
     });
     $('input[type="button"]').click(function(e){
     var id=$(this).attr("id");
     var suffix = id.match(/\d+/);
-    alert(suffix);
+//    alert(suffix);
 
      $(this).closest('tr').remove()
 
@@ -183,18 +187,18 @@ alert(document.cat);
     $('#table').append(data);
     $('a.threadclick').click(function () {
       var id = $(this).attr('id');
-      alert(id);
-      window.location = '/thread/' + id;
+  //    alert(id);
+        window.location = '/thread/'+id+'?cat='+document.cat;
     });
     $('a.user').click(function () {
       var title = $(this).attr('id');
-      alert(title);
+  //    alert(title);
       window.location = "/profile/" + title;
     });
     $('input[type="button"]').click(function(e){
     var id=$(this).attr("id");
     var suffix = id.match(/\d+/);
-    alert(suffix);
+//    alert(suffix);
 
      $(this).closest('tr').remove()
 
@@ -215,18 +219,18 @@ alert(document.cat);
     $('#table').append(data);
     $('a.threadclick').click(function () {
       var id = $(this).attr('id');
-      alert(id);
-      window.location = '/thread/' + id;
+    //  alert(id);
+        window.location = '/thread/'+id+'?cat='+document.cat;
     });
     $('a.user').click(function () {
       var title = $(this).attr('id');
-      alert(title);
+    //  alert(title);
       window.location = "/profile/" + title;
     });
     $('input[type="button"]').click(function(e){
     var id=$(this).attr("id");
     var suffix = id.match(/\d+/);
-    alert(suffix);
+//    alert(suffix);
 
      $(this).closest('tr').remove()
 
@@ -238,7 +242,7 @@ alert(document.cat);
   $('input[type="button"]').click(function(e){
   var id=$(this).attr("id");
   var suffix = id.match(/\d+/);
-  alert(suffix);
+//  alert(suffix);
 
    $(this).closest('tr').remove()
 

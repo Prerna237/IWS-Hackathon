@@ -1,6 +1,10 @@
 $(document).ready(function () {
   if(Cookies.get("loginStatus")=="FAIL"){
-    alert("Login Failed");
+    swal(
+    'Oops!',
+    'Wrong Credentials, Try Again',
+    'error'
+  )
     Cookies.remove("loginStatus")
 
   }
@@ -15,7 +19,7 @@ $(document).ready(function () {
 }
 document.cat=getParameterByName("cat");
 if(document.cat==null){
-alert("I am here");
+////alert("I am here");
   document.cat="Category1";
 }
 
@@ -37,7 +41,7 @@ alert("I am here");
       $('#table').append(data);
       $('a.threadclick').click(function () {
         var id = $(this).attr('id');
-        alert(id);
+        //alert(id);
       window.location = '/thread/'+id+'?cat='+document.cat;
       });
       $('a.user').click(function () {
@@ -66,7 +70,7 @@ alert("I am here");
     $('#modal_category').text(document.retval);
   });
   $("#addThreadButton").click(function () {
-    alert(document.retval);
+    //alert(document.retval);
     var jobject = new Object();
     jobject.title = $("#title").val();
     jobject.desc = $("#desc").val();
@@ -87,7 +91,7 @@ alert("I am here");
   });
   $('a.threadclick').click(function () {
     var id = $(this).attr('id');
-    alert(id);
+    //alert(id);
     window.location = '/thread/'+id+'?cat='+document.cat;
   });
 
@@ -113,7 +117,7 @@ alert("I am here");
         $('#table').append(data);
         $('a.threadclick').click(function () {
           var id = $(this).attr('id');
-          alert(id);
+          //alert(id);
         window.location = '/thread/'+id+'?cat='+document.cat;
         });
         $('a.user').click(function () {
@@ -138,12 +142,12 @@ alert("I am here");
     $('#table').append(data);
     $('a.threadclick').click(function () {
       var id = $(this).attr('id');
-      alert(id);
+      //alert(id);
       window.location = '/thread/'+id+'?cat='+document.cat;
     });
     $('a.user').click(function () {
       var title = $(this).attr('id');
-      alert(title);
+      //alert(title);
       window.location = "/profile/" + title;
     });
     $(".demo").letterpic();
@@ -162,12 +166,12 @@ alert("I am here");
     $('#table').append(data);
     $('a.threadclick').click(function () {
       var id = $(this).attr('id');
-      alert(id);
+      //alert(id);
     window.location = '/thread/'+id+'?cat='+document.cat;
     });
     $('a.user').click(function () {
       var title = $(this).attr('id');
-      alert(title);
+      //alert(title);
       window.location = "/profile/" + title;
     });
     $(".demo").letterpic();
@@ -186,12 +190,12 @@ alert("I am here");
     $('#table').append(data);
     $('a.threadclick').click(function () {
       var id = $(this).attr('id');
-      alert(id);
+      //alert(id);
       window.location = '/thread/'+id+'?cat='+document.cat;
     });
     $('a.user').click(function () {
       var title = $(this).attr('id');
-      alert(title);
+      //alert(title);
       window.location = "/profile/" + title;
     });
     $(".demo").letterpic();

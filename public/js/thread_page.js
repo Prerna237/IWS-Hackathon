@@ -77,11 +77,11 @@ function UpdateThreads() {
                                                     <a id="report_${rid}" style="color: white; cursor: pointer;" onclick="reportPost(this.id)" class="badge badge-danger">&nbsp;<span class="oi oi-flag"></span>&nbsp;</a>
                                                 </div>
                                             </div>
-                                    
+
                                             <div id="footer_${rid}" style="cursor: pointer" onclick="javascript:addReplies(${rid})" class="card-footer accordian-toggle" role="tab" data-toggle="collapse" data-parent="#${rid}" href="#footer_${rid}collapse">
                                                 <h6 style="color: dimgrey">View Replies</h6>
                                             </div>
-                                    
+
                                             <div id="footer_${rid}collapse" class="collapse" role="tabpanel" aria-labelledby="footer_${rid}" data-parent="#${rid}">
                                             <h6 style="margin: 5px; color: dimgrey; text-align: center">No Replies</h6>
                                             </div>
@@ -285,11 +285,11 @@ function addReplies(id) {
                                                     <a id="report_${rid}" style="color: white; cursor: pointer;" onclick="reportPost(this.id)" class="badge badge-danger">&nbsp;<span class="oi oi-flag"></span>&nbsp;</a>
                                                 </div>
                                             </div>
-                                    
+
                                             <div id="footer_${rid}" onclick="javascript:addReplies(${rid})" class="card-footer accordian-toggle" role="tab" data-toggle="collapse" data-parent="#${rid}" href="#footer_${rid}collapse" style="cursor: pointer">
                                                 <h6 style="color: dimgrey">View Replies</h6>
                                             </div>
-                                    
+
                                             <div id="footer_${rid}collapse" class="collapse" role="tabpanel" aria-labelledby="footer_${rid}" data-parent="#${rid}">
                                             <h6 style="margin: 5px; color: dimgrey; text-align: center">No Replies</h6>
                                             </div>

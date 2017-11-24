@@ -28,36 +28,37 @@
 
 </head>
 
-<body>
-  <nav class="navbar navbar-expand-sm navbar-dark bg-dark" style="padding:0px 10px;">
-    <a class="navbar-brand" href="/">
-        <b>Community</b>Forum</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+<body onload="checkCookie()">
+    <!-- navigation bar -->
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark" style="padding:0px 10px;">
+      <a class="navbar-brand" href="/">
+          <b>Community</b>Forum</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active" id="myprofile" style="display:none">
-                <a class="nav-link" href="/profile">My Profile
-                    <span class="sr-only">(current)</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="categorywise">Browse</a>
-            </li>
-        </ul>
-        <div style="float:left">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item active" id="myprofile" style="display:none">
+                  <a class="nav-link" href="/profile">My Profile
+                      <span class="sr-only">(current)</span>
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="categorywise">Browse</a>
+              </li>
+          </ul>
+          <div style="float:left">
 
+          <form id="logout" style="display:none; background-color:#343a40" method="post" action="/users/logout">
+            <button type="submit" class="btn btn-primary btn-sm" style=" background-color:#343a40">Logout</button>
+          </form>
+          <a style="cursor: pointer; color: white;" data-toggle="modal" data-target="#signinmodal" id="lol">
+            <img id="action" class="" alt=""style="width:25px; height:25px; margin-bottom:5px;">&nbsp;</a>
 
-        <a style="cursor: pointer; color: white;" data-toggle="modal" data-target="#signinmodal">
-          <img id="action" class="" alt="" width="25" height="25">&nbsp;</a>
-
-        <img src="Pranjal.jpeg" class="rounded-circle" alt="Pranjal" width="30" height="30">
       </div>
-    </div>
-  </nav>
+    </nav>
   <div class="container">
     <div class="row">
       <div class="col">
@@ -189,6 +190,37 @@
     }]
 
     Plotly.plot('graph', datatable);
+</script>
+<script>
+// document.interests = [ {{#each interests}}"{{this}}",{{/each}}];
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for (var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+
+function checkCookie() {
+
+  if (getCookie("userName") == "") {
+    document.getElementById('action').src = "/res/login.png";
+  } else {
+    var element = document.getElementById("lol");
+    element.parentNode.removeChild(element);
+    document.getElementById("logout").style.display = "inline-block";
+
+  }
+}
 </script>
 
 </html>

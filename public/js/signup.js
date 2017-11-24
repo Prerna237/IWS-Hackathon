@@ -29,9 +29,17 @@ alert(interest_array);
           console.log("MSG: " + JSON.stringify(msg));
           // var m = JSON.parse(msg);
           if (msg.status === "Failure") {
-            alert("Username already in use");
+            swal(
+  'User Name in Use',
+  'Try something else, try something funky!',
+  'error'
+)
           } else {
-            alert("Successful Signup");
+            swal(
+    'Welcome to the community!',
+    'Successful Signup! ',
+    'success'
+  )
 
           }
         }

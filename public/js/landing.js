@@ -1,6 +1,10 @@
 $(document).ready(function () {
   if(Cookies.get("loginStatus")=="FAIL"){
-    alert("Login Failed");
+    swal(
+    'Oops!',
+    'Wrong Credentials, Try Again',
+    'error'
+  )
     Cookies.remove("loginStatus")
 
   }
