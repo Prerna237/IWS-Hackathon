@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  if(Cookies.get("loginStatus")=="FAIL"){
+  if(Cookies.get("loginStatus")=="FAIL" || Cookies.get("loginStatus")=="NO_USER"){
     swal(
     'Oops!',
     'Wrong Credentials, Try Again',

@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  if(Cookies.get("loginStatus")=="FAIL"){
+  if(Cookies.get("loginStatus")=="FAIL" || Cookies.get("loginStatus")=="NO_USER" ){
     swal(
     'Oops!',
     'Wrong Credentials, Try Again',
@@ -45,7 +45,7 @@ $(document).ready(function () {
     $('#content').append(data);
     $('a.threadclick').click(function () {
       var id = $(this).attr('id');
-      alert(id);
+    //  alert(id);
       window.location = '/thread/' + id;
     });
 
