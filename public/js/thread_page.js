@@ -129,27 +129,35 @@ function UpdateSideBox(category) {
 $(document).ready(function () {
     console.log('I am ready');
     if (document.cookie) {
-        // function getParameterByName(name, url) {
-        //     if (!url) url = window.location.href;
-        //     name = name.replace(/[\[\]]/g, "\\$&");
-        //     var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-        //         results = regex.exec(url);
-        //     if (!results) return null;
-        //     if (!results[2]) return '';
-        //     return decodeURIComponent(results[2].replace(/\+/g, " "));
-        // }
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+        
+        document.cat = getParameterByName("cat");
+        console.log(document.cat);
 
-        // var cat = getParameterByName("cat", "http://localhost:3000/thread/1?cat=Category1");
-        // console.log('Category: '+cat);
+        if(document.cat == null){
+        ////alert("I am here");
+          document.cat="Category1";
+        }
+
         UpdateThreads();
         if(getCookie('userName') != ""){
             is_bookmarked = isBookmarked();
         }
+
         if(is_bookmarked == -1){
             $('#book_mark').attr('class', '');
             $('#book_mark').attr('class', 'badge badge-warning');
         }
-        UpdateSideBox('Category1');
+
+        UpdateSideBox(document.cat);
     }
 
 
