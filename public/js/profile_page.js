@@ -81,7 +81,7 @@ function createThreadView(thread) {
         }
     </div>
     <div class="col-11">
-    <p class="post-title">&nbsp;&nbsp;${(thread.title != "No content here") ? `<a href="/thread/${thread.id}" style="font-weight:bold;color:black; text-decoration:none;">` : ''}${thread.title}</a><br></p>
+    <p class="post-title">&nbsp;&nbsp;&nbsp;&nbsp;${(thread.title != "No content here") ? `<a href="/thread/${thread.id}" style="font-weight:bold;color:black; text-decoration:none;">` : ''}${thread.title}</a><br></p>
     </div>
     <div class="col-12" style="padding: 10px"><hr></div>
     </div>
