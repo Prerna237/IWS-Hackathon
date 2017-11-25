@@ -152,7 +152,7 @@ $(document).ready(function () {
             is_bookmarked = isBookmarked();
         }
 
-        if(is_bookmarked == -1){
+        if(is_bookmarked != -1){
             $('#book_mark').attr('class', '');
             $('#book_mark').attr('class', 'badge badge-warning');
         }
