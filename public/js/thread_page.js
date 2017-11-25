@@ -118,16 +118,26 @@ function UpdateSideBox(category) {
             document.categories.sort(predicateBy("views"));
             document.getElementById('sidebox').innerHTML = '';
             var data = '<div class="card-header text-center" style="background: blue; color: white;">More from this category</div><br>';
-            for(var o = 0; o < 5; o++) {
-                data += '<div class="row"><div class="col-1"><small><span class="oi oi-pencil"></span></small></div><div class="col-10 " style="padding-left: 0px"><a href="'+document.categories[o].id+'">'+document.categories[o].title+'</a></div></div><br>';
+            for (var o = 0; o < 5; o++) {
+                data += '<div class="row"><div class="col-3"><a class="user" id="' + document.categories[o].userName + '" style="cursor:pointer;"><canvas class="demo" title="' + document.categories[o].id + '"alt="Pranjal" style="width:34px; height:34px; margin:-12px 10px; border-radius:50%;"></canvas></a></div><div class="col-9 " style="padding-left: 0px"><a href="' + document.categories[o].id + '">' + document.categories[o].title + '</a></div></div><br>';
             }
             $('#sidebox').append(data);
+            // $(".demo").letterpic();
         }
     });
 }
 
 $(document).ready(function () {
     console.log('I am ready');
+    if (Cookies.get("loginStatus") == "FAIL" || Cookies.get("loginStatus") == "NO_USER") {
+        swal(
+            'Oops!',
+            'Wrong Credentials, Try Again',
+            'error'
+        )
+        Cookies.remove("loginStatus")
+
+    }
     if (document.cookie) {
         function getParameterByName(name, url) {
             if (!url) url = window.location.href;
@@ -138,26 +148,28 @@ $(document).ready(function () {
             if (!results[2]) return '';
             return decodeURIComponent(results[2].replace(/\+/g, " "));
         }
-        
+
         document.cat = getParameterByName("cat");
         console.log(document.cat);
 
-        if(document.cat == null){
-        ////alert("I am here");
-          document.cat="Category1";
+        if (document.cat == null) {
+            ////alert("I am here");
+            document.cat = "Category1";
         }
 
         UpdateThreads();
-        if(getCookie('userName') != ""){
+        // $(".demo").letterpic();
+        if (getCookie('userName') != "") {
             is_bookmarked = isBookmarked();
         }
 
-        if(is_bookmarked != -1){
+        if (is_bookmarked != -1) {
             $('#book_mark').attr('class', '');
             $('#book_mark').attr('class', 'badge badge-warning');
         }
 
         UpdateSideBox(document.cat);
+        // $(".demo").letterpic();
     }
 
 
@@ -220,7 +232,7 @@ function AddReply() {
 function reportPost(id) {
     if (CheckLogin() == 1) {
         var report_id = parseInt(id.toString().substr(7));
-        if(report_id == 0){
+        if (report_id == 0) {
             report_id = thread_id;
         }
         $.ajax({
@@ -237,7 +249,7 @@ function reportPost(id) {
 
 function bookmarkPost() {
     if (CheckLogin() == 1) {
-        if(is_bookmarked == -1){
+        if (is_bookmarked == -1) {
             $.ajax({
                 url: '/util/bookmark/' + thread_id,
                 type: 'POST',

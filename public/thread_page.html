@@ -64,6 +64,9 @@
         }(document, new Date(), "script", "rating-widget.com/"));
     </script> -->
     <script type="text/javascript" src="/js/thread_page.js"></script>
+    <script src="pic/js/jquery.letterpic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.0.3/sweetalert2.all.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 </head>
 
 <body onload="checkCookie()">
@@ -154,13 +157,10 @@
                 <div style="float:left">
                     <!-- <img src="profilephoto.jpg" class="rounded-circle" alt="Samarjoy Pandit" width="30" height="30"> -->
                     <b>{{author}}</b>&nbsp;
-                    <span class="badge badge-pill badge-primary">{{userRating}} star</span>
                 </div>
                 <div style="float:right">
                     Replies&nbsp;
                     <span class="badge badge-secondary" style="margin-right:10px">{{numReplies}}</span>
-                    Stars&nbsp;
-                    <span class="badge badge-secondary">{{threadRating}}</span>
                 </div>
             </div>
             <div class="card-body thread">

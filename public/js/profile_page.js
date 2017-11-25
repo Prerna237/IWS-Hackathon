@@ -1,12 +1,12 @@
 var RThreadIDs = [];
 
 $(document).ready(function () {
-    if (Cookies.get("loginStatus") == "FAIL" || Cookies.get("loginStatus")=="NO_USER") {
-      swal(
-  'Oops!',
-  'Wrong Credentials, Try Again',
-  'error'
-)
+    if (Cookies.get("loginStatus") == "FAIL" || Cookies.get("loginStatus") == "NO_USER") {
+        swal(
+            'Oops!',
+            'Wrong Credentials, Try Again',
+            'error'
+        )
         Cookies.remove("loginStatus")
 
     }
@@ -77,15 +77,13 @@ function createThreadView(thread) {
     <div class="row">
     <div class="col-1">
     ${ (thread.title != "No content here") ?
-              `<span class="badge badge-secondary">${thread.category}</span>` : ''
-          }
+            `<span class="badge badge-secondary">${thread.category}</span>` : ''
+        }
     </div>
     <div class="col-11">
-    <p class="post-title">&nbsp;&nbsp;${(thread.title != "No content here")? `<a href="/thread/${thread.id}" style="color:black; text-decoration:none;">` : ''}${thread.title}</a></p>
-    <div class="right">
+    <p class="post-title">&nbsp;&nbsp;${(thread.title != "No content here") ? `<a href="/thread/${thread.id}" style="font-weight:bold;color:black; text-decoration:none;">` : ''}${thread.title}</a><br></p>
     </div>
-    </div>
-    <div class="col" style="padding: 10px"></div>
+    <div class="col-12" style="padding: 10px"><hr></div>
     </div>
     </div>
     <div class="tab-pane fade" id="repliesgiven" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
@@ -114,7 +112,7 @@ function createReplyView(reply) {
   <div class="tab-pane fade show active" id="quesasked" role="tabpanel" aria-labelledby="QuestionsAsked">
   <div class="row">
   <div class="col-1"><span class="badge badge-primary">Thread</span></div>
-  <div class="col-11">${getTitle(reply.threadID)}</div>
+  <div class="col-11"><b><a href="/thread/${reply.threadID}" style="color:black; text-decoration:none;">${getTitle(reply.threadID)}</a></b></div>
   <div class="col" style="padding: 10px"></div>
   </div>
   <div class="row">
@@ -123,7 +121,7 @@ function createReplyView(reply) {
   <div class="col" style="padding: 10px"></div>
   </div>
   <div class="row">
-  <div class="col" style="padding: 10px"></div>
+  <div class="col" style="padding: 10px"><hr></div>
   </div>
   </div>
   <div class="tab-pane fade" id="repliesgiven" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
@@ -141,11 +139,11 @@ function createStarredThreadView(thread) {
         }
   </div>
   <div class="col-11">
-  <p class="post-title">&nbsp;&nbsp;${(thread.title != "No content here")? `<a href="/thread/${thread.id}" style="color:black; text-decoration:none;">` : ''}${thread.title}</a></p>
+  <p class="post-title">&nbsp;&nbsp;${(thread.title != "No content here") ? `<a href="/thread/${thread.id}" style="color:black; text-decoration:none;">` : ''}${thread.title}</a></p>
   <div class="right">
   </div>
   </div>
-  <div class="col" style="padding: 10px"></div>
+  <div class="col" style="padding: 10px"><hr></div>
   </div>
   </div>
   <div class="tab-pane fade" id="repliesgiven" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
@@ -183,7 +181,7 @@ var showReplies = function () {
     quesasked.innerHTML = "";
     if (document.userReplies) {
         document.userReplies.map((thread, threadView) => {
-            if(RThreadIDs.indexOf(thread.threadID) == -1){
+            if (RThreadIDs.indexOf(thread.threadID) == -1) {
                 RThreadIDs.push(thread.threadID);
             }
         });
