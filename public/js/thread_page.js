@@ -189,6 +189,7 @@ function CheckLogin() {
 
 function openNav(id) {
     if (CheckLogin() == 1) {
+
         reply_id = id.toString();
         document.getElementById("mySidenav").style.display = "block";
         document.getElementById("mySidenav").style.height = "33.5%";
@@ -202,6 +203,7 @@ function closeNav() {
 
 function AddReply() {
     var replytext = document.getElementById('reply').value;
+
 
     var jObj = new Object();
     console.log(thread_id);
@@ -228,6 +230,7 @@ function AddReply() {
     });
 
     UpdateThreads();
+    document.getElementById('reply').value="";
     closeNav();
 }
 
