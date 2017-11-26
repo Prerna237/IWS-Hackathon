@@ -24,7 +24,7 @@ $(document).ready(function () {
       $.each(document.trends, function (i, item) {
         if(Cookies.get("userName")==undefined || document.interests.length==0){
           j++;
-          data += '<div class="row"><div class="col-2"><a class="user" id="'+item.author+'"><canvas class="demo" title="' + item.author + '"alt="Pranjal" type="' + item.category + '" style="width:34px; height:34px; margin:5px 10px; border-radius:50%;"></canvas></a></div><div class="col-7" style="padding-left: 0px"><a class="threadclick" id="' + item.id + '" type="' + item.category + '">'+item.title+'</a></div><div class="col-2"><span class="badge badge-tab badge-secondary">'+item.category+'</span></div></div>';
+          data += '<div class="row"><div class="col-2"><a class="user" id="'+item.author+'" style="cursor:pointer;"><canvas class="demo" title="' + item.author + '"alt="Pranjal" type="' + item.category + '" style="width:34px; height:34px; margin:5px 10px; border-radius:50%;"></canvas></a></div><div class="col-7" style="padding-left: 0px"><a class="threadclick" id="' + item.id + '" type="' + item.category + '" style="cursor:pointer;">'+item.title+'</a></div><div class="col-2"><span class="badge badge-tab badge-secondary">'+item.category+'</span></div></div>';
           if(j<5){
             data+='<hr>';
         }
@@ -33,7 +33,7 @@ $(document).ready(function () {
 
       else if(document.interests.includes(item.category)){
         j++;
-        data += '<div class="row"><div class="col-2"><a class="user" id="'+item.author+'"><canvas class="demo" title="' + item.author + '" alt="Pranjal" type="' + item.category + '" style="width:34px; height:34px; margin:5px 10px; border-radius:50%;"></canvas></a></div><div class="col-7" style="padding-left: 0px"><a class="threadclick" id="' + item.id + '" type="' + item.category + '">'+item.title+'</a></div><div class="col-2"><span class="badge badge-tab badge-secondary">'+item.category+'</span></div></div>';
+        data += '<div class="row"><div class="col-2"><a class="user" id="'+item.author+'" style="cursor:pointer;"><canvas class="demo" title="' + item.author + '" alt="Pranjal" type="' + item.category + '" style="width:34px; height:34px; margin:5px 10px; border-radius:50%;"></canvas></a></div><div class="col-7" style="padding-left: 0px"><a class="threadclick" id="' + item.id + '" type="' + item.category + '" style="cursor:pointer;">'+item.title+'</a></div><div class="col-2"><span class="badge badge-tab badge-secondary">'+item.category+'</span></div></div>';
         if(j<5){
           data+='<hr>';
       }
