@@ -165,7 +165,9 @@
                 </div>
             </div>
             <div class="card-footer text-muted" style="height: 40px !important;">
-                <div class="starrate" style="float: left !important;"></div>
+                <div class="starrate" style="float: left !important;">
+                    <div class="rw-ui-container"></div>
+                </div>
                 <div style="float: right;">&nbsp;
                     <a id="0" onclick="openNav(this.id)" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
                     <a id="book_mark" onclick="bookmarkPost()" class="badge badge-success" style="color: white; cursor: pointer;">&nbsp;
@@ -203,11 +205,14 @@
             $('#relatedlinks').css('top', $(this).scrollTop());
         }
     </script>
-    <script>
+    <!-- <script>
         var elem = document.getElementsByClassName('starrate');
         for (var i = 0; i < elem.length; i++) {
             elem[i].innerHTML = '<div class="rw-ui-container" data-title="my' + i + ' awesome rating""></div>';
         }
+    </script> -->
+    <script>
+        $(".rw-ui-container").attr('data-urid','star' + document.threadID);
     </script>
     <script>
         function getCookie(cname) {

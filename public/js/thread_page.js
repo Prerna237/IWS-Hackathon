@@ -119,7 +119,7 @@ function UpdateSideBox(category) {
             document.getElementById('sidebox').innerHTML = '';
             var data = '<div class="card-header text-center" style="background: blue; color: white;">More from this category</div><br>';
             for (var o = 0; o < 5; o++) {
-                data += '<div class="row"><div class="col-2"><a class="user" id="' + document.categories[o].userName + '" style="cursor:pointer;"><canvas class="demo" title="' + document.categories[o].userName + '"alt="Pranjal" style="width:34px; height:34px; margin:-12px 10px; border-radius:50%;"></canvas></a></div><div class="col-10 " style="padding-left: 0px"><a href="' + document.categories[o].id + '">' + document.categories[o].title + '</a></div></div><hr>';
+                data += '<div class="row"><div class="col-2"><a href="thread/'+document.categories[o].id+'?cat='+category+'" class="user" id="' + document.categories[o].userName + '" style="cursor:pointer;"><canvas class="demo" title="' + document.categories[o].userName + '"alt="Pranjal" style="width:34px; height:34px; margin:-12px 10px; border-radius:50%;"></canvas></a></div><div class="col-10 " style="padding-left: 0px"><a href="' + document.categories[o].id + '">' + document.categories[o].title + '</a></div></div><hr>';
             }
             $('#sidebox').append('&nbsp;&nbsp;');
             $('#sidebox').append(data);
