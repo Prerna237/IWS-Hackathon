@@ -182,6 +182,15 @@ router.get('/thread/:id', (req, res) => {
             title: thread.title,
             desc: thread.desc,
             category: thread.category,
+            numReplies: thread.repliesIndependent.length,
+            author: thread.userName,
+            threadRating: thread.avgStars
+        }));
+        console.log(JSON.stringify({
+            threadID: thread.id,
+            title: thread.title,
+            desc: thread.desc,
+            category: thread.category,
             numReplies: thread.numReplies,
             author: thread.userName,
             threadRating: thread.avgStars
