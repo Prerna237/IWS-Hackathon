@@ -21,7 +21,7 @@ Website: https://iws-forum.herokuapp.com/
 * Comments to replies (Questions + Comments | Replies + Comments)
 * Flag Inappropriate
 * Thread Suggestions based on interests
-* Categorywise Suggestions based on association rule mining
+* Categorywise Suggestions based on apriori association rule mining: Run on a set interval
 * Chat option: funtional only on specific IDs
 * Delete by moderator
 * Sort by Time and Views
