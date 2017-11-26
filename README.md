@@ -22,13 +22,13 @@ Website: https://iws-forum.herokuapp.com/
 * Flag Inappropriate
 * Thread Suggestions based on interests
 * Categorywise Suggestions based on association rule mining
-* Chat option
+* Chat option: funtional only on specific IDs
 * Delete by moderator
 * Sort by Time and Views
-* Relative thread suggestions based on answer viewed
+* Relative thread suggestions based on answers viewed
 * Analytics:
     * Google Analytics for device based analytics or facebook Analytics
-    * Moderator Dashboard
+    * Moderator Dashboard (access only from categorywise post page)
         * Clicks per category
         * Threads per category
         * Interests Chart
