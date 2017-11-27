@@ -196,7 +196,7 @@ var showReplies = function () {
             });
             quesasked.innerHTML = ques;
         } else {
-            alert("WHY");
+            // alert("WHY");
             quesasked.innerHTML = createReplyView({
                 text: "No contento here"
             });

@@ -22,12 +22,12 @@ function getCookie(cname) {
 function checkCookie() {
 
     if (getCookie("userName") == "") {
-        alert('login');
+        // alert('login');
         document.getElementById('action').src = "res/login.png";
     }
     else {
         var element = document.getElementById("lol");
-        alert('logout');
+        // alert('logout');
         element.parentNode.removeChild(element);
         document.getElementById("logout").style.display = "inline-block";
         document.getElementById("mypost").style.display = "inline-block";

@@ -5,46 +5,45 @@ $(document).ready(function () {
 
     var social_array = [$("#facebook").val(), $("#twitter").val(), $("#google").val(), $("#skype").val()];
     var interest_array = $('input:checkbox:checked.custom-control-input').map(function () {
-
       return this.value;
     }).get();
-alert(interest_array);
+    // alert(interest_array);
 
-      jobject.userName = $("#username").val();
-      jobject.name = $("#name").val();
-      jobject.email = $("#exampleInputEmail3").val();
-      jobject.password = $("#password").val();
-      jobject.social = social_array;
-      jobject.interests = interest_array;
+    jobject.userName = $("#username").val();
+    jobject.name = $("#name").val();
+    jobject.email = $("#exampleInputEmail3").val();
+    jobject.password = $("#password").val();
+    jobject.social = social_array;
+    jobject.interests = interest_array;
 
 
-      $.ajax({
-        url: '/util/addUser',
-        type: 'POST',
-        data: JSON.stringify(jobject),
-        contentType: 'application/json; charset=utf-8',
-        dataType: 'json',
-        async: false,
-        success: function (msg) {
-          console.log("MSG: " + JSON.stringify(msg));
-          // var m = JSON.parse(msg);
-          if (msg.status === "Failure") {
-            swal(
-  'User Name in Use',
-  'Try something else, try something funky!',
-  'error'
-)
-          } else {
-            swal(
-    'Welcome to the community!',
-    'Successful Signup! ',
-    'success'
-  )
+    $.ajax({
+      url: '/util/addUser',
+      type: 'POST',
+      data: JSON.stringify(jobject),
+      contentType: 'application/json; charset=utf-8',
+      dataType: 'json',
+      async: false,
+      success: function (msg) {
+        console.log("MSG: " + JSON.stringify(msg));
+        // var m = JSON.parse(msg);
+        if (msg.status === "Failure") {
+          swal(
+            'User Name in Use',
+            'Try something else, try something funky!',
+            'error'
+          )
+        } else {
+          swal(
+            'Welcome to the community!',
+            'Successful Signup! ',
+            'success'
+          )
 
-          }
         }
-      });
+      }
+    });
 
-return true;
+    return true;
   });
 });

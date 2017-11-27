@@ -5,7 +5,7 @@
 
         RW.init({
             beforeRate: (rating, vote) => {
-                alert("Checking");
+                // alert("Checking");
                 if (!Cookies.get('userName')) {
                     alert("Please login before rating.");
                     return false;
@@ -25,7 +25,7 @@
 
         RW.init('54fb0be2a925ffb881dbeca0d908b038', {
             beforeRate: (rating, vote) => {
-                alert("Checking");
+                // alert("Checking");
                 if (!Cookies.get('userName')) {
                     alert("Please login before rating.");
                     return false;
