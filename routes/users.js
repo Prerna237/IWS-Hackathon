@@ -29,7 +29,13 @@ router.use('/signup', (req, res) => {
       db.addUser(req.body, (status) => {
         if (status == _EVENTS.USER_ADD_ERR) {
           res.end("Error");
+        } else if (status.status === 'Failure') {
+          console.log("Sending Failure");
+          res.end(JSON.stringify({
+            status: 'Failure'
+          }));
         } else {
+          console.log("Redirecting to profile");
           req.session.userName = req.body.userName;
           req.session.moderator = false;
           req.session.interests = req.body.interests;
@@ -62,7 +68,7 @@ router.use('/login', function (req, res, next) {
         req.session.interests = user.interests;
         // console.log('UserName: ' + req.session.userName + " type: " + req.session.moderator);
         console.log("User Authentication successful: " + req.body.samePage);
-        res.cookie('loginStatus', 'SUCCESS');        
+        res.cookie('loginStatus', 'SUCCESS');
         if (req.body.samePage) {
           console.log("In SamePage");
           return res.redirect(req.headers.referer);

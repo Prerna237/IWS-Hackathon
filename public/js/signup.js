@@ -32,18 +32,17 @@ $(document).ready(function () {
             'User Name in Use',
             'Try something else, try something funky!',
             'error'
-          )
+          );
         } else {
           swal(
             'Welcome to the community!',
             'Successful Signup! ',
             'success'
           )
-
+          window.location = '/profile';
         }
       }
     });
-
-    return true;
+    return false;
   });
 });
