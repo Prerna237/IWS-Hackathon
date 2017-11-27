@@ -14,9 +14,12 @@ router.get('/', function (req, res) {
     // res.render('index', { title: 'Express' });
     // res.end("<html><body>This is working</body></html>");
     if (req.session.userName) {
-        res.end(pageHandlers.landingPage({
-            interests: req.session.interests
-        }));
+        console.log("Username: " + req.session.userName);
+        db.getUserInterests(req.session.userName, (p) => {
+            res.end(pageHandlers.landingPage({
+                interests: p.interests
+            }));
+        });
     } else {
         res.end(pageHandlers.landingPage());
     }
