@@ -1,28 +1,46 @@
 # IWS-Hackathon
+Website: https://iws-forum.herokuapp.com/
 
 **Check `docs` folder for full documentation**
 
-- [Tech Stack: MongoDB | Node | Bootstrap](#tech-stack-mongodb-node-bootstrap)
-- [Basic theme to be followed: https://platform.github.community](#basic-theme-to-be-followed-httpsplatformgithubcommunity)
-- [Using Node](#using-node)
-    - [Instructions](#instructions)
+- [Tech Stack: MongoDB | Node | Express | Bootstrap](#tech-stack)
+- [Features](#features)
 - [UI Pages](#ui-pages)
-    - [Regular Users](#regular-users)
-    - [Moderator](#moderator)
-## Tech Stack: MongoDB | Node | Bootstrap
-* Analytics:
-    * https://keen.github.io/dashboards/
-    * Google Analytics for device based analytics
-* Add: Other packages/plugins being used.
+- [Setup on local machine](#using-node)
+    - [Instructions](#instructions)
+ 
+## Tech Stack
+* Backend: Node
+* Database: MongoDB (MLab : Database as a Service)
+* Frontend: Bootstrap
+* Hosted at: Heroku
 
-## Basic theme to be followed: https://platform.github.community
-* Chat option
+## Features
 * Bookmark
 * Stars
-* #tags or just tags
 * Comments to replies (Questions + Comments | Replies + Comments)
 * Flag Inappropriate
-* Suggest Categories based on the past searches or the interests tagged during sign up
+* Thread Suggestions based on interests
+* Categorywise Suggestions based on apriori association rule mining: Run on a set interval
+* Chat option: funtional only on specific IDs
+* Delete by moderator
+* Sort by Time and Views
+* Relative thread suggestions based on answers viewed
+* Analytics:
+    * Google Analytics for device based analytics or facebook Analytics
+    * Moderator Dashboard (access only from categorywise post page)
+        * Clicks per category
+        * Threads per category
+        * Interests Chart
+        * Moderator suggestion
+
+## UI Pages
+- [x] Profile Page
+- [x] Categorywise Posts: Regular and Moderator
+- [x] Posts and Replies
+- [x] Home Page
+- [x] Signup Page
+- [x] Analytics Page
 
 ## Using Node
 ### Instructions
@@ -33,17 +51,4 @@
 * Edit website interface files in ./public/
 
 * Using Express framework
-
-
-## UI Pages
-### Regular Users
-* Profile Page
-* Categorywise Posts
-* Posts and Replies
-* Home Page
-* Signup Page
-
-### Moderator
-* Modify Categorywise post page - Show "reports" if any | Allow to close a thread | Delete the thread
-
 

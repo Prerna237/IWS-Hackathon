@@ -1,0 +1,224 @@
+.add-on .input-group-btn > .btn {
+    border-left-width:0;left:-2px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+/* stop the glowing blue shadow */
+.add-on .form-control:focus {
+    box-shadow:none;
+    -webkit-box-shadow:none;
+    border-color:#cccccc;
+}
+.form-control{width:100%}
+.navbar-nav > li > a {
+
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+.navbar-nav:last-child{ border-right:0}
+.popover{
+    max-width:30%; /* Max Width of the popover (depending on the container!) */
+}
+
+.popover.fade.show.bs-popover-right{
+    top:7% !important;
+}
+.popover.bs-popover-right.show{
+    top:7% !important;
+}
+.popover.fade.bs-popover-right.show{
+    top:7% !important;
+}
+.arrow{
+    top:20% !important;
+}
+.bt-login,.bt-login:hover, .bt-login:active, .bt-login:focus {
+    background-color: #ff8627;
+    color: #ffffff;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    transition: background-color 300ms linear 0s;
+}
+
+
+.login-tab {
+    margin: 0 auto;
+    max-width: 380px;
+}
+
+.login-modal-header {
+    background: #27ae60;
+    color: #fff;
+}
+
+.login-modal-header .modal-title {
+    color: #fff;
+}
+
+.login-modal-header .close {
+    color: #fff;
+}
+
+.login-modal i {
+    color: #000;
+}
+
+.login-modal form {
+    max-width: 340px;
+}
+
+.tab-pane form {
+    margin: 0 auto;
+}
+.login-modal-footer{
+    margin-top:15px;
+    margin-bottom:15px;
+}
+.sidenav {
+    height:0px;
+    width: 100%;
+    position: fixed;
+    z-index: 999;
+    bottom: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    display:none;
+}
+
+.sidenav a {
+
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 20px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+/*.catbuttons{
+background: url(../res/download.jpg);
+}*/
+
+.box {
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.box img {
+    position: absolute;
+    left: 0;
+    -webkit-transition: all 300ms ease-out;
+    -moz-transition: all 300ms ease-out;
+    -o-transition: all 300ms ease-out;
+    -ms-transition: all 300ms ease-out;
+    transition: all 300ms ease-out;
+}
+
+.box .overbox {
+    background-color: #304562;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #fff;
+    z-index: 100;
+    -webkit-transition: all 300ms ease-out;
+    -moz-transition: all 300ms ease-out;
+    -o-transition: all 300ms ease-out;
+    -ms-transition: all 300ms ease-out;
+    transition: all 300ms ease-out;
+    opacity: 0;
+    width: 100%;
+    padding: 100px 20px;
+}
+
+.box:hover .overbox { opacity: 0.75; }
+
+.box .overtext {
+    -webkit-transition: all 300ms ease-out;
+    -moz-transition: all 300ms ease-out;
+    -o-transition: all 300ms ease-out;
+    -ms-transition: all 300ms ease-out;
+    transition: all 300ms ease-out;
+    transform: translateY(40px);
+    -webkit-transform: translateY(40px);
+    text-align: center;
+}
+
+.box .overtext a{
+    color: white;
+    text-decoration: none;
+}
+
+.box .title {
+    font-size: 2.5em;
+    text-transform: uppercase;
+    opacity: 0;
+    transition-delay: 0.1s;
+    transition-duration: 0.2s;
+}
+
+.box:hover .title,
+.box:focus .title {
+    opacity: 1;
+    transform: translateY(0px);
+    -webkit-transform: translateY(0px);
+}
+
+.box .tagline {
+    font-size: 0.8em;
+    opacity: 0;
+    transition-delay: 0.2s;
+    transition-duration: 0.2s;
+}
+
+.box:hover .tagline,
+.box:focus .tagline {
+    opacity: 1;
+    transform: translateX(0px);
+    -webkit-transform: translateX(0px);
+}

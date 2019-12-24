@@ -1,0 +1,65 @@
+$(document).ready(function () {
+  if(Cookies.get("loginStatus")=="FAIL" || Cookies.get("loginStatus")=="NO_USER" ){
+    swal(
+    'Oops!',
+    'Wrong Credentials, Try Again',
+    'error'
+  )
+    Cookies.remove("loginStatus")
+
+  }
+  $.ajax({
+    url: '/trending',
+
+    contentType: 'application/json; charset=utf-8',
+    dataType: 'json',
+    async: true,
+    success: function (data) {
+      //some code;
+      document.trends = data;
+
+      document.getElementById('content').innerHTML="";
+      var data = "";
+      var j=0;
+      $.each(document.trends, function (i, item) {
+        if(Cookies.get("userName")==undefined || document.interests.length==0){
+          j++;
+          data += '<div class="row"><div class="col-2"><a class="user" id="'+item.author+'" style="cursor:pointer;"><canvas class="demo" title="' + item.author + '"alt="Pranjal" type="' + item.category + '" style="width:34px; height:34px; margin:5px 10px; border-radius:50%;"></canvas></a></div><div class="col-7" style="padding-left: 0px"><a class="threadclick" id="' + item.id + '" type="' + item.category + '" style="cursor:pointer;">'+item.title+'</a></div><div class="col-2"><span class="badge badge-tab badge-secondary">'+item.category+'</span></div></div>';
+          if(j<5){
+            data+='<hr>';
+        }
+        if(j==5) return false;
+      }
+
+      else if(document.interests.includes(item.category)){
+        j++;
+        data += '<div class="row"><div class="col-2"><a class="user" id="'+item.author+'" style="cursor:pointer;"><canvas class="demo" title="' + item.author + '" alt="Pranjal" type="' + item.category + '" style="width:34px; height:34px; margin:5px 10px; border-radius:50%;"></canvas></a></div><div class="col-7" style="padding-left: 0px"><a class="threadclick" id="' + item.id + '" type="' + item.category + '" style="cursor:pointer;">'+item.title+'</a></div><div class="col-2"><span class="badge badge-tab badge-secondary">'+item.category+'</span></div></div>';
+        if(j<5){
+          data+='<hr>';
+      }
+      if(j==5) return false;
+
+      }
+    });
+
+    $('#content').append(data);
+    $('a.threadclick').click(function () {
+      var id = $(this).attr('id');
+      document.cat = $(this).attr('type');
+      window.location = '/thread/'+id+'?cat='+document.cat;
+    });
+
+    $('a.user').click(function () {
+      var title = $(this).attr('id');
+
+      window.location="/profile/"+title;
+    });
+    $(".demo").letterpic();
+  },
+  type: 'GET'
+});
+$(".demo").letterpic();
+
+
+
+});

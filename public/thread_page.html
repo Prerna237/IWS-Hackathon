@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>User Thread</title>
+    <!-- meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap files -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="/open-iconic/font/css/open-iconic-bootstrap.css">
+    <link rel="stylesheet" href="/stylesheets/this.css">
+    <link rel="stylesheet" href="/stylesheets/post_cat.css">
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+        <script src="/pic/js/jquery.letterpic.min.js"></script>
+    <!-- <script type="text/javascript" src="/js/starrating.js"></script> -->
+    <!-- <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+    <script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script> -->
+    <script>
+        document.threadID = {{threadID}};
+    </script>
+    <script type="text/javascript">(function(d, t, e, m){
+
+        // Async Rating-Widget initialization.
+        window.RW_Async_Init = function(){
+
+            RW.init({
+                huid: "382960",
+                uid: "d37d130304e72f4520a7444e07381a22",
+                source: "website",
+                options: {
+                    "size": "small",
+                    "style": "oxygen",
+                    "isDummy": false
+                }
+            });
+            RW.render();
+        };
+            // Append Rating-Widget JavaScript library.
+        var rw, s = d.getElementsByTagName(e)[0], id = "rw-js",
+            l = d.location, ck = "Y" + t.getFullYear() +
+            "M" + t.getMonth() + "D" + t.getDate(), p = l.protocol,
+            f = ((l.search.indexOf("DBG=") > -1) ? "" : ".min"),
+            a = ("https:" == p ? "secure." + m + "js/" : "js." + m);
+        if (d.getElementById(id)) return;
+        rw = d.createElement(e);
+        rw.id = id; rw.async = true; rw.type = "text/javascript";
+        rw.src = p + "//" + a + "external" + f + ".js?ck=" + ck;
+        s.parentNode.insertBefore(rw, s);
+        }(document, new Date(), "script", "rating-widget.com/"));</script>
+    <script type="text/javascript" src="/js/thread_page.js"></script>
+    <script src="/pic/js/jquery.letterpic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.0.3/sweetalert2.all.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+</head>
+
+<body onload="checkCookie()">
+
+    <!-- navigation bar -->
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark" style="padding:0px 10px;">
+      <a class="navbar-brand" href="/">
+          <b>Community</b>Forum</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item active" id="myprofile" style="display:none">
+                  <a class="nav-link" href="/profile">My Profile
+
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="/categorywise">Browse</a>
+              </li>
+          </ul>
+          <div style="float:left">
+
+                <form id="logout" style="display:none; background-color:#343a40" method="post" action="/users/logout">
+                    <button type="submit" class="btn btn-primary btn-sm" style=" background-color:#343a40">Logout</button>
+                </form>
+                <a style="cursor: pointer; color: white;" data-toggle="modal" data-target="#signinmodal" id="lol">
+                    <img id="action" class="" alt="" style="width:25px; height:25px; margin-bottom:5px;">&nbsp;</a>
+
+            </div>
+    </nav>
+    <!-- <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" style="color: white;">Forum</a>
+        <div style="float: right">
+            <!-- <img src="profilephoto.jpg" class="rounded-circle" alt="Samarjoy Pandit" width="30" height="30">
+            <a style="cursor: pointer; color: white;" data-toggle="modal" data-target="#signinmodal">&nbsp;Login</a>
+        </div>
+    </nav> -->
+
+    <!-- signin modal -->
+    <div class="modal fade" id="signinmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Login to Your Account</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <form method="post" action="/users/login">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">User Name</label>
+                            <input type="email" class="form-control" name="userName" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
+                            <input name="samePage" hidden value="true"></input>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <span class="mr-auto">Not a member yet?&nbsp;
+                        <a href="#">Register Here</a>
+                    </span>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="submit" onclick="javascript:document.forms[1].submit()" class="btn btn-primary" data-dismiss="modal">Login</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <!-- main content -->
+    <div style="margin-left: 5%; margin-right: 5%;">
+        <div id={{threadID}} class="card text-center">
+            <div class="card-header">
+                <div style="float:left">
+                    <!-- <img src="profilephoto.jpg" class="rounded-circle" alt="Samarjoy Pandit" width="30" height="30"> -->
+                    <b>{{author}}</b>&nbsp;
+                </div>
+                <div style="float:right">
+                    Replies&nbsp;
+                    <span class="badge badge-secondary" style="margin-right:10px">{{numReplies}}</span>
+                </div>
+            </div>
+            <div class="card-body thread">
+                <div style="float:left">
+                    <p style="float:left;font-weight:bold">{{title}}</p>
+                    <br>
+                    <p style="float:left">{{desc}}</p>
+                </div>
+            </div>
+            <div class="card-footer text-muted" style="height: 40px !important;">
+                <div class="starrate" style="float: left !important;">
+                    <div class="rw-ui-container"></div>
+                </div>
+                <div style="float: right;">&nbsp;
+                    <a id="0" onclick="openNav(this.id)" class="badge badge-primary" style="color: white; cursor: pointer;">&nbsp;Reply&nbsp;</a>
+                    <a id="book_mark" onclick="bookmarkPost()" class="badge badge-success" style="color: white; cursor: pointer;">&nbsp;
+                        <span class="oi oi-bookmark"></span>&nbsp;</a>
+                    <a id="report_0" onclick="reportPost(this.id)" class="badge badge-danger" style="color: white; cursor: pointer;">&nbsp;
+                        <span class="oi oi-flag"></span>&nbsp;</a>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div id="threadreplies" class="col-8">
+                <br>
+            </div>
+
+            <div id="parent" class="col-4">
+                <div id="relatedlinks" class="card">
+                    <div id="sidebox" class="card-body">
+                        <div class="card-header text-center" style="background: blue; color: white;">
+                            More from this category
+                        </div>
+                        <br>
+                    </div>
+
+                    <div class="card-footer text-center">
+                        View Posts
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script>
+        function scrollPage() {
+            $('#relatedlinks').css('top', $(this).scrollTop());
+        }
+    </script>
+    <!-- <script>
+        var elem = document.getElementsByClassName('starrate');
+        for (var i = 0; i < elem.length; i++) {
+            elem[i].innerHTML = '<div class="rw-ui-container" data-title="my' + i + ' awesome rating""></div>';
+        }
+    </script> -->
+    <script>
+        $(".rw-ui-container").attr('data-urid','star' + document.threadID);
+    </script>
+    <script>
+        function getCookie(cname) {
+            var name = cname + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        function checkCookie() {
+
+            if (getCookie("userName") == "") {
+                document.getElementById('action').src = "/res/login.png";
+            }
+            else {
+                var element = document.getElementById("lol");
+                element.parentNode.removeChild(element);
+                document.getElementById("logout").style.display = "inline-block";
+                  document.getElementById("myprofile").style.display = "inline-block";
+
+            }
+        }
+    </script>
+
+    <div id="mySidenav" class="sidenav">
+
+        <div class="card">
+            <div class="card-header">
+                Enter your Reply
+                <a href="javascript:void(0)" class="closebtn" style="float:right;" onclick="closeNav()">×</a>
+            </div>
+            <div class="card-body">
+                <textarea id="reply" style="width:100%; height:99px" value=""></textarea>
+                
+                <a id="replyButt" class="btn btn-primary btn-sm" style="display:inline-block" onclick="AddReply()">Add Reply</a>
+                <a class="btn btn-secondary btn-sm" style="display:inline-block" onclick="closeNav()">Cancel</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Report Modal -->
+    <div class="modal fade" id="reportmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="alert alert-primary" role="alert">
+                        Post Reported !
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bookmark Modal -->
+    <div class="modal fade" id="bookmarkmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="alert alert-primary" role="alert">
+                        Post Bookmarked !
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

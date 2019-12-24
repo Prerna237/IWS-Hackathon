@@ -1,3 +1,4 @@
 /node_modules/
-lib/Constants.js
 DBCount.json
+/.vscode/
+*.lock

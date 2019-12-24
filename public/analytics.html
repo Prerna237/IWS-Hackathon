@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Analytics Dashboard</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="/stylesheets/this.css">
+  <link href="/open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <!-- Numeric JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.0.3/sweetalert2.all.js"></script>
+
+
+
+</head>
+
+<body onload="checkCookie()">
+    <!-- navigation bar -->
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark" style="padding:0px 10px;">
+      <a class="navbar-brand" href="/">
+          <b>Community</b>Forum</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item active" id="myprofile" style="display:none">
+                  <a class="nav-link" href="/profile">My Profile
+                      <span class="sr-only">(current)</span>
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="categorywise">Browse</a>
+              </li>
+          </ul>
+          <div style="float:left">
+
+          <form id="logout" style="display:none; background-color:#343a40" method="post" action="/users/logout">
+            <button type="submit" class="btn btn-primary btn-sm" style=" background-color:#343a40">Logout</button>
+          </form>
+          <a style="cursor: pointer; color: white;" data-toggle="modal" data-target="#signinmodal" id="lol">
+            <img id="action" class="" alt=""style="width:25px; height:25px; margin-bottom:5px;">&nbsp;</a>
+
+      </div>
+    </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-header">
+            Views per Category
+          </div>
+          <div class="card-body">
+            <div id="j"></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="col">
+
+        <div class="card">
+          <div class="card-header">
+            Threads per Category
+          </div>
+          <div class="card-body">
+            <div id="k"></div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="row" style="height:100px">
+      <div class="col">
+        <div class="card">
+          <div class="card-header">
+            Interests
+          </div>
+          <div class="card-body">
+            <div id="myDiv"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+
+        <div class="card">
+          <div class="card-header">
+            Potential Moderators
+          </div>
+          <div class="card-body">
+<div id="graph"></div>
+          </div>
+
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div id="j"></div>
+
+</body>
+<script>
+    var data = [{
+      // values: [19, 26, 55],
+      values: [{{categoryViews}}],
+      // labels: ['Residential', 'Non-Residential', 'Utility'],
+      labels: [{{#each categories}}"{{this}}",{{/each}}],
+      type: 'pie'
+    }];
+    var data1 = [{
+      x: [{{#each categories}}"{{this}}",{{/each}}],
+      // y: [20, 14, 23],
+      y: [{{categoryThreads}}],
+      type: 'bar'
+    }];
+
+    Plotly.newPlot('k', data1);
+
+    Plotly.newPlot("j", data);
+
+
+    var trace1 = {
+      // x: ['giraffes', 'orangutans', 'monkeys'],
+      x: [{{#each categories}}"{{this}}",{{/each}}],
+      // y: [20, 14, 23],
+      y: [{{categoryInterested}}],
+      // name: 'SF Zoo',
+      type: 'bar'
+    };
+
+    // var trace2 = {
+    //   x: ['giraffes', 'orangutans', 'monkeys'],
+    //   y: [12, 18, 29],
+    //   name: 'LA Zoo',
+    //   type: 'bar'
+    // };
+
+    var data = [trace1];
+
+    var layout = {
+      barmode: 'stack'
+    };
+
+    Plotly.newPlot('myDiv', data, layout);
+
+
+
+    var values = [
+          [{{#each userNames}}'{{this}}',{{/each}}],
+          [{{ratings}}],
+          ["No Comments","No Comments","No Comments","No Comments","No Comments"]
+        ]
+
+    var datatable = [{
+      type: 'table',
+      header: {
+        values: [["User Names"], ["Average Rating"],
+    				 ["Suggestions if Any"]],
+        align: "center",
+        line: {width: 1, color: 'black'},
+        fill: {color: "grey"},
+        font: {family: "Arial", size: 12, color: "white"}
+      },
+      cells: {
+        values: values,
+        align: "center",
+        line: {color: "black", width: 1},
+        font: {family: "Arial", size: 11, color: ["black"]}
+      }
+    }]
+
+    Plotly.plot('graph', datatable);
+</script>
+<script>
+// document.interests = [ {{#each interests}}"{{this}}",{{/each}}];
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for (var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+
+function checkCookie() {
+
+  if (getCookie("userName") == "") {
+    document.getElementById('action').src = "/res/login.png";
+  } else {
+    var element = document.getElementById("lol");
+    element.parentNode.removeChild(element);
+    document.getElementById("logout").style.display = "inline-block";
+
+  }
+}
+</script>
+
+</html>
